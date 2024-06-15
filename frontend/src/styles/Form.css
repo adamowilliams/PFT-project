@@ -1,4 +1,5 @@
 .form-container {
+  color: #000000; /* Change the color as needed */
   display: flex;
   flex-direction: column;
   align-items: center;
