@@ -1,0 +1,53 @@
+/* Wrapper for the sidebar and content */
+#wrapper {
+    display: flex;
+    width: 100%;
+  }
+  /* Assuming the sidebar is initially shown */
+#sidebar-wrapper {
+    width: 250px; /* Sidebar width */
+    transition: width 0.5s ease;
+  }
+  
+  .sb-sidenav-toggled #sidebar-wrapper {
+    width: 0; /* Hide sidebar */
+  }
+  
+  .sidebar-heading {
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .list-group-item {
+    padding: 1rem;
+    font-size: 1rem;
+    color: #495057;
+  }
+  
+  .list-group-item:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+  }
+  
+  .list-group-item-action {
+    cursor: pointer;
+  }
+  
+  /* Page content styling */
+  #page-content-wrapper {
+    flex: 1;
+    padding: 2rem;
+    background-color: #ffffff;
+  }
+  
+  .container-fluid {
+    padding: 0;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
