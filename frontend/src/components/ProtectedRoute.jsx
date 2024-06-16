@@ -50,7 +50,7 @@ function ProtectedRoute({ children }) {
     }
 
     if (isAuthorized === null) {
-        return loading && <LoadingIndicator/>
+        return <p>Loading...</p>
     }
 
     return isAuthorized ? children : <Navigate to="/login" /> //if user is authorized return children, else redirect to login page
