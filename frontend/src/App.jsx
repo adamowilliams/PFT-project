@@ -29,6 +29,11 @@ function App() {
         <div id="page-content-wrapper">
           <div className="container-fluid">
             <Routes>
+              <Route path="/" 
+              element={
+              <ProtectedRoute> 
+                <Home username={username} /> 
+                </ProtectedRoute>} />
               <Route
                 path="/NoteApp"
                 element={
@@ -37,7 +42,6 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/home" element={<ProtectedRoute> <Home username={username} /> </ProtectedRoute>} />
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<RegisterAndLogout />} />
