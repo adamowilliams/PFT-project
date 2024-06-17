@@ -1,0 +1,14 @@
+#navbar-wrapper {
+    height: 50px; /* Adjust this value to increase the height */
+    width: 100%; /* This makes it take the full width; adjust as needed */
+    /* Add any additional styling here */
+  }
+
+  #button-head {
+    display: flex;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 89, 255);
+    position: relative;
+    left: -20px;
+  }

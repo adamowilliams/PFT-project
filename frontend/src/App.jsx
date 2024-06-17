@@ -8,6 +8,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "./pages/Sidebar";
 import Home from "./pages/Home";
+import "./styles/PageContent.css";
+import "./styles/NavBar.css";
+import { useState } from "react";
 
 function Logout() {
   localStorage.clear();
@@ -22,11 +25,21 @@ function RegisterAndLogout() {
 function App() {
   const username = localStorage.getItem('username');
 
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   return (
     <BrowserRouter>
       <div className="d-flex" id="wrapper">
-        <Sidebar />
+      {isSidebarVisible && <Sidebar />}
         <div id="page-content-wrapper">
+          <div id="navbar-wrapper">
+            <button onClick={toggleSidebar} id="button-head"><i class="fas fa-bars"></i></button>
+            {/* Navbar content */}
+          </div>
           <div className="container-fluid">
             <Routes>
               <Route path="/" 
@@ -35,7 +48,7 @@ function App() {
                 <Home username={username} /> 
                 </ProtectedRoute>} />
               <Route
-                path="/NoteApp"
+                path="/note-app"
                 element={
                   <ProtectedRoute>
                     <NoteApp />
