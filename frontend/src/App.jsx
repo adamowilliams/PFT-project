@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import "./styles/PageContent.css";
 import "./styles/NavBar.css";
 import { useState } from "react";
+import Income from "./pages/Income";
+import Dashboard from "./pages/Dashboard";
 
 function Logout() {
   localStorage.clear();
@@ -23,7 +25,7 @@ function RegisterAndLogout() {
 }
 
 function App() {
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem("username");
 
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
@@ -34,24 +36,45 @@ function App() {
   return (
     <BrowserRouter>
       <div className="d-flex" id="wrapper">
-      {isSidebarVisible && <Sidebar />}
+        {isSidebarVisible && <Sidebar />}
         <div id="page-content-wrapper">
           <div id="navbar-wrapper">
-            <button onClick={toggleSidebar} id="button-head"><i class="fas fa-bars"></i></button>
+            <button onClick={toggleSidebar} id="button-head">
+              <i className="fas fa-bars"></i>
+            </button>
             {/* Navbar content */}
           </div>
           <div className="container-fluid">
             <Routes>
-              <Route path="/" 
-              element={
-              <ProtectedRoute> 
-                <Home username={username} /> 
-                </ProtectedRoute>} />
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Home username={username} />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/note-app"
                 element={
                   <ProtectedRoute>
                     <NoteApp />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/transactions"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/income"
+                element={
+                  <ProtectedRoute>
+                    <Income />
                   </ProtectedRoute>
                 }
               />

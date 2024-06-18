@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "api",
     "rest_framework",
     "corsheaders",
+    "notes",
+    "finance_tracker",
 ]
 
 MIDDLEWARE = [

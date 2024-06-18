@@ -23,6 +23,7 @@ function NoteApp() {
             .catch((err) => alert(err));
     };
 
+
     const deleteNote = (id) => {
         api
             .delete(`/api/notes/delete/${id}/`)

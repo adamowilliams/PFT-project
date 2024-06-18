@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from api.views import CreateUserView, CurrentUserView
+from notes import views as notes_views
+from finance_tracker import views as finance_views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
@@ -26,5 +28,11 @@ urlpatterns = [
     path("api/token/refresh/", TokenRefreshView.as_view(), name="refresh_token"),
     path("api-auth/", include("rest_framework.urls")),
     path("api/current-user/", CurrentUserView.as_view(), name="current-user"),
-    path("api/", include("api.urls")),
+    path("api/notes/", notes_views.NoteListCreate.as_view(), name = "note_list"),
+    path("api/notes/delete/<int:pk>/", notes_views.NoteDelete.as_view(), name = "delete_note"),
+    path("api/transactions/", finance_views.TransactionListCreateView.as_view(), name = "transaction_list_create"),
+    path("api/transactions/delete/<int:pk>/", finance_views.TransactionDetailView.as_view(), name = "transaction_detail"),
+    path("api/incomes/", finance_views.IncomeListCreateView.as_view(), name = "income_list_create"),
+    path("api/outcomes/", finance_views.OutcomeListCreateView.as_view(), name = "outcome_list_create"),
+    path("api/balances/", finance_views.BalanceListCreateView.as_view(), name = "balance_list_create"),
     ]
