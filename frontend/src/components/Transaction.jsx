@@ -1,4 +1,7 @@
 
+import React from 'react';
+import PropTypes from 'prop-types';
+
 function Transaction({ transaction, onDelete }) {
   return (
     <div className="transaction">
@@ -9,5 +12,10 @@ function Transaction({ transaction, onDelete }) {
     </div>
   );
 }
+
+Transaction.propTypes = {
+  transaction: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired
+};
 
 export default Transaction;

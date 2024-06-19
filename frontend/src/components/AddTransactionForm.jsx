@@ -128,8 +128,8 @@ function AddTransactionForm() {
         'Content-Type': 'multipart/form-data',
       },
     })
-      .then(response => {
-        alert('File uploaded successfully!');
+      .then((response) => {
+        console.log("Transaction added:", response.data);
         fetchTransactions();
         setFile(null);
       })
@@ -218,6 +218,6 @@ function AddTransactionForm() {
       </form>
     </div>
   );
-};
+}
 
 export default AddTransactionForm;

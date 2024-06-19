@@ -6,7 +6,7 @@ const Sidebar = () => {
   
   return (
     <div className="" id="sidebar-wrapper">
-      <div className="sidebar-heading">Adam's ProjectSpace</div>
+      <div className="sidebar-heading">Adam&apos;s ProjectSpace</div>
       <div className="list-group">
         <Link className="list-group-item list-group-item-action" to="/note-app">Note App</Link>
         <Link className="list-group-item list-group-item-action" to="/transactions">Finance Tracker App</Link>

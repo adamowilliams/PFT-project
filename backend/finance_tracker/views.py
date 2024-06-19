@@ -1,6 +1,6 @@
 from rest_framework import generics, status
 
-from .import_transactions import import_transactions
+from .scripts.import_transactions import import_transactions
 from .serializers import TransactionSerializer, IncomeSerializer, OutcomeSerializer, BalanceSerializer
 from rest_framework.permissions import IsAuthenticated
 from .models import Transaction, Income, Outcome, Balance

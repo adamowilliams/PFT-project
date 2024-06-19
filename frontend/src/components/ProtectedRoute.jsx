@@ -2,10 +2,12 @@ import {Navigate} from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
 import api from "../api";
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import LoadingIndicator from "./LoadingIndicator";
+import PropTypes from "prop-types";
 
 function ProtectedRoute({ children }) {
+
     const [isAuthorized, setIsAuthorized] = useState(null);
 
     useEffect(() => {
@@ -56,5 +58,9 @@ function ProtectedRoute({ children }) {
     return isAuthorized ? children : <Navigate to="/login" /> //if user is authorized return children, else redirect to login page
 
 }
+
+ProtectedRoute.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
 
 export default ProtectedRoute
