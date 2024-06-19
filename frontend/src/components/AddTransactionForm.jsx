@@ -37,7 +37,8 @@ function AddTransactionForm() {
     recurring_interval: 5, // Default to "None"
     transaction_type: "",
   });
-  const [transactions, setTransactions] = useState([]); // [1
+  const [transactions, setTransactions] = useState([]);
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
     fetchTransactions();
@@ -108,25 +109,60 @@ function AddTransactionForm() {
       });
   };
 
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleFileSubmit = (e) => {
+    e.preventDefault();
+    if (!file) {
+      alert('Please select a file to upload.');
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('file', file);
+  
+    api.post('/api/transactions/import/', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then(response => {
+        alert('File uploaded successfully!');
+        fetchTransactions();
+        setFile(null);
+      })
+      .catch(error => {
+        console.error('There was an error uploading the file!', error);
+        alert('Error uploading file');
+      });
+  };
+  
+
   const categoryOptions =
     parseFloat(formData.amount) < 0 ? outcomeCategories : incomeCategories;
 
   return (
     <div>
-        <div id="recent_transactions">
+      <div id="recent_transactions">
         <h2>Transactions</h2>
-            {transactions.map(transaction => (
-                <Transaction key={transaction.id} transaction={transaction} onDelete={deleteTransaction} />
-            ))}
-        </div>
-        <form onSubmit={handleSubmit}>
+        {transactions.map((transaction) => (
+          <Transaction
+            key={transaction.id}
+            transaction={transaction}
+            onDelete={deleteTransaction}
+          />
+        ))}
+      </div>
+      <form onSubmit={handleSubmit}>
         <h2>Add Transaction</h2>
         <input
           type="number"
           name="amount"
           value={formData.amount}
           onChange={handleChange}
-          placeholder='Amount'
+          placeholder="Amount"
           required
         />
         <select
@@ -148,7 +184,7 @@ function AddTransactionForm() {
           type="text"
           name="description"
           value={formData.description}
-          placeholder='Description(optional)'
+          placeholder="Description(optional)"
           onChange={handleChange}
         />
         <label>
@@ -174,6 +210,11 @@ function AddTransactionForm() {
           </select>
         )}
         <button type="submit">Add</button>
+      </form>
+      <form onSubmit={handleFileSubmit}>
+        <h2>Import Transactions</h2>
+        <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} />
+        <button type="submit">Upload</button>
       </form>
     </div>
   );

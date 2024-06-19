@@ -21,6 +21,7 @@ from notes import views as notes_views
 from finance_tracker import views as finance_views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/user/register/", CreateUserView.as_view(), name="register"),
@@ -35,4 +36,5 @@ urlpatterns = [
     path("api/incomes/", finance_views.IncomeListCreateView.as_view(), name = "income_list_create"),
     path("api/outcomes/", finance_views.OutcomeListCreateView.as_view(), name = "outcome_list_create"),
     path("api/balances/", finance_views.BalanceListCreateView.as_view(), name = "balance_list_create"),
+    path('api/transactions/import/', finance_views.TransactionImportView.as_view(), name='transaction-import'),
     ]

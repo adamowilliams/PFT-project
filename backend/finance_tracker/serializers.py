@@ -7,6 +7,11 @@ class TransactionSerializer(serializers.ModelSerializer):
         fields = '__all__'
         extra_kwargs = {"author": {"read_only": True}}
 
+    def create(self, validated_data):
+        author = self.context['request'].user
+        transactions = [Transaction(author=author, **item) for item in validated_data]
+        return Transaction.objects.bulk_create(transactions)
+
 class IncomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Income
