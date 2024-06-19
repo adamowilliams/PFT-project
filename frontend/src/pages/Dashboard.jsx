@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AddTransactionForm from '../components/AddTransactionForm';
+import BalanceDisplay from '../components/BalanceDisplay';
+import ActivityGraph from '../components/ActivityGraph';
 
 
 const Dashboard = () => {
@@ -8,6 +10,8 @@ const Dashboard = () => {
         <div id="dashboard-wrapper" >
             <h1>Dashboard</h1>
             <AddTransactionForm />
+            <BalanceDisplay />
+            <ActivityGraph />
         </div>
     );
 }

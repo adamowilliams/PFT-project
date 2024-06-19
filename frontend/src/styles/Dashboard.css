@@ -1,0 +1,33 @@
+
+
+#activity-graph {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#balance-display {
+   width: 50%;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#balance-display h2 {
+    font-size: 1.5rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#balance-display p {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.transaction {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+}
