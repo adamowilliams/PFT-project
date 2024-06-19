@@ -1,33 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api';
 import Transaction from './Transaction';
+import { fetchTransactions } from '../services/apiService.jsx';
+import PropTypes from 'prop-types';
 
 const incomeCategories = [
-    { value: 1, label: 'Salary' },
-    { value: 2, label: 'Gift' },
-    { value: 3, label: 'Other' }
+  { value: 'Salary', label: 'Salary' },
+  { value: 'Gift', label: 'Gift' },
+  { value: 'Other', label: 'Other' }
 ];
 
 const outcomeCategories = [
-    { value: 1, label: 'Food' },
-    { value: 2, label: 'Transport' },
-    { value: 3, label: 'Rent' },
-    { value: 4, label: 'Bills' },
-    { value: 5, label: 'Health' },
-    { value: 6, label: 'Fun' },
-    { value: 7, label: 'Charity' },
-    { value: 8, label: 'Other' }
+  { value: 'Food', label: 'Food' },
+  { value: 'Transport', label: 'Transport' },
+  { value: 'Rent', label: 'Rent' },
+  { value: 'Bills', label: 'Bills' },
+  { value: 'Health', label: 'Health' },
+  { value: 'Fun', label: 'Fun' },
+  { value: 'Charity', label: 'Charity' },
+  { value: 'Other', label: 'Other' }
 ];
 
 const repetitionIntervals = [
-    { value: 1, label: 'Daily' },
-    { value: 2, label: 'Weekly' },
-    { value: 3, label: 'Monthly' },
-    { value: 4, label: 'Yearly' },
-    { value: 5, label: 'None' }
+  { value: 'Daily', label: 'Daily' },
+  { value: 'Weekly', label: 'Weekly' },
+  { value: 'Monthly', label: 'Monthly' },
+  { value: 'Yearly', label: 'Yearly' },
+  { value: 'None', label: 'None' }
 ];
 
-function AddTransactionForm() {
+
+
+const AddTransactionForm = ({ onTransactionAdded }) => {
   const [formData, setFormData] = useState({
     date: "",
     amount: "",
@@ -40,31 +44,27 @@ function AddTransactionForm() {
   const [transactions, setTransactions] = useState([]);
   const [file, setFile] = useState(null);
 
+  const fetchData = () => {
+    fetchTransactions(setTransactions);
+  };
+
   useEffect(() => {
-    fetchTransactions();
+    fetchData();
   }, []);
 
-  const fetchTransactions = () => {
-    api.get('/api/transactions/')
-      .then(response => {
-        setTransactions(response.data);
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the transactions!', error);
-      });
-  };
 
   const deleteTransaction = (id) => {
     api.delete(`/api/transactions/delete/${id}/`)
         .then(response => {
             if (response.status === 204) alert("Transaction deleted");
             else alert("Failed to delete transaction.");
-            fetchTransactions();
+            fetchData();
+            onTransactionAdded();
         })
         .catch((error) => alert(error));
   };
 
+  // Transaction form handlers and functions to the API
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -78,21 +78,20 @@ function AddTransactionForm() {
 
     // Determine transaction type based on amount
     const transactionType = parseFloat(formData.amount) < 0 ? "Expense" : "Income";
-    // Ensure amount is positive
-    const amount = Math.abs(parseFloat(formData.amount));
 
     const dataToSend = {
       ...formData,
-      amount: amount,
+      amount: parseFloat(formData.amount),
       transaction_type: transactionType,
-      category: parseInt(formData.category, 10), // Ensure category is an integer
+      category: formData.category,
     };
 
     api
       .post("/api/transactions/", dataToSend)
       .then((response) => {
         console.log("Transaction added:", response.data);
-        fetchTransactions();
+        fetchData();
+        onTransactionAdded();
         // Clear the form after submission
         setFormData({
           date: "",
@@ -109,6 +108,7 @@ function AddTransactionForm() {
       });
   };
 
+  // File upload handlers and functions to the API
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -130,7 +130,7 @@ function AddTransactionForm() {
     })
       .then((response) => {
         console.log("Transaction added:", response.data);
-        fetchTransactions();
+        fetchData();
         setFile(null);
       })
       .catch(error => {
@@ -219,5 +219,9 @@ function AddTransactionForm() {
     </div>
   );
 }
+
+AddTransactionForm.propTypes = {
+  onTransactionAdded: PropTypes.func.isRequired,
+};
 
 export default AddTransactionForm;

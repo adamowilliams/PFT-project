@@ -1,66 +1,71 @@
-import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import api from '../api';
+import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import dayjs from 'dayjs';
 
-// Register the components
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-);
+const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
+    const [chartData, setChartData] = useState([]);
 
-function ActivityGraph() {
-    const [chartData, setChartData] = useState({
-        labels: [],
-        datasets: [
-            {
-                label: 'Transaction Amounts',
-                data: [],
-                borderColor: 'rgba(75,192,192,1)',
-                backgroundColor: 'rgba(75,192,192,0.2)',
-            },
-        ],
-    });
+    const fetchData = () => {
+        const groupedData = transactions.reduce((acc, transaction) => {
+            const date = dayjs(transaction.date).format('YYYY-MM-DD');
+            if (!acc[date]) {
+                acc[date] = { expense: 0, balance: 0 };
+            }
+            if (transaction.transaction_type === 'Expense') {
+                acc[date].balance += parseFloat(transaction.amount);
+                acc[date].expense -= parseFloat(transaction.amount);
+            } else if (transaction.transaction_type === 'Income') {
+                acc[date].balance += parseFloat(transaction.amount);
+            }
+            return acc;
+        }, {});
+
+        // Calculate cumulative balance
+        const dates = Object.keys(groupedData).sort();
+        let balance = 0;
+        dates.forEach(date => {
+            balance += groupedData[date].balance;
+            groupedData[date].balance = balance;
+        });
+
+        const formattedData = dates.map(date => ({
+            date: date,
+            expense: groupedData[date].expense,
+            balance: groupedData[date].balance,
+        }));
+
+        setChartData(formattedData);
+    };
+
+    useImperativeHandle(ref, () => ({
+        fetchData
+    }));
 
     useEffect(() => {
-        fetchChartData();
-    }, []);
-
-    const fetchChartData = () => {
-        api.get('/api/transactions/')
-            .then(response => {
-                const transactions = response.data;
-                const labels = transactions.map(transaction => transaction.date);
-                const data = transactions.map(transaction => transaction.amount);
-                
-                setChartData({
-                    labels: labels,
-                    datasets: [
-                        {
-                            label: 'Transaction Amounts',
-                            data: data,
-                            borderColor: 'rgba(75,192,192,1)',
-                            backgroundColor: 'rgba(75,192,192,0.2)',
-                        },
-                    ],
-                });
-            })
-            .catch(error => {
-                console.error('There was an error fetching the chart data!', error);
-            });
-    };
+        fetchData();
+    }, [transactions]);
 
     return (
         <div id="activity-graph">
-            <h2>Activity Graph</h2>
-            <Line data={chartData} />
+            <h2>Daily Spending and Balance</h2>
+            <ResponsiveContainer width="70%" height={200}>
+                <LineChart data={chartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="date" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="expense" stroke="#FF0000" strokeWidth={2} />
+                    <Line type="monotone" dataKey="balance" stroke="#0000FF" strokeWidth={2} />
+                </LineChart>
+            </ResponsiveContainer>
         </div>
     );
-}
+});
+
+ActivityGraph.displayName = 'ActivityGraph';
+ActivityGraph.propTypes = {
+    transactions: PropTypes.array
+};
 
 export default ActivityGraph;

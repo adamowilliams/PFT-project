@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import api from '../api';
-import '../styles/Dashboard.css';
+import React, { useEffect, useState, useImperativeHandle, forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
-const BalanceDisplay = () => {
+const BalanceDisplay = forwardRef(({ transactions = [] }, ref) => {
     const [balance, setBalance] = useState(0);
 
+    const fetchData = () => {
+        const income = transactions.filter(t => t.transaction_type === 'Income').reduce((sum, t) => sum + parseFloat(t.amount), 0);
+        const expense = transactions.filter(t => t.transaction_type === 'Expense').reduce((sum, t) => sum - parseFloat(t.amount), 0);
+        setBalance(income - expense);
+    };
+
+    useImperativeHandle(ref, () => ({
+        fetchData
+    }));
+
     useEffect(() => {
-        api.get('/api/transactions/')
-            .then(response => {
-                const transactions = response.data;
-                const income = transactions.filter(t => t.transaction_type === 'Income').reduce((sum, t) => sum + parseFloat(t.amount), 0);
-                const expense = transactions.filter(t => t.transaction_type === 'Expense').reduce((sum, t) => sum + parseFloat(t.amount), 0);
-                setBalance(income - expense);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the balance!', error);
-            });
-    }, []);
+        fetchData();
+    }, [transactions]);
 
     return (
         <div id="balance-display">
@@ -24,6 +24,12 @@ const BalanceDisplay = () => {
             <p>${balance.toFixed(2)}</p>
         </div>
     );
+});
+
+BalanceDisplay.displayName = 'BalanceDisplay';
+
+BalanceDisplay.propTypes = {
+    transactions: PropTypes.array
 };
 
 export default BalanceDisplay;

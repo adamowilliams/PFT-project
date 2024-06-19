@@ -28,7 +28,7 @@ class Transaction(models.Model):
         ]
 
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    category = models.PositiveSmallIntegerField(choices=OutcomeCategory.choices, default=OutcomeCategory.OTH)
+    category = models.CharField(max_length=50, default="")
     description = models.TextField(blank=True, default="")
     created_at = models.DateField(auto_now_add=True)
     recurring = models.BooleanField(default=False)
