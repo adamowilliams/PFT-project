@@ -7,7 +7,8 @@ const BalanceDisplay = forwardRef(({ transactions = [] }, ref) => {
     const fetchData = () => {
         const income = transactions.filter(t => t.transaction_type === 'Income').reduce((sum, t) => sum + parseFloat(t.amount), 0);
         const expense = transactions.filter(t => t.transaction_type === 'Expense').reduce((sum, t) => sum - parseFloat(t.amount), 0);
-        setBalance(income - expense);
+        const calculatedBalance = income - expense;
+        setBalance(Math.max(0, calculatedBalance));
     };
 
     useImperativeHandle(ref, () => ({

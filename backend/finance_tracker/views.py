@@ -1,9 +1,9 @@
 from rest_framework import generics, status
 
 from .scripts.import_transactions import import_transactions
-from .serializers import TransactionSerializer, IncomeSerializer, OutcomeSerializer, BalanceSerializer
+from .serializers import TransactionSerializer
 from rest_framework.permissions import IsAuthenticated
-from .models import Transaction, Income, Outcome, Balance
+from .models import Transaction
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 
@@ -50,49 +50,3 @@ class TransactionImportView(generics.CreateAPIView):
             return Response({"status": "success"}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class IncomeListCreateView(generics.ListCreateAPIView):
-    queryset = Income.objects.all()
-    serializer_class = IncomeSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        user = self.request.user
-        return Income.objects.filter(author=user)
-
-    def perform_create(self, serializer):
-        if serializer.is_valid():
-            serializer.save(author=self.request.user)
-        else:
-            print(serializer.errors)
-
-class OutcomeListCreateView(generics.ListCreateAPIView):
-    queryset = Outcome.objects.all()
-    serializer_class = OutcomeSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        user = self.request.user
-        return Outcome.objects.filter(author=user)
-
-    def perform_create(self, serializer):
-        if serializer.is_valid():
-            serializer.save(author=self.request.user)
-        else:
-            print(serializer.errors)
-
-class BalanceListCreateView(generics.ListCreateAPIView):
-    queryset = Balance.objects.all()
-    serializer_class = BalanceSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        user = self.request.user
-        return Balance.objects.filter(author=user)
-
-    def perform_create(self, serializer):
-        if serializer.is_valid():
-            serializer.save(author=self.request.user)
-        else:
-            print(serializer.errors)

@@ -2,13 +2,14 @@ import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'rea
 import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import dayjs from 'dayjs';
+import '../styles/Dashboard.css';
 
 const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
 
     const fetchData = () => {
         const groupedData = transactions.reduce((acc, transaction) => {
-            const date = dayjs(transaction.date).format('YYYY-MM-DD');
+            const date = dayjs(transaction.created_at).format('YYYY-MM-DD');
             if (!acc[date]) {
                 acc[date] = { expense: 0, balance: 0 };
             }
@@ -26,8 +27,11 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
         let balance = 0;
         dates.forEach(date => {
             balance += groupedData[date].balance;
+            balance = Math.max(0, balance);
             groupedData[date].balance = balance;
         });
+
+        // calculate cumulative expense
 
         const formattedData = dates.map(date => ({
             date: date,
@@ -49,7 +53,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
     return (
         <div id="activity-graph">
             <h2>Daily Spending and Balance</h2>
-            <ResponsiveContainer width="70%" height={200}>
+            <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />

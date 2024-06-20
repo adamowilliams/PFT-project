@@ -8,7 +8,7 @@
     display: flex;
     border: 1px solid rgb(255, 255, 255);
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 89, 255);
+    color: #df8c18;
     position: relative;
     left: -20px;
   }

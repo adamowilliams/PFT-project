@@ -33,8 +33,5 @@ urlpatterns = [
     path("api/notes/delete/<int:pk>/", notes_views.NoteDelete.as_view(), name = "delete_note"),
     path("api/transactions/", finance_views.TransactionListCreateView.as_view(), name = "transaction_list_create"),
     path("api/transactions/delete/<int:pk>/", finance_views.TransactionDetailView.as_view(), name = "transaction_detail"),
-    path("api/incomes/", finance_views.IncomeListCreateView.as_view(), name = "income_list_create"),
-    path("api/outcomes/", finance_views.OutcomeListCreateView.as_view(), name = "outcome_list_create"),
-    path("api/balances/", finance_views.BalanceListCreateView.as_view(), name = "balance_list_create"),
     path('api/transactions/import/', finance_views.TransactionImportView.as_view(), name='transaction-import'),
     ]

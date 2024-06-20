@@ -3,6 +3,7 @@ import api from '../api';
 import Transaction from './Transaction';
 import { fetchTransactions } from '../services/apiService.jsx';
 import PropTypes from 'prop-types';
+import '../styles/Dashboard.css';
 
 const incomeCategories = [
   { value: 'Salary', label: 'Salary' },
@@ -33,10 +34,10 @@ const repetitionIntervals = [
 
 const AddTransactionForm = ({ onTransactionAdded }) => {
   const [formData, setFormData] = useState({
-    date: "",
     amount: "",
     category: "",
     description: "",
+    created_at: "",
     recurring: false,
     recurring_interval: 5, // Default to "None"
     transaction_type: "",
@@ -67,6 +68,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   // Transaction form handlers and functions to the API
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -82,8 +84,8 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
     const dataToSend = {
       ...formData,
       amount: parseFloat(formData.amount),
+      created_at: formData.created_at || new Date().toISOString().split('T')[0],
       transaction_type: transactionType,
-      category: formData.category,
     };
 
     api
@@ -94,10 +96,10 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
         onTransactionAdded();
         // Clear the form after submission
         setFormData({
-          date: "",
           amount: "",
           category: "",
           description: "",
+          created_at: "",
           recurring: false,
           recurring_interval: 5,
           transaction_type: "",
@@ -144,7 +146,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
     parseFloat(formData.amount) < 0 ? outcomeCategories : incomeCategories;
 
   return (
-    <div>
+    <div className="transaction-form-container">
       <div id="recent_transactions">
         <h2>Transactions</h2>
         {transactions.map((transaction) => (
@@ -155,6 +157,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
           />
         ))}
       </div>
+      <div id="add_transaction">
       <form onSubmit={handleSubmit}>
         <h2>Add Transaction</h2>
         <input
@@ -187,6 +190,13 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
           placeholder="Description(optional)"
           onChange={handleChange}
         />
+        <input
+          type="date"
+          name="created_at"
+          value={formData.created_at}
+          onChange={handleChange}
+          placeholder='Specify date or leave empty for today'
+        />
         <label>
           Recurring
           <input
@@ -211,11 +221,14 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
         )}
         <button type="submit">Add</button>
       </form>
+      </div>
+      <div id="import_transaction">
       <form onSubmit={handleFileSubmit}>
         <h2>Import Transactions</h2>
         <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} />
         <button type="submit">Upload</button>
       </form>
+      </div>
     </div>
   );
 }

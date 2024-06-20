@@ -10,8 +10,8 @@ import Sidebar from "./pages/Sidebar";
 import Home from "./pages/Home";
 import "./styles/PageContent.css";
 import "./styles/NavBar.css";
+import "./styles/Sidebar.css";
 import { useState } from "react";
-import Income from "./pages/Income";
 import Dashboard from "./pages/Dashboard";
 
 function Logout() {
@@ -67,14 +67,6 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/income"
-                element={
-                  <ProtectedRoute>
-                    <Income />
                   </ProtectedRoute>
                 }
               />

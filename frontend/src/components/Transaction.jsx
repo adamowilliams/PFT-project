@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 function Transaction({ transaction, onDelete }) {
   return (
     <div className="transaction">
-      <h3>{transaction.transaction_type} - {transaction.category}</h3>
+      <h3>{transaction.category}</h3>
       <p>{transaction.description}</p>
-      <p>Amount: {transaction.amount}:-</p>
+      <p>{transaction.amount}:-</p>
+      <p>{transaction.created_at}</p>
       <button onClick={() => onDelete(transaction.id)}>Delete</button>
     </div>
   );

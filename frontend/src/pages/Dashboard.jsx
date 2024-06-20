@@ -3,6 +3,7 @@ import AddTransactionForm from '../components/AddTransactionForm';
 import BalanceDisplay from '../components/BalanceDisplay';
 import ActivityGraph from '../components/ActivityGraph';
 import { fetchTransactions } from '../services/apiService';
+import '../styles/Dashboard.css';
 
 
 const Dashboard = () => {

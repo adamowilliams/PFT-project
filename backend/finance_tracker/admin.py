@@ -1,12 +1,9 @@
 from django.contrib import admin
-from .models import Transaction, Income, Outcome, Balance
+from .models import Transaction
 
 # Register your models here.
 
 admin.site.register(Transaction)
-admin.site.register(Income)
-admin.site.register(Outcome)
-admin.site.register(Balance)
 
 class TransactionAdmin(admin.ModelAdmin):
     list_display = ('created_at', 'amount', 'get_category_display', 'transaction_type', 'author', 'recurring', 'recurring_interval')
