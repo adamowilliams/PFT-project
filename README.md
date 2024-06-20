@@ -4,6 +4,7 @@
 Note app
 Personal Finance Tracker combined with a ML-model
 
+
 ### How to Start the Servers
 1. **Navigate to the backend directory**:
 2. pip install -r requirements.txt
@@ -11,3 +12,5 @@ Personal Finance Tracker combined with a ML-model
 4. **Navigate to the frontend directory**
 5. npm install
 6. npm run dev
+
+!! REGISTER ON /register
