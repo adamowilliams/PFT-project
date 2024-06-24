@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api';
 import Transaction from './Transaction';
-import { fetchTransactions } from '../services/apiService.jsx';
+import { fetchTransactions, fetchImportedTransactions } from '../services/apiService.jsx';
 import PropTypes from 'prop-types';
 import '../styles/Dashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 const incomeCategories = [
-  { value: 'Salary', label: 'Salary' },
-  { value: 'Gift', label: 'Gift' },
-  { value: 'Other', label: 'Other' }
+  { value: 'Salary', label: 'Salary'},
+  { value: 'Gift', label: 'Gift'},
+  { value: 'Other', label: 'Other'}
 ];
 
 const outcomeCategories = [
-  { value: 'Food', label: 'Food' },
-  { value: 'Transport', label: 'Transport' },
-  { value: 'Rent', label: 'Rent' },
-  { value: 'Bills', label: 'Bills' },
-  { value: 'Health', label: 'Health' },
-  { value: 'Fun', label: 'Fun' },
-  { value: 'Charity', label: 'Charity' },
-  { value: 'Other', label: 'Other' }
+  { value: 'Food', label: 'Food'},
+  { value: 'Transport', label: 'Transport'},
+  { value: 'Rent', label: 'Rent'},
+  { value: 'Bills', label: 'Bills'},
+  { value: 'Health', label: 'Health'},
+  { value: 'Fun', label: 'Fun'},
+  { value: 'Charity', label: 'Charity'},
+  { value: 'Other', label: 'Other'}
 ];
 
 const repetitionIntervals = [
@@ -45,6 +46,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   const [transactions, setTransactions] = useState([]);
   const [file, setFile] = useState(null);
 
+
   const fetchData = () => {
     fetchTransactions(setTransactions);
   };
@@ -54,16 +56,6 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   }, []);
 
 
-  const deleteTransaction = (id) => {
-    api.delete(`/api/transactions/delete/${id}/`)
-        .then(response => {
-            if (response.status === 204) alert("Transaction deleted");
-            else alert("Failed to delete transaction.");
-            fetchData();
-            onTransactionAdded();
-        })
-        .catch((error) => alert(error));
-  };
 
   // Transaction form handlers and functions to the API
   const handleChange = (e) => {
@@ -86,6 +78,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
       amount: parseFloat(formData.amount),
       created_at: formData.created_at || new Date().toISOString().split('T')[0],
       transaction_type: transactionType,
+      category: formData.category || 'Other',
     };
 
     api
@@ -121,18 +114,23 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
       alert('Please select a file to upload.');
       return;
     }
+
   
     const formData = new FormData();
     formData.append('file', file);
-  
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
     api.post('/api/transactions/import/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
-      },
+      }
     })
       .then((response) => {
         console.log("Transaction added:", response.data);
         fetchData();
+        fetchImportedTransactions(setTransactions);
+        onTransactionAdded();
         setFile(null);
       })
       .catch(error => {
@@ -145,17 +143,25 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   const categoryOptions =
     parseFloat(formData.amount) < 0 ? outcomeCategories : incomeCategories;
 
+  const recentTransactions = transactions.slice(0, 5);
+
+  const navigate = useNavigate();
+
+  const handleViewAllTransactionsClick = () => {
+    navigate('/transactions');
+  };
+
   return (
     <div className="transaction-form-container">
       <div id="recent_transactions">
-        <h2>Transactions</h2>
-        {transactions.map((transaction) => (
+        <h2>Recent Transactions</h2>
+        {recentTransactions.map((transaction) => (
           <Transaction
             key={transaction.id}
             transaction={transaction}
-            onDelete={deleteTransaction}
           />
         ))}
+        <button onClick={handleViewAllTransactionsClick}>View All Transactions</button>
       </div>
       <div id="add_transaction">
       <form onSubmit={handleSubmit}>

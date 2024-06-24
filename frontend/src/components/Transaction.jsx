@@ -2,21 +2,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Transaction({ transaction, onDelete }) {
+function Transaction({ transaction, children }) {
   return (
     <div className="transaction">
       <h3>{transaction.category}</h3>
       <p>{transaction.description}</p>
       <p>{transaction.amount}:-</p>
       <p>{transaction.created_at}</p>
-      <button onClick={() => onDelete(transaction.id)}>Delete</button>
+      {children}
     </div>
   );
 }
 
 Transaction.propTypes = {
   transaction: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired
+  children: PropTypes.node
 };
 
 export default Transaction;

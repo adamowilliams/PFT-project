@@ -12,6 +12,27 @@ export const fetchTransactions = (setTransactions) => {
         });
 };
 
+export const fetchImportedTransactions = (setTransactions) => {
+    api.get('/api/transactions/import/')
+        .then(response => {
+            setTransactions(response.data);
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error('There was an error fetching the imported transactions!', error);
+        });
+    };
+
+export const deleteTransaction = (id, updateTransactions) => {
+    api.delete(`/api/transactions/delete/${id}/`)
+        .then(response => {
+            if (response.status === 204);
+            else alert("Failed to delete transaction.");
+            updateTransactions();
+        })
+        .catch((error) => alert(error));
+};
+
 export const fetchChartData = async () => {
     try {
         const response = await api.get('/api/transactions/');

@@ -13,6 +13,8 @@ import "./styles/NavBar.css";
 import "./styles/Sidebar.css";
 import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
+import TransactionsPage from "./pages/TransactionsPage";
+
 
 function Logout() {
   localStorage.clear();
@@ -63,10 +65,18 @@ function App() {
                 }
               />
               <Route
-                path="/transactions"
+                path="/dashboard"
                 element={
                   <ProtectedRoute>
                     <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route 
+                path="/transactions" 
+                element={
+                  <ProtectedRoute>
+                    <TransactionsPage />
                   </ProtectedRoute>
                 }
               />
