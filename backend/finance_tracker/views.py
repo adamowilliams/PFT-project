@@ -32,7 +32,7 @@ class TransactionDetailView(generics.DestroyAPIView):
         user = self.request.user
         return Transaction.objects.filter(author=user)
     
-class TransactionImportView(generics.CreateAPIView):
+class TransactionImportView(generics.ListCreateAPIView):
     serializer_class = TransactionSerializer
     permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
@@ -50,3 +50,7 @@ class TransactionImportView(generics.CreateAPIView):
             return Response({"status": "success"}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+    def get_queryset(self):
+        user = self.request.user
+        return Transaction.objects.filter(author=user)
