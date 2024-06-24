@@ -1,8 +1,8 @@
 
 #dashboard-wrapper {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-self: flex-start;
   flex-wrap: wrap;
 }
@@ -13,8 +13,14 @@
 }
 
 #activity-graph {
-  margin-left: auto;
-  width: 50%;
+  position: absolute;
+  top: auto;
+  left: 600px;
+  width: 700px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
   padding: 0;
 }
 
@@ -24,39 +30,60 @@
 }
 
 #balance-display {
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: auto;
+  margin-right: 10px;
   padding: 0;
 }
 
 #balance-display h2 {
+  height: 0%;
+  position: relative;
+  top: 34%;
+  left: -20%;
+  z-index: 2;
   margin-left: 100px;
   padding: 0;
 }
 
 #balance-display p {
+  height: 0%;
+  position: relative;
+  top: 42%;
+  left: -20%;
+  z-index: 2;
   margin-left: 100px;
   padding: 0;
 }
 
 .transaction-form-container {
+  display: flex;
+  width: 100%;
   margin-top: 20px;
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   gap: 20px; 
+  justify-content: flex-start;
+}
+
+.transaction-form-container form {
+  min-width: 0; /* Ensures inputs don't force the container to expand */
+  width: auto; /* Adjusts input width based on content up to the container's max width */
 }
 #import_transaction {
   display : flex;
+  width: 280px;
   align-items: center; 
   justify-content: start; 
   gap: 10px;
 }
   
 #add_transaction {
+  width: 280px;
   display: flex; /* Stack them vertically */
   align-items: center; /* Center-align the items */
   justify-content: start; /* Align items to the start of the container */
@@ -64,7 +91,7 @@
 }
 
 #recent_transactions {
-  flex-grow: 1;
+  width: 380px;
   display: flex;
   min-height: 20px;
   flex-direction: column;
@@ -99,4 +126,48 @@
 .transaction h2 {
   margin: 0;
   padding: 0;
+}
+
+.legend-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.legend {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.legend-text {
+  font-size: 14px;
+}
+
+.pie-chart-with-legend-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pie-chart svg {
+  width: 388px !important;
+  height: auto !important;
 }

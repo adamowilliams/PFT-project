@@ -52,8 +52,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
 
     return (
         <div id="activity-graph">
-            <h2>Daily Spending and Balance</h2>
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer height={270}>
                 <LineChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />
