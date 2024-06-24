@@ -51,8 +51,6 @@ div {
 
 /* Sidebar item styling */
 .list-group-item {
-  padding-top: 10%;
-  padding-left: 8%;
   font-size: 20px;
   color: #ffffffcc;
   /* Semi-transparent white */
@@ -69,6 +67,35 @@ div {
 
 .list-group-item-action {
   cursor: pointer;
+}
+
+.dropdown-item {
+  padding-left: 8%;
+  font-size: 20px;
+  color: #ffffffcc;
+  /* Semi-transparent white */
+  background: transparent;
+  border: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #ffffff;
+  /* Solid white on hover/focus */
+  background-color: transparent;
+}
+.spacing-element {
+  transition: all 0.3s ease;
+}
+
+.spacing-element.expanded {
+  margin-bottom: 60px; /* Adjust as needed */
+}
+
+.dropdown-menu {
+  margin-left: 36px;
+  border: none;
+  background-color: transparent;
 }
 
 /* Page content styling */
