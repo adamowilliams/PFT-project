@@ -30,7 +30,7 @@
 }
 
 #balance-display {
-  width: 500px;
+  width: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,7 +136,7 @@
 
 }
 .legend {
-  width: 100px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
