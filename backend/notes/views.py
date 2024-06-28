@@ -3,13 +3,11 @@ from .serializers import NoteSerializer
 from rest_framework.permissions import IsAuthenticated
 from .models import Note
 
-# Create your views here.
-
-class NoteListCreate(generics.ListCreateAPIView): #list or create views
+class NoteListCreate(generics.ListCreateAPIView):
     serializer_class = NoteSerializer 
     permission_classes = [IsAuthenticated] #only authenticated users can access this view
 
-    def get_queryset(self): #method to get the queryset
+    def get_queryset(self):
         user = self.request.user
         return Note.objects.filter(author=user)
     

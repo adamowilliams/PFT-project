@@ -1,6 +1,6 @@
 import re
 
-# Define a keyword to category mapping for rule-based fallback
+# Keywords to category mapping for rule-based fallback
 keyword_to_category = {
     r'\bIKEA\b': ('Bostad', 'Bygg & trädgård'),
     r'\bMAX\b': ('Mat & dryck', 'Restaurang & bar'),

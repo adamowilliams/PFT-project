@@ -1,7 +1,6 @@
 #navbar-wrapper {
-    height: 50px; /* Adjust this value to increase the height */
-    width: 100%; /* This makes it take the full width; adjust as needed */
-    /* Add any additional styling here */
+    height: 50px; 
+    width: 100%;
   }
 
   #button-head {

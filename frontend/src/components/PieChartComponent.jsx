@@ -1,22 +1,21 @@
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import PropTypes from 'prop-types';
 import '../styles/Dashboard.css';
 
 const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
 
     const categoryColors = [
-      { label: 'Salary', color: '#007BFF' }, // Dark blue for reliability and stability.
-      { label: 'Gift', color: '#4CAF50' }, // Green for generosity and well-being.
-      { label: 'Food', color: '#FF6347' }, // Tomato red for appetizing and food-related.
-      { label: 'Transport', color: '#FF9800' }, // Orange for movement and travel.
-      { label: 'Rent', color: '#FFC107' }, // Gold for significance and importance.
-      { label: 'Bills', color: '#673AB7' }, // Deep purple for essential and important expenses.
-      { label: 'Health', color: '#2196F3' }, // Blue for calm and health.
-      { label: 'Fun', color: '#E91E63' }, // Vibrant pink for playfulness and entertainment.
-      { label: 'Charity', color: '#8BC34A' }, // Light green for altruism and giving.
-      { label: 'Other', color: '#9E9E9E' } // Gray for neutrality and miscellaneous.
+      { label: 'Salary', color: '#007BFF' }, 
+      { label: 'Gift', color: '#4CAF50' },
+      { label: 'Food', color: '#FF6347' },
+      { label: 'Transport', color: '#FF9800' },
+      { label: 'Rent', color: '#FFC107' },
+      { label: 'Bills', color: '#673AB7' },
+      { label: 'Health', color: '#2196F3' },
+      { label: 'Fun', color: '#E91E63' }, 
+      { label: 'Charity', color: '#8BC34A' },
+      { label: 'Other', color: '#9E9E9E' }
     ];
     
 
@@ -33,7 +32,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
       const formattedData = Object.keys(groupedData).map((category) => {
         const colorInfo = categoryColors.find(c => c.label === category);
-        const color = colorInfo ? colorInfo.color : '#999'; // Default color if not found
+        const color = colorInfo ? colorInfo.color : '#999';
         return {
         name: category,
         value: groupedData[category],
@@ -116,12 +115,5 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
       </div>
     );
 });
-
-PieChartComponent.displayName = 'PieChart';
-
-PieChartComponent.propTypes = {
-    transactions: PropTypes.array,
-    data: PropTypes.array
-};
 
 export default PieChartComponent;

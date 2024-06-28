@@ -1,8 +1,10 @@
 import React, { useEffect} from 'react';
-import AddTransactionForm from '../components/AddTransactionForm';
-import BalanceDisplay from '../components/BalanceDisplay';
-import ActivityGraph from '../components/ActivityGraph';
-import PieChartComponent from '../components/PieChartComponent';
+import { 
+    AddTransactionForm, 
+    BalanceDisplay, 
+    ActivityGraph, 
+    PieChartComponent 
+} from "../components/Index";
 import { fetchTransactions, fetchImportedTransactions } from '../services/apiService';
 import '../styles/Dashboard.css';
 

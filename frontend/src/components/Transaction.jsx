@@ -1,6 +1,4 @@
-
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function Transaction({ transaction, children }) {
   return (
@@ -13,10 +11,5 @@ function Transaction({ transaction, children }) {
     </div>
   );
 }
-
-Transaction.propTypes = {
-  transaction: PropTypes.object.isRequired,
-  children: PropTypes.node
-};
 
 export default Transaction;

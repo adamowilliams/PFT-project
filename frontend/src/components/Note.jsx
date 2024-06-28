@@ -1,6 +1,5 @@
 import React from 'react';
 import "../styles/Note.css";
-import PropTypes from "prop-types";
 
 function Note({ note, onDelete }) {
   const formattedDate = new Date(note.created_at).toLocaleDateString("en-US");
@@ -16,10 +15,5 @@ function Note({ note, onDelete }) {
     </div>
   );
 }
-
-Note.propTypes = {
-  note: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired,
-};
 
 export default Note;

@@ -2,14 +2,6 @@ from datetime import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
-class RepetitionInterval(models.IntegerChoices):
-    DAI = 1, "Daily"
-    WEE = 2, "Weekly"
-    MON = 3, "Monthly"
-    YEA = 4, "Yearly"
-    NON = 5, "None"
 
 class Transaction(models.Model):
     TRANSACTION_TYPES = [
@@ -22,7 +14,7 @@ class Transaction(models.Model):
     description = models.TextField(blank=True, default="")
     created_at = models.DateField(blank=True, null=True)
     recurring = models.BooleanField(default=False)
-    recurring_interval = models.PositiveSmallIntegerField(choices=RepetitionInterval.choices, default=RepetitionInterval.NON)
+    recurring_interval = models.TextField(max_length=20, default="")
     transaction_type = models.CharField(max_length=7, choices=TRANSACTION_TYPES , default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="transactions")
     

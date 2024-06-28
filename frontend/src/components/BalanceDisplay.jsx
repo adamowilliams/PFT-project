@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useImperativeHandle, forwardRef } from 'react';
-import PropTypes from 'prop-types';
 
 const BalanceDisplay = forwardRef(({ children, transactions = [] }, ref) => {
     const [balance, setBalance] = useState(0);
@@ -29,11 +28,5 @@ const BalanceDisplay = forwardRef(({ children, transactions = [] }, ref) => {
     );
 });
 
-BalanceDisplay.displayName = 'BalanceDisplay';
-
-BalanceDisplay.propTypes = {
-    transactions: PropTypes.array,
-    children: PropTypes.node
-};
 
 export default BalanceDisplay;

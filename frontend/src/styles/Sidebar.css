@@ -5,7 +5,6 @@ div {
 
 #wrapper {
   display: flex;
-  /* Flexbox layout */
 }
 
 #sidebar-wrapper {
@@ -49,19 +48,10 @@ div {
 }
 
 
-/* Sidebar item styling */
-.list-group-item {
-  font-size: 20px;
-  color: #ffffffcc;
-  /* Semi-transparent white */
-  background: transparent;
-  border: none;
-}
 
 .list-group-item:hover,
 .list-group-item:focus {
   color: #ffffff;
-  /* Solid white on hover/focus */
   background-color: transparent;
 }
 
@@ -69,19 +59,10 @@ div {
   cursor: pointer;
 }
 
-.dropdown-item {
-  padding-left: 8%;
-  font-size: 20px;
-  color: #ffffffcc;
-  /* Semi-transparent white */
-  background: transparent;
-  border: none;
-}
 
 .dropdown-item:hover,
 .dropdown-item:focus {
   color: #ffffff;
-  /* Solid white on hover/focus */
   background-color: transparent;
 }
 .spacing-element {
@@ -89,28 +70,48 @@ div {
 }
 
 .spacing-element.expanded {
-  margin-bottom: 60px; /* Adjust as needed */
+  margin-bottom: 60px;
 }
 
-.dropdown-menu {
-  margin-left: 36px;
-  border: none;
+
+#sidebar-wrapper .list-group {
   background-color: transparent;
+  border : none;
+}
+
+#sidebar-wrapper .list-group-item {
+  background-color: transparent;
+  border : none;
+  font-size: 20px;
+  color: #ffffffcc;
+}
+
+#sidebar-wrapper .dropdown,
+#sidebar-wrapper .dropdown-menu {
+  background-color: transparent;
+  border : none;
+  margin-left: 18px;
+  margin-top: -3px;
+}
+
+#sidebar-wrapper .dropdown-item {
+  padding-left: 8%;
+  font-size: 20px;
+  color: #ffffffcc;
+  background-color: transparent;
+  border: none;
 }
 
 /* Page content styling */
 #page-content-wrapper {
   padding: 2rem;
   background-color: #ffffff;
-  /* Solid white background */
 }
 
 .container-fluid {
   padding: 0;
-  /* Remove default padding */
 }
 
 .mt-4 {
   margin-top: 1.5rem;
-  /* Consistent margin-top */
 }

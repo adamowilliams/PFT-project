@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import dayjs from 'dayjs';
 import '../styles/Dashboard.css';
@@ -30,8 +29,6 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
             balance = Math.max(0, balance);
             groupedData[date].balance = balance;
         });
-
-        // calculate cumulative expense
 
         const formattedData = dates.map(date => ({
             date: date,
@@ -66,9 +63,5 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
     );
 });
 
-ActivityGraph.displayName = 'ActivityGraph';
-ActivityGraph.propTypes = {
-    transactions: PropTypes.array
-};
 
 export default ActivityGraph;

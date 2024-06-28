@@ -71,8 +71,8 @@
 }
 
 .transaction-form-container form {
-  min-width: 0; /* Ensures inputs don't force the container to expand */
-  width: auto; /* Adjusts input width based on content up to the container's max width */
+  min-width: 0; 
+  width: auto; 
 }
 #import_transaction {
   display : flex;
@@ -84,10 +84,10 @@
   
 #add_transaction {
   width: 280px;
-  display: flex; /* Stack them vertically */
-  align-items: center; /* Center-align the items */
-  justify-content: start; /* Align items to the start of the container */
-  gap: 10px; /* Add some space between the form fields */
+  display: flex; 
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
 }
 
 #recent_transactions {

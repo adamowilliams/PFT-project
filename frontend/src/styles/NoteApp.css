@@ -1,6 +1,7 @@
 
   
-  /* Styles for the notes section */
+  /* Styles for the notes */
+  
   .notes-section {
     margin-bottom: 2rem;
   }
@@ -10,7 +11,6 @@
     font-size: 24px;
   }
   
-  /* Styles for individual notes - assuming your Note component has some container element */
   .note {
     background-color: #f9f9f9;
     border-left: 5px solid #007bff;

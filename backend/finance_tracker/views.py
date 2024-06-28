@@ -7,7 +7,6 @@ from .models import Transaction
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 
-# Create your views here.
 
 class TransactionListCreateView(generics.ListCreateAPIView):
     queryset = Transaction.objects.all()

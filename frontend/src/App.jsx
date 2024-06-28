@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import NoteApp from "./pages/NoteApp";
-import NotFound from "./pages/NotFound";
+// Pages
+import { Login, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage } from "./pages/Index";
+// Components
 import ProtectedRoute from "./components/ProtectedRoute";
+import Sidebar from "./components/Sidebar";
+// Styles
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./pages/Sidebar";
-import Home from "./pages/Home";
 import "./styles/PageContent.css";
 import "./styles/NavBar.css";
 import "./styles/Sidebar.css";
-import { useState } from "react";
-import Dashboard from "./pages/Dashboard";
-import TransactionsPage from "./pages/TransactionsPage";
 
 
 function Logout() {
@@ -72,8 +68,8 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route 
-                path="/transactions" 
+              <Route
+                path="/transactions"
                 element={
                   <ProtectedRoute>
                     <TransactionsPage />

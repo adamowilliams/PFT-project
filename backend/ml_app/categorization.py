@@ -2,10 +2,10 @@ import pandas as pd
 import joblib
 from rule_based import rule_based_categorization
 
-# Load pre-trained model
+# Load the model
 model = joblib.load('transaction_categorizer.joblib')
 
-# Function to initialize the lookup table with headers if it doesn't exist
+# Function to create a lookup table or load it if it already exists
 def initialize_lookup_table():
     try:
         lookup_table = pd.read_csv('./data/lookup_table.csv')
@@ -17,10 +17,10 @@ def initialize_lookup_table():
         lookup_table.to_csv('./data/lookup_table.csv', index=False)
     return lookup_table
 
-# Load or initialize the lookup table
+# Call the function for the lookup table
 lookup_table = initialize_lookup_table()
 
-# Convert lookup table to dictionary for fast lookup
+# Make lookup table a dictionary for faster lookup
 lookup_dict = {row['Text']: (row['Kategori'], row['Subkategori']) for _, row in lookup_table.iterrows()}
 
 def log_new_data(text, category, subcategory):

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import Transaction from './Transaction';
 import { fetchTransactions, fetchImportedTransactions } from '../services/apiService.jsx';
-import PropTypes from 'prop-types';
 import '../styles/Dashboard.css';
-import { useNavigate } from 'react-router-dom';
+
 
 const incomeCategories = [
   { value: 'Salary', label: 'Salary'},
@@ -70,7 +70,6 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Determine transaction type based on amount
     const transactionType = parseFloat(formData.amount) < 0 ? "Expense" : "Income";
 
     const dataToSend = {
@@ -87,7 +86,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
         console.log("Transaction added:", response.data);
         fetchData();
         onTransactionAdded();
-        // Clear the form after submission
+        // Clears the form after submission
         setFormData({
           amount: "",
           category: "",
@@ -114,7 +113,6 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
       alert('Please select a file to upload.');
       return;
     }
-
   
     const formData = new FormData();
     formData.append('file', file);
@@ -201,7 +199,7 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
           name="created_at"
           value={formData.created_at}
           onChange={handleChange}
-          placeholder='Specify date or leave empty for today'
+          placeholder='Specify date or leave empty for today' //doesnt work
         />
         <label>
           Recurring
@@ -238,9 +236,5 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
     </div>
   );
 }
-
-AddTransactionForm.propTypes = {
-  onTransactionAdded: PropTypes.func.isRequired,
-};
 
 export default AddTransactionForm;

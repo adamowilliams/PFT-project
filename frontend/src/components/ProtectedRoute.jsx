@@ -4,7 +4,6 @@ import api from "../api";
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
 import React, { useState, useEffect } from "react";
 import LoadingIndicator from "./LoadingIndicator";
-import PropTypes from "prop-types";
 
 function ProtectedRoute({ children }) {
 
@@ -34,7 +33,7 @@ function ProtectedRoute({ children }) {
 
     }
 
-    const auth = async () => {  //Check if user is authorized or need to refresh token
+    const auth = async () => {  //Is user authorized or need refresh token
         const token = localStorage.getItem(ACCESS_TOKEN)
         if (!token) {
             setIsAuthorized(false)
@@ -58,9 +57,5 @@ function ProtectedRoute({ children }) {
     return isAuthorized ? children : <Navigate to="/login" /> //if user is authorized return children, else redirect to login page
 
 }
-
-ProtectedRoute.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
 
 export default ProtectedRoute
