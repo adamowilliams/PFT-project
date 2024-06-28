@@ -1,2 +1,10 @@
 {
+    "material-icon-theme.folders.associations": {
+        "finance_tracker": "app",
+        "ml_app": "app",
+        "notes": "app",
+    },
+    "material-icon-theme.files.associations": {
+        "index.html": "Html",
+    }
 }
