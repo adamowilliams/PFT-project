@@ -1,5 +1,22 @@
-__pycache__
 
+
+# Ignore log files
+*.log
+npm-debug.log*
+
+
+# Ignore virtual environment directory and files
+env/
+.env
+
+# Ignore IDE configuration files (only icon pack)
+.vscode/*
+
+# Ignore Python bytecode
+__pycache__/
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore machine learning data files
 backend/ml_app/data/*
-
-env/Lib/site-packages/*
