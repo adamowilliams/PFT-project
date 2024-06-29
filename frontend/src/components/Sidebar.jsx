@@ -1,41 +1,83 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Sidebar.css';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "../styles/Sidebar.css";
+
 
 const Sidebar = () => {
-
   const [dropdowns, setDropdowns] = useState({
-    notes: false,
-    financeTracker: false,
+    "Notes": false,
+    "Finance Tracker": false,
   });
+  
+  const [activeLabel, setActiveLabel] = useState("");
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
 
   const toggleDropdown = (dropdownId) => {
-    setDropdowns(prev => ({ ...prev, [dropdownId]: !prev[dropdownId] }));
+    if (!isActive("/transactions")) {
+    setDropdowns((prev) => {
+      const newDropdowns = {};
+      for (const key in prev) {
+        newDropdowns[key] = key === dropdownId ? !prev[key] : false;
+      }
+      return newDropdowns;
+    });
+    }
+  };
+
+
+
+  const DropdownButton = ({ mainLabel, mainPath, dropdownState, links }) => {
+
+    return (
+      <>
+        <div className={`dropdown-toggle-container ${isActive(mainPath) ? 'active' : ''}`} >
+          <Link to={mainPath} className="dropdown-toggle" onClick={() => toggleDropdown(mainLabel)}>
+            {mainLabel}
+          </Link>
+        </div>
+        {dropdownState && (
+          <div className="dropdown-container">
+            {links.map((link) => (
+              <div key={link.subLabel} className={`dropdown-item-container ${isActive(link.path) ? 'active' : ''}`}>
+                <Link
+                  className="dropdown-item"
+                  to={link.path}
+                  onClick={link.onClick}
+                >
+                  {link.subLabel}
+                </Link>
+              </div>
+            ))}
+          </div>
+        )}
+      </>
+    );
   };
 
   return (
     <div className="" id="sidebar-wrapper">
       <div className="sidebar-heading">Adam&apos;s ProjectSpace</div>
-      <div className="list-group">
-        <button className="list-group-item list-group-item-action" onClick={() => toggleDropdown('notes')}>🏠 Notes</button>
-        {dropdowns.notes && (
-          <div className="dropdown">
-            <div className="dropdown-menu show">
-              <Link className="dropdown-item" to="/note-app">Home</Link>
-            </div>
-          </div>
-        )}
-        {}
-        <div className={`spacing-element ${dropdowns.notes ? 'expanded' : ''}`}></div>
-        <button className="list-group-item list-group-item-action" onClick={() => toggleDropdown('financeTracker')}>🏠 Finance Tracker</button>
-        {dropdowns.financeTracker && (
-          <div className="dropdown">
-            <div className="dropdown-menu show">
-              <Link className="dropdown-item" to="/dashboard">Home</Link>
-              <Link className="dropdown-item" to="/transactions">Transactions</Link>
-            </div>
-          </div>
-        )}
+      <div className="sidebar-menu">
+        <DropdownButton
+          mainLabel="Notes"
+          mainPath="/note-app"
+          dropdownState={dropdowns["Notes"]}
+          links={[
+          ]}
+        />
+        <DropdownButton
+          mainLabel="Finance Tracker"
+          mainPath="/dashboard"
+          dropdownState={dropdowns["Finance Tracker"]}
+          links={[
+            {
+              path: "/transactions",
+              subLabel: "Transactions",
+              onClick: () => setActiveLabel("fe-arrow-right Transactions"),
+            },
+          ]}
+        />
       </div>
     </div>
   );

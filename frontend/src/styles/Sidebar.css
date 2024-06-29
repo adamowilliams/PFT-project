@@ -1,6 +1,6 @@
 /* Container for the whole page */
 div {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family: 'Roboto', sans-serif;
 }
 
 #wrapper {
@@ -13,18 +13,8 @@ div {
   height: 100vh;
   background-color: #4e73df;
   background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%); 
-
   flex-shrink: 0;
-
-  /* Orange nice color:
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #df8c18 10%, #eec139 100%);
-  */
-}
-
-#sidebar-wrapper.toggled {
-  width: 0;
-  overflow-x: hidden;
+  overflow-y: auto; /* To allow scrolling if content overflows */
 }
 
 /* Sidebar Header */
@@ -38,80 +28,62 @@ div {
   background: transparent;
 }
 
-.sidebar-heading::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 8%;
-  width: 83%;
-  border-bottom: 1px solid #ffffff85;
+/* Sidebar Menu */
+.sidebar-menu {
+  padding-top: 1rem;
 }
 
-
-
-.list-group-item:hover,
-.list-group-item:focus {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-.list-group-item-action {
-  cursor: pointer;
-}
-
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-  color: #ffffff;
-  background-color: transparent;
-}
-.spacing-element {
-  transition: all 0.3s ease;
-}
-
-.spacing-element.expanded {
-  margin-bottom: 60px;
-}
-
-
-#sidebar-wrapper .list-group {
-  background-color: transparent;
-  border : none;
-}
-
-#sidebar-wrapper .list-group-item {
-  background-color: transparent;
-  border : none;
-  font-size: 20px;
-  color: #ffffffcc;
-}
-
-#sidebar-wrapper .dropdown,
-#sidebar-wrapper .dropdown-menu {
-  background-color: transparent;
-  border : none;
-  margin-left: 18px;
-  margin-top: -3px;
-}
-
-#sidebar-wrapper .dropdown-item {
-  padding-left: 8%;
-  font-size: 20px;
-  color: #ffffffcc;
+/* Dropdown Button */
+.dropdown-toggle {
+  font-family: inherit;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
   background-color: transparent;
   border: none;
+  color: #ffffff; /* Dropdown button text color */
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 30px;
+  text-decoration: none;
 }
 
-/* Page content styling */
-#page-content-wrapper {
-  padding: 2rem;
-  background-color: #ffffff;
+.dropdown-toggle-container.active {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.container-fluid {
-  padding: 0;
+.dropdown-toggle-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.mt-4 {
-  margin-top: 1.5rem;
+/* Dropdown Content */
+
+.dropdown-item {
+  font-size: 14px;
+  color: #ffffff; /* Dropdown item text color */
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-left: 30px;
+}
+
+.dropdown-item-container:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Dropdown item container hover background color */
+}
+
+.dropdown-item-container.active {
+  background-color: rgba(255, 255, 255, 0.1); /* Dropdown item container active background color */
+}
+/* Spacing Element */
+.spacing-element {
+  height: 0.5rem; /* Adjust as needed */
+}
+
+/* Expanded State */
+.spacing-element.expanded {
+  background-color: rgba(255, 255, 255, 0.1); /* Background color when dropdown is expanded */
 }

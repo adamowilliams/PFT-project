@@ -6,7 +6,7 @@ import { Login, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage }
 import ProtectedRoute from "./components/ProtectedRoute";
 import Sidebar from "./components/Sidebar";
 // Styles
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./styles/PageContent.css";
 import "./styles/NavBar.css";
 import "./styles/Sidebar.css";
