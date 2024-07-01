@@ -45,6 +45,9 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   });
   const [transactions, setTransactions] = useState([]);
   const [file, setFile] = useState(null);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [showImportForm, setShowImportForm] = useState(false);
+
 
 
   const fetchData = () => {
@@ -161,9 +164,19 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
         ))}
         <button onClick={handleViewAllTransactionsClick}>View All Transactions</button>
       </div>
+      <div className="form-dropdown-container">
+      <h2><button onClick={() => {
+        if (showImportForm) setShowImportForm(false);
+        setShowAddForm(!showAddForm)
+      }}><i className="fas fa-plus icon-space"></i> Add Transaction</button>
+      <button onClick={() => {
+        if (showAddForm) setShowAddForm(false);
+        setShowImportForm(!showImportForm)
+        }}><i className="fas fa-cloud-upload-alt icon-space"></i> Import Transaction</button>
+      </h2>
+      {showAddForm && (
       <div id="add_transaction">
       <form onSubmit={handleSubmit}>
-        <h2>Add Transaction</h2>
         <input
           type="number"
           name="amount"
@@ -226,12 +239,15 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
         <button type="submit">Add</button>
       </form>
       </div>
+      )}
+      {showImportForm && (
       <div id="import_transaction">
       <form onSubmit={handleFileSubmit}>
-        <h2>Import Transactions</h2>
         <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} />
         <button type="submit">Upload</button>
       </form>
+      </div>
+      )}
       </div>
     </div>
   );

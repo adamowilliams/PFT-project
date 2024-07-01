@@ -8,24 +8,39 @@ div {
 }
 
 #sidebar-wrapper {
-  width: 240px;
+  width: 220px;
   transition: width 0.5s ease;
   height: 100vh;
   background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%); 
+  background-image: linear-gradient(357deg, #0f3964 10%, #020e2f 70%); 
   flex-shrink: 0;
-  overflow-y: auto; /* To allow scrolling if content overflows */
+  overflow: visible;
+  box-shadow: 3px -1px 17px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Sidebar Header */
 .sidebar-heading {
   position: relative;
-  padding: 1rem;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  background: transparent;
+  height: 100px;
+  left: -2px;
+  background-size: cover;
+  background-position: bottom;
+  background-image: url("../assets/MOONYB-NOB.png")
+}
+
+.sidebar-heading-text {
+  margin: 0;
+  color: white;
+  font-size: 16px; /* Adjust as needed */
+  padding: 1.5rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-heading-text h2 {
+  position: relative;
+  top: -11px;
+  left: 18px;
+  margin-top: 0px;
 }
 
 /* Sidebar Menu */
@@ -51,11 +66,11 @@ div {
 }
 
 .dropdown-toggle-container.active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05); 
 }
 
 .dropdown-toggle-container:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05); 
 }
 
 /* Dropdown Content */
@@ -72,11 +87,11 @@ div {
 }
 
 .dropdown-item-container:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Dropdown item container hover background color */
+  background-color: rgba(255, 255, 255, 0.05); 
 }
 
 .dropdown-item-container.active {
-  background-color: rgba(255, 255, 255, 0.1); /* Dropdown item container active background color */
+  background-color: rgba(255, 255, 255, 0.05); 
 }
 /* Spacing Element */
 .spacing-element {

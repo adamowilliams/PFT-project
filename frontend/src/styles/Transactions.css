@@ -1,0 +1,14 @@
+
+#all-transactions button {
+    border: 0;
+    cursor: pointer;
+    background-color: #ff4d4d; /* A nice shade of red */
+    color: white; /* White text color for better readability */
+    padding: 20px 10px; /* Add some padding for a better appearance */
+    border-radius: 50%; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#all-transactions button:hover {
+    background-color: #cc0000; /* A darker shade of red on hover */
+}

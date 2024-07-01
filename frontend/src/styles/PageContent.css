@@ -1,6 +1,10 @@
 #page-content-wrapper {
   flex-grow: 1;
-  overflow-y: auto;
+  overflow-y: visible;
+}
+
+.container-fluid {
+  padding: 20px;
 }
 
 body {

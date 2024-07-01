@@ -51,7 +51,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         fetchData();
     }, [transactions]);
 
-    const getTooltipContent = ({ payload, active }) => {
+    /*const getTooltipContent = ({ payload, active }) => {
       if (active && payload && payload.length) {
         return (
           <div className="custom-tooltip">
@@ -63,6 +63,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
       }
       return null;
     };
+    */
 
     const Legend = ({ data }) => {
       const sortedData = data.sort((a, b) => b.value - a.value);
@@ -82,9 +83,9 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     };
 
     return (
-      <div id="pie-chart">
-        <div className="pie-chart-with-legend-container">
-          <ResponsiveContainer width="80%" height={250}>
+      <div id="pie-chart-with-legend">
+        <div className="pie-chart">
+          <ResponsiveContainer>
             <PieChart>
               <Pie
                 data={chartData}
@@ -101,9 +102,9 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip content={getTooltipContent} />
             </PieChart>
           </ResponsiveContainer>
+          </div>
           <Legend
             data={chartData.map((entry) => ({
               name: entry.name,
@@ -111,7 +112,6 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
               value: entry.value,
             }))}
           />
-        </div>
       </div>
     );
 });

@@ -5,46 +5,52 @@ import "../styles/Sidebar.css";
 
 const Sidebar = () => {
   const [dropdowns, setDropdowns] = useState({
-    "Notes": false,
+    Notes: false,
     "Finance Tracker": false,
   });
-  
-  const [activeLabel, setActiveLabel] = useState("");
+
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
 
-  const toggleDropdown = (dropdownId) => {
-    if (!isActive("/transactions")) {
-    setDropdowns((prev) => {
-      const newDropdowns = {};
-      for (const key in prev) {
-        newDropdowns[key] = key === dropdownId ? !prev[key] : false;
-      }
-      return newDropdowns;
-    });
+  const toggleDropdown = (dropdownId, links) => {
+    if (!isActive(links[0].path)) {
+      setDropdowns((prev) => {
+        const newDropdowns = {};
+        for (const key in prev) {
+          newDropdowns[key] = key === dropdownId ? !prev[key] : false;
+        }
+        return newDropdowns;
+      });
     }
   };
 
-
-
+  // DropdownButton component for the sidebar menu for easy reusability
   const DropdownButton = ({ mainLabel, mainPath, dropdownState, links }) => {
-
     return (
       <>
-        <div className={`dropdown-toggle-container ${isActive(mainPath) ? 'active' : ''}`} >
-          <Link to={mainPath} className="dropdown-toggle" onClick={() => toggleDropdown(mainLabel)}>
+        <div
+          className={`dropdown-toggle-container ${
+            isActive(mainPath) ? "active" : ""
+          }`}
+        >
+          <Link
+            to={mainPath}
+            className="dropdown-toggle"
+            onClick={() => toggleDropdown(mainLabel, links)}
+          >
             {mainLabel}
           </Link>
         </div>
         {dropdownState && (
           <div className="dropdown-container">
             {links.map((link) => (
-              <div key={link.subLabel} className={`dropdown-item-container ${isActive(link.path) ? 'active' : ''}`}>
-                <Link
-                  className="dropdown-item"
-                  to={link.path}
-                  onClick={link.onClick}
-                >
+              <div
+                key={link.subLabel}
+                className={`dropdown-item-container ${
+                  isActive(link.path) ? "active" : ""
+                }`}
+              >
+                <Link className="dropdown-item" to={link.path}>
                   {link.subLabel}
                 </Link>
               </div>
@@ -57,14 +63,17 @@ const Sidebar = () => {
 
   return (
     <div className="" id="sidebar-wrapper">
-      <div className="sidebar-heading">Adam&apos;s ProjectSpace</div>
+      <div className="sidebar-heading">
+        <div className="sidebar-heading-text">
+          <h2> ProjectSpace </h2>
+        </div>
+      </div>
       <div className="sidebar-menu">
         <DropdownButton
           mainLabel="Notes"
           mainPath="/note-app"
           dropdownState={dropdowns["Notes"]}
-          links={[
-          ]}
+          links={[]}
         />
         <DropdownButton
           mainLabel="Finance Tracker"
@@ -74,7 +83,6 @@ const Sidebar = () => {
             {
               path: "/transactions",
               subLabel: "Transactions",
-              onClick: () => setActiveLabel("fe-arrow-right Transactions"),
             },
           ]}
         />

@@ -34,28 +34,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-right: 10px;
   padding: 0;
 }
 
 #balance-display h2 {
+  order: 1;
+  font-size: 19px;
   height: 0%;
   position: relative;
-  top: 34%;
-  left: -20%;
+  top: -45%;
+  left: -24%;
   z-index: 2;
-  margin-left: 100px;
   padding: 0;
 }
 
 #balance-display p {
+  order: 1;
+  font-size: 15px;
   height: 0%;
   position: relative;
-  top: 42%;
-  left: -20%;
+  top: -46%;
+  left: -24%;
   z-index: 2;
-  margin-left: 100px;
   padding: 0;
 }
 
@@ -90,6 +91,35 @@
   gap: 10px;
 }
 
+.form-dropdown-container button {
+  background-color: #0f3964; /* Slightly lighter dark blue */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add some padding */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make it inline-block */
+  font-size: 12px; /* Increase font size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer/hand icon */
+  margin: 6px;
+  transition: background-color 0.3s;
+}
+
+.form-dropdown-container button:hover {
+  background-color: #0c2c4c; /* Darker blue on hover */
+}
+
+.form-dropdown-container h2 {
+  margin-bottom: -6px;
+}
+
+.icon-space {
+  margin-right: 3px;
+}
+
+
+
 #recent_transactions {
   width: 380px;
   display: flex;
@@ -97,6 +127,28 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+#recent_transactions button {
+  position: relative;
+  border: none;
+  top: 6px;
+  left: 143px;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+#recent_transactions button:hover {
+  color: #0f3964;
+}
+
+#recent_transactions h2 {
+  align-self: flex-start;
+  font-size: 20px;
+  margin-bottom: 13px;
+  padding: 0;
 }
 
 .transaction {
@@ -109,6 +161,7 @@
 }
 
 .transaction p {
+  font-size: 12px;
   width: 100px;
   margin: 0;
   padding: 0;
@@ -116,9 +169,9 @@
 }
 
 .transaction h3 {
-  width: 70px;
-  font-size: 1rem;
-  margin: 0;
+  width: 79px;
+  font-size: 14px;
+  margin: 8px;
   padding: 0;
   overflow: hidden;
 }
@@ -140,6 +193,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .legend-item {
@@ -160,14 +214,14 @@
   font-size: 14px;
 }
 
-.pie-chart-with-legend-container {
+.pie-chart {
+  width: 300px;
+  height: 250px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
-#pie-chart svg {
-  width: 388px !important;
-  height: auto !important;
+#pie-chart-with-legend {
+  display: flex;
+  width: 600px;
+  height: 250px;
 }

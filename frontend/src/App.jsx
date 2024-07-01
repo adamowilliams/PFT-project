@@ -6,7 +6,6 @@ import { Login, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage }
 import ProtectedRoute from "./components/ProtectedRoute";
 import Sidebar from "./components/Sidebar";
 // Styles
-
 import "./styles/PageContent.css";
 import "./styles/NavBar.css";
 import "./styles/Sidebar.css";
@@ -38,7 +37,7 @@ function App() {
         <div id="page-content-wrapper">
           <div id="navbar-wrapper">
             <button onClick={toggleSidebar} id="button-head">
-              <i className="fas fa-bars"></i>
+              <i className={`fas ${isSidebarVisible ? 'fa-angle-left' : 'fa-angle-right'}`}></i>
             </button>
             {/* Navbar content */}
           </div>
