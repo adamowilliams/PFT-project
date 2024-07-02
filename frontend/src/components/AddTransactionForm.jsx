@@ -144,31 +144,14 @@ const AddTransactionForm = ({ onTransactionAdded }) => {
   const categoryOptions =
     parseFloat(formData.amount) < 0 ? outcomeCategories : incomeCategories;
 
-  const recentTransactions = transactions.slice(0, 5);
-
-  const navigate = useNavigate();
-
-  const handleViewAllTransactionsClick = () => {
-    navigate('/transactions');
-  };
 
   return (
     <div className="transaction-form-container">
-      <div id="recent_transactions">
-        <h2>Recent Transactions</h2>
-        {recentTransactions.map((transaction) => (
-          <Transaction
-            key={transaction.id}
-            transaction={transaction}
-          />
-        ))}
-        <button onClick={handleViewAllTransactionsClick}>View All Transactions</button>
-      </div>
       <div className="form-dropdown-container">
       <h2><button onClick={() => {
         if (showImportForm) setShowImportForm(false);
         setShowAddForm(!showAddForm)
-      }}><i className="fas fa-plus icon-space"></i> Add Transaction</button>
+      }}><i className="fas fa-plus icon-space"></i> Create Transaction</button>
       <button onClick={() => {
         if (showAddForm) setShowAddForm(false);
         setShowImportForm(!showImportForm)
