@@ -13,14 +13,12 @@
 }
 
 #activity-graph {
-  position: absolute;
   top: auto;
   left: 600px;
-  width: 700px;
+  width: 650px;
   height: auto;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   padding: 0;
 }
 
@@ -61,21 +59,22 @@
 }
 
 .transaction-form-container {
+  position: relative;
   display: flex;
   width: 100%;
-  margin-top: 20px;
   align-items: flex-start;
-  display: flex;
   flex-direction: row;
   gap: 20px; 
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .transaction-form-container form {
+  padding: 12px;
   min-width: 0; 
   width: auto; 
 }
 #import_transaction {
+  margin-left: 23px;
   display : flex;
   width: 280px;
   align-items: center; 
@@ -84,6 +83,8 @@
 }
   
 #add_transaction {
+  margin-top: -20px;
+  margin-left: 23px;
   width: 280px;
   display: flex; 
   align-items: center;
@@ -102,7 +103,7 @@
   font-size: 12px; /* Increase font size */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer/hand icon */
-  margin: 6px;
+  margin-right: 10px;
   transition: background-color 0.3s;
 }
 
@@ -110,8 +111,16 @@
   background-color: #0c2c4c; /* Darker blue on hover */
 }
 
+.form-dropdown-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+}
 .form-dropdown-container h2 {
-  margin-bottom: -6px;
+  width: 340px;
+  height: 38px;
+  margin-top: -2px;
 }
 
 .icon-space {
@@ -119,8 +128,10 @@
 }
 
 
-
-#recent_transactions {
+#recent_ransactions {
+  top: 333px;
+  left: 133px;
+  position: relative;
   width: 380px;
   display: flex;
   min-height: 20px;

@@ -34,7 +34,7 @@ function App() {
     <BrowserRouter>
       <div className="d-flex" id="wrapper">
         {isSidebarVisible && <Sidebar />}
-        <div id="page-content-wrapper">
+        <div className="main-content">
           <div id="navbar-wrapper">
             <button onClick={toggleSidebar} id="button-head">
               <i className={`fas ${isSidebarVisible ? 'fa-angle-left' : 'fa-angle-right'}`}></i>
