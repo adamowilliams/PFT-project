@@ -8,7 +8,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
 
     const fetchData = () => {
         const groupedData = transactions.reduce((acc, transaction) => {
-            const date = dayjs(transaction.created_at).format('YYYY-MM-DD');
+            const date = dayjs(transaction.created_at).format('YY/MM/DD');
             if (!acc[date]) {
                 acc[date] = { expense: 0, balance: 0 };
             }
@@ -51,12 +51,11 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
         <div id="activity-graph">
             <ResponsiveContainer height={200}>
                 <LineChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />
                     <YAxis />
                     <Tooltip />
-                    <Line type="monotone" dataKey="expense" stroke="#FF0000" strokeWidth={2} />
-                    <Line type="monotone" dataKey="balance" stroke="#0000FF" strokeWidth={2} />
+                    <Line type="monotone" dataKey="expense" stroke="#FF0000" strokeWidth={2} dot={false}/>
+                    <Line type="step" dataKey="balance" stroke="#0000FF" strokeWidth={2} dot={false}/>
                 </LineChart>
             </ResponsiveContainer>
         </div>

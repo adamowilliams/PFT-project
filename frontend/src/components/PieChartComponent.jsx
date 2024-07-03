@@ -6,16 +6,16 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
 
     const categoryColors = [
-      { label: 'Salary', color: '#007BFF' }, 
-      { label: 'Gift', color: '#4CAF50' },
-      { label: 'Food', color: '#FF6347' },
-      { label: 'Transport', color: '#FF9800' },
-      { label: 'Rent', color: '#FFC107' },
-      { label: 'Bills', color: '#673AB7' },
-      { label: 'Health', color: '#2196F3' },
-      { label: 'Fun', color: '#E91E63' }, 
-      { label: 'Charity', color: '#8BC34A' },
-      { label: 'Other', color: '#9E9E9E' }
+      { label: 'Salary', color: '#007BFF', icon: 'fa-solid fa-wallet' },
+      { label: 'Gift', color: '#4CAF50', icon: 'fa-solid fa-gift' },
+      { label: 'Food', color: '#FF6347', icon: 'fa-solid fa-utensils' },
+      { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-bus' },
+      { label: 'Rent', color: '#FFC107', icon: 'fa-solid fa-home' },
+      { label: 'Bills', color: '#673AB7', icon: 'fa-solid fa-file-invoice-dollar' },
+      { label: 'Health', color: '#2196F3', icon: 'fa-solid fa-heartbeat' },
+      { label: 'Fun', color: '#E91E63', icon: 'fa-solid fa-face-grin-beam' },
+      { label: 'Charity', color: '#8BC34A', icon: 'fa-solid fa-hands-helping' },
+      { label: 'Other', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
     ];
     
 
@@ -33,10 +33,12 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
       const formattedData = Object.keys(groupedData).map((category) => {
         const colorInfo = categoryColors.find(c => c.label === category);
         const color = colorInfo ? colorInfo.color : '#999';
+        const icon = colorInfo ? colorInfo.icon : 'fa-solid fa-question';
         return {
         name: category,
         value: groupedData[category],
-        color: color
+        color: color,
+        icon: icon
         };  
       });
 
@@ -51,7 +53,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         fetchData();
     }, [transactions]);
 
-    /*const getTooltipContent = ({ payload, active }) => {
+    const getTooltipContent = ({ payload, active }) => {
       if (active && payload && payload.length) {
         return (
           <div className="custom-tooltip">
@@ -63,7 +65,24 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
       }
       return null;
     };
-    */
+  
+
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = (innerRadius + outerRadius) / 2;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const iconClass = chartData[index].icon;
+
+    return (
+        <g>
+            <foreignObject x={x - 10} y={y - 10} width={20} height={20} style={{overflow:"visible"}}>
+                <i className={iconClass} style={{ color: "white" }}></i>
+            </foreignObject>
+        </g>
+    );
+};
+    
 
     const Legend = ({ data }) => {
       const sortedData = data.sort((a, b) => b.value - a.value);
@@ -96,12 +115,15 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 outerRadius={115}
                 innerRadius={80}
                 fill="#8884d8"
+                labelLine={false}
+                label={renderCustomizedLabel}
                 paddingAngle={0}
               >
                 {chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-${index}`} fill={entry.color}  />
                 ))}
               </Pie>
+              <Tooltip content={getTooltipContent} />
             </PieChart>
           </ResponsiveContainer>
           </div>

@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import Transaction from '../components/Transaction';
-import { fetchTransactions, deleteTransaction } from '../services/apiService.jsx';
+
 import '../styles/Transactions.css';
+import useTransactions from '../hooks/useTransactions';
 
 function TransactionsPage() {
-    const [transactions, setTransactions] = useState([]);
+  const {
+    transactions,
+    handleGetTransactions,
+    handleDeleteTransaction,
+  } = useTransactions();
 
     useEffect(() => {
-        fetchTransactions(setTransactions);
+        handleGetTransactions();
     }, []);
 
 
@@ -19,9 +24,7 @@ function TransactionsPage() {
             <div className="button-delete">
               <button
                 onClick={() =>
-                  deleteTransaction(transaction.id, () =>
-                    fetchTransactions(setTransactions)
-                  )
+                  handleDeleteTransaction(transaction.id)
                 }
               >
                 Delete

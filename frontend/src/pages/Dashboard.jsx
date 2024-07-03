@@ -1,13 +1,13 @@
-import React, { useEffect} from 'react';
-import { 
-    AddTransactionForm, 
-    BalanceDisplay, 
-    ActivityGraph, 
+import React, { useEffect } from 'react';
+import {
+    AddTransactionForm,
+    BalanceDisplay,
+    ActivityGraph,
     PieChartComponent,
     RecentTransactions
 } from "../components/Index";
-import { fetchTransactions, fetchImportedTransactions } from '../services/apiService';
 import '../styles/Dashboard.css';
+import useTransactions from '../hooks/useTransactions';
 
 
 const Dashboard = () => {
@@ -15,11 +15,18 @@ const Dashboard = () => {
     const graphRef = React.useRef(null);
     const pieChartRef = React.useRef(null);
     const recentTransactionsRef = React.useRef(null);
-    const [transactions, setTransactions] = React.useState([]);
+
+    const {
+        transactions,
+        loading,
+        error,
+        handleGetTransactions,
+        handleGetImportedTransactions,
+    } = useTransactions();
 
     const handleTransactionAdded = () => {
-        fetchTransactions(setTransactions);
-        fetchImportedTransactions(setTransactions);
+        handleGetTransactions();
+        handleGetImportedTransactions();
         if (balanceDisplayRef.current) {
             balanceDisplayRef.current.fetchData();
         }
@@ -35,20 +42,21 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
-        fetchTransactions(setTransactions);
-        fetchImportedTransactions(setTransactions);
-    }, []);
+        handleGetTransactions();
+        handleGetImportedTransactions();
+    }
+        , []);
 
     return (
         <div id="dashboard-wrapper" >
-            <AddTransactionForm onTransactionAdded={handleTransactionAdded} />
+            <AddTransactionForm handleTransactionAdded={handleTransactionAdded} />
             <BalanceDisplay ref={balanceDisplayRef} transactions={transactions}>
-                <PieChartComponent ref={pieChartRef} transactions={transactions}/>
+                <PieChartComponent ref={pieChartRef} transactions={transactions} />
             </BalanceDisplay>
-            <RecentTransactions ref={recentTransactionsRef} transactions={transactions}/>
-            <ActivityGraph ref={graphRef} transactions={transactions}/>
-            
-            
+            <RecentTransactions ref={recentTransactionsRef} transactions={transactions} />
+            <ActivityGraph ref={graphRef} transactions={transactions} />
+
+
         </div>
     );
 }

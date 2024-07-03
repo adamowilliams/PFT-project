@@ -3,11 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Transaction from "./Transaction";
 
 
-
-
-
-
-
 const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
 
 
