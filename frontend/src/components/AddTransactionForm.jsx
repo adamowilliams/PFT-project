@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import useTransactions from '../hooks/useTransactions.jsx';
+import * as XLSX from 'xlsx';
 
 
 
@@ -36,6 +37,7 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
   const [formData, setFormData] = useState({
     amount: "",
     category: "",
+    subCategory: "",
     description: "",
     created_at: "",
     recurring: false,
@@ -82,6 +84,7 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
         setFormData({
           amount: '',
           category: '',
+          subCategory: '',
           description: '',
           created_at: '',
           recurring: false,
@@ -98,7 +101,21 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
 
   // File upload handlers and functions
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const data = new Uint8Array(event.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const json = XLSX.utils.sheet_to_json(worksheet);
+        console.log("File content:", json);
+      };
+      reader.readAsArrayBuffer(selectedFile);
+    }
   };
 
   const handleFileSubmit = async (e) => {
@@ -110,13 +127,13 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
     const formData = new FormData();
     formData.append('file', file);
 
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+    for (let [key, file] of formData.entries()) {
+      console.log(`${key}: name=${file.name}, size=${file.size}, type=${file.type}`);
     }
 
     try {
       const response = await handleImportTransactions(formData);
-      if (response.status === 200) {
+      if (response.status === 201) {
         handleTransactionAdded();
         setFile(null);
       } else {
@@ -171,6 +188,13 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
                   </option>
                 ))}
               </select>
+              <input
+                type="text"
+                name="subCategory"
+                value={formData.subCategory} // Added subCategory input
+                onChange={handleChange}
+                placeholder="Sub Category (optional)"
+              />
               <input
                 type="text"
                 name="description"

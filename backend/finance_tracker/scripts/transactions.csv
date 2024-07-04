@@ -1,0 +1,17 @@
+transaction_type,created_at,description,amount,category,subCategory
+Expense,2024-06-25,Prel Wh Goteb,-229.1,Mat & dryck,Livsmedel
+Expense,2024-06-25,Prel AMIRS AF,-22.0,Mat & dryck,Livsmedel
+Expense,2024-06-23,Prel Maxi ICA,-1271.67,Mat & dryck,Livsmedel
+Expense,2024-06-24,SAMNIK AB,-32.0,Mat & dryck,Livsmedel
+Expense,2024-06-25,"HED, BIRGITTA",-628.0,Övrigt,Swish
+Expense,2024-06-25,Din Veterinär,-848.0,Hushåll,Husdjur
+Expense,2024-06-25,K*Microsoft,-179.99,Hushåll,"Media, mobil och IT"
+Income,2024-06-20,STUDSTÖD,13156.0,Övrigt,Stöd & Bidrag
+Expense,2024-06-23,Wh G¦teborg Bj,-352.6,Mat & dryck,Livsmedel
+Expense,2024-06-22,CIRCLE K UDDEV,-32.0,Transport,Fordon & drivmedel
+Expense,2024-06-20,N-M Frukt & Gr,-136.9,Mat & dryck,Livsmedel
+Expense,2024-06-20,APOTEKSGRUPPEN,-431.12,Hushåll,Sjukvård & hälsa
+Expense,2024-06-20,APOTEKSGRUPPEN,-338.8,Hushåll,Sjukvård & hälsa
+Expense,2024-06-20,"HED, CORNELIA",-1000.0,Övrigt,Swish
+Income,2024-06-18,STUDSTÖD,9717.0,Övrigt,Stöd & Bidrag
+Expense,2024-06-17,LEJONET OCH BJ,-160.0,Mat & dryck,Café & snacks

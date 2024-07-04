@@ -11,6 +11,7 @@ class Transaction(models.Model):
 
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.CharField(max_length=50, default="")
+    subCategory = models.CharField(max_length=50, default="")
     description = models.TextField(blank=True, default="")
     created_at = models.DateField(blank=True, null=True)
     recurring = models.BooleanField(default=False)
