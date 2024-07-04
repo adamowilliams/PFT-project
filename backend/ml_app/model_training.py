@@ -9,11 +9,11 @@ from sklearn.multioutput import MultiOutputClassifier
 import joblib
 
 # Load data
-df_ml = pd.read_csv('../data/sampleUNIQUEdata.csv')
+df_ml = pd.read_csv('C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\ml_app\\data\\BankenDataClean.csv')
 
 # target and features
-y = df_ml[['Kategori', 'Subkategori']]
-X = df_ml[['Text']]
+y = df_ml[['category', 'subCategory']]
+X = df_ml[['description']]
 
 # Preprocessing
 text_transformer = Pipeline(steps=[
@@ -22,7 +22,7 @@ text_transformer = Pipeline(steps=[
 
 preprocessor = ColumnTransformer(
     transformers=[
-        ('text', text_transformer, 'Text')
+        ('text', text_transformer, 'description')
     ]
 )
 

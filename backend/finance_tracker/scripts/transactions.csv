@@ -1,17 +1,1319 @@
 transaction_type,created_at,description,amount,category,subCategory
-Expense,2024-06-25,Prel Wh Goteb,-229.1,Mat & dryck,Livsmedel
-Expense,2024-06-25,Prel AMIRS AF,-22.0,Mat & dryck,Livsmedel
-Expense,2024-06-23,Prel Maxi ICA,-1271.67,Mat & dryck,Livsmedel
-Expense,2024-06-24,SAMNIK AB,-32.0,Mat & dryck,Livsmedel
-Expense,2024-06-25,"HED, BIRGITTA",-628.0,Övrigt,Swish
-Expense,2024-06-25,Din Veterinär,-848.0,Hushåll,Husdjur
-Expense,2024-06-25,K*Microsoft,-179.99,Hushåll,"Media, mobil och IT"
-Income,2024-06-20,STUDSTÖD,13156.0,Övrigt,Stöd & Bidrag
-Expense,2024-06-23,Wh G¦teborg Bj,-352.6,Mat & dryck,Livsmedel
-Expense,2024-06-22,CIRCLE K UDDEV,-32.0,Transport,Fordon & drivmedel
-Expense,2024-06-20,N-M Frukt & Gr,-136.9,Mat & dryck,Livsmedel
-Expense,2024-06-20,APOTEKSGRUPPEN,-431.12,Hushåll,Sjukvård & hälsa
-Expense,2024-06-20,APOTEKSGRUPPEN,-338.8,Hushåll,Sjukvård & hälsa
-Expense,2024-06-20,"HED, CORNELIA",-1000.0,Övrigt,Swish
-Income,2024-06-18,STUDSTÖD,9717.0,Övrigt,Stöd & Bidrag
-Expense,2024-06-17,LEJONET OCH BJ,-160.0,Mat & dryck,Café & snacks
+Expense,2024-06-25,Prel Wh Goteb,-229.1,Food & Drink,Groceries
+Expense,2024-06-25,Prel AMIRS AF,-22.0,Food & Drink,Groceries
+Expense,2024-06-23,Prel Maxi ICA,-1271.67,Food & Drink,Groceries
+Expense,2024-06-24,SAMNIK AB,-32.0,Food & Drink,Groceries
+Expense,2024-06-25,"HED, BIRGITTA",-628.0,Miscellaneous,Swish
+Expense,2024-06-25,Din Veterinär,-848.0,Household,Pets
+Expense,2024-06-25,K*Microsoft,-179.99,Household,"Media, Mobile, and IT"
+Income,2024-06-20,STUDSTÖD,13156.0,Miscellaneous,Support & Subsidies
+Expense,2024-06-23,Wh G¦teborg Bj,-352.6,Food & Drink,Groceries
+Expense,2024-06-22,CIRCLE K UDDEV,-32.0,Transport,Vehicles & Fuel
+Expense,2024-06-20,N-M Frukt & Gr,-136.9,Food & Drink,Groceries
+Expense,2024-06-20,APOTEKSGRUPPEN,-431.12,Household,Healthcare & Wellness
+Expense,2024-06-20,APOTEKSGRUPPEN,-338.8,Household,Healthcare & Wellness
+Expense,2024-06-20,"HED, CORNELIA",-1000.0,Miscellaneous,Swish
+Income,2024-06-18,STUDSTÖD,9717.0,Miscellaneous,Support & Subsidies
+Expense,2024-06-17,LEJONET OCH BJ,-160.0,Food & Drink,Cafe & Snacks
+Expense,2024-06-17,"HUSSEIN, SHIRW",-45.0,Miscellaneous,Swish
+Expense,2024-06-16,G2A.COM,-38.19,Entertainment & Shopping,Toys & Games
+Expense,2024-06-16,SAMNIK AB,-159.0,Food & Drink,Groceries
+Expense,2024-06-16,Josefin Larsso,-100.0,Miscellaneous,Swish
+Expense,2024-06-10,Wh G¦teborg Bj,-432.3,Food & Drink,Groceries
+Expense,2024-06-10,SAMNIK AB,-43.0,Food & Drink,Groceries
+Expense,2024-06-11,OPENAI *CHATGP,-269.33,Household,"Media, Mobile, and IT"
+Expense,2024-06-09,SAMNIK AB,-99.0,Food & Drink,Groceries
+Expense,2024-06-04,COOP MUNKEB#CK,-79.4,Food & Drink,Groceries
+Expense,2024-06-04,APOTEKSGRUPPEN,-152.24,Household,Healthcare & Wellness
+Expense,2024-06-04,GOOGLE *Google,-44.99,Household,"Media, Mobile, and IT"
+Expense,2024-06-05,K*liseberg.s,-1785.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-06-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
+Income,2024-06-03,"WILLIAMS, HARR",1000.0,Miscellaneous,Swish
+Expense,2024-06-02,SAMNIK AB,-30.0,Food & Drink,Groceries
+Expense,2024-06-02,SAMNIK AB,-38.0,Food & Drink,Groceries
+Expense,2024-06-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2024-06-01,MONUMENT 031,-118.0,Food & Drink,Cafe & Snacks
+Expense,2024-06-01,Vega Mat & Dry,-84.0,Food & Drink,Restaurant & Bar
+Expense,2024-06-01,Vega Mat & Dry,-195.0,Food & Drink,Restaurant & Bar
+Expense,2024-06-01,ROLLIN BISTROS,-457.8,Food & Drink,Restaurant & Bar
+Expense,2024-06-03,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-06-01,Västtrafik To,-43.0,Transport,Bus & Train
+Expense,2024-05-31,"HED, CORNELIA",-888.0,Miscellaneous,Swish
+Expense,2024-05-31,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-05-31,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2024-05-29,SAMNIK AB,-60.0,Food & Drink,Groceries
+Expense,2024-05-28,Mouris gatukok,-162.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-28,HORNBACH GOTEB,-2403.0,Housing,Building & Garden
+Income,2024-05-28,AVANZA,15000.0,Miscellaneous,Savings
+Expense,2024-05-29,Brf Kålltorps,-3655.0,Housing,Rent & Fee
+Expense,2024-05-29,Telia Sverige,-608.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-27,JINX DYNASTY,-420.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-26,Disney Plus,-89.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-25,SAMNIK AB,-84.0,Food & Drink,Groceries
+Expense,2024-05-25,SAMNIK AB,-32.0,Food & Drink,Groceries
+Expense,2024-05-25,CAFE OIZO,-218.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-24,MAXI ICA STORM,-1435.48,Food & Drink,Groceries
+Expense,2024-05-24,The Bivac Spir,-131.25,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,Ako & Siver HB,-60.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,JOHN SCOTTS AV,-49.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,JOHN SCOTTS PU,-51.45,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,WARDSHUSET TUL,-54.6,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,OOTO,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,SAMNIK AB,-131.0,Food & Drink,Groceries
+Income,2024-05-28,"HED, CORNELIA",1000.0,Miscellaneous,Swish
+Income,2024-05-28,AVANZA,10000.0,Miscellaneous,Savings
+Expense,2024-05-28,"HED, CORNELIA",-288.5,Miscellaneous,Swish
+Income,2024-05-28,"HED, CORNELIA",1828.0,Miscellaneous,Swish
+Income,2024-05-28,"HED, CORNELIA",304.0,Miscellaneous,Swish
+Expense,2024-05-28,"HED, CORNELIA",-656.0,Miscellaneous,Swish
+Expense,2024-05-28,"HED, CORNELIA",-1400.0,Miscellaneous,Swish
+Expense,2024-05-27,Västtrafik To,-36.0,Transport,Bus & Train
+Income,2024-05-26,AVANZA,2000.0,Miscellaneous,Savings
+Income,2024-05-26,"ODQVIST, CARL",45.0,Miscellaneous,Swish
+Expense,2024-05-24,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-23,CAFE LINSEN,-18.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-23,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-24,Västtrafik To,-7.0,Transport,Bus & Train
+Income,2024-05-22,STUDSTÖD,1644.0,Miscellaneous,Support & Subsidies
+Expense,2024-05-23,Västtrafik To,-36.0,Transport,Bus & Train
+Income,2024-05-22,AVANZA,2500.0,Miscellaneous,Savings
+Expense,2024-05-21,DJINAN LIVS,-25.0,Food & Drink,Groceries
+Expense,2024-05-21,MONALIVS,-23.0,Food & Drink,Groceries
+Expense,2024-05-21,AMIRS AFF#R,-20.0,Food & Drink,Groceries
+Income,2024-05-22,"HED, CORNELIA",1400.0,Miscellaneous,Swish
+Expense,2024-05-20,MONALIVS,-33.0,Food & Drink,Groceries
+Expense,2024-05-21,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-20,Gpasta Group A,-99.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-19,Wh G¦teborg Bj,-159.7,Food & Drink,Groceries
+Expense,2024-05-18,NMB*Godhemsbut,-20.0,Miscellaneous,Miscellaneous
+Expense,2024-05-18,Maria Livs / A,-58.0,Food & Drink,Groceries
+Expense,2024-05-18,GOOGLE *Google,-40.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-17,N-M Frukt & Gr,-212.45,Food & Drink,Groceries
+Expense,2024-05-17,COOP MUNKEB#CK,-256.65,Food & Drink,Groceries
+Expense,2024-05-17,APOTEKSGRUPPEN,-152.24,Household,Healthcare & Wellness
+Expense,2024-05-20,"HED, CORNELIA",-1312.0,Miscellaneous,Swish
+Expense,2024-05-20,Västtrafik To,-7.0,Transport,Bus & Train
+Expense,2024-05-20,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-19,SJ AB,-1636.0,Transport,Bus & Train
+Expense,2024-05-16,AMIRS AFF#R,-42.0,Food & Drink,Groceries
+Expense,2024-05-16,G2A.COM,-38.99,Entertainment & Shopping,Toys & Games
+Expense,2024-05-14,DJINAN LIVS,-25.0,Food & Drink,Groceries
+Expense,2024-05-14,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-14,SAMNIK AB,-132.0,Food & Drink,Groceries
+Expense,2024-05-15,Willys G¦tebor,-162.37,Food & Drink,Groceries
+Expense,2024-05-16,"HED, CORNELIA",-4500.0,Miscellaneous,Swish
+Expense,2024-05-16,Psykiatripartn,-250.0,Household,Healthcare & Wellness
+Expense,2024-05-15,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-14,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-11,ICA FOCUS,-74.85,Food & Drink,Groceries
+Expense,2024-05-11,LISEBERG LH SP,-30.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG LH SP,-20.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG AB,-79.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG AB,-25.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG RR,-726.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG OV SP,-20.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG PF,-237.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-10,AROJJ DII,-115.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-12,"HED, CORNELIA",-3312.0,Miscellaneous,Swish
+Expense,2024-05-11,"HED, CORNELIA",-100.0,Miscellaneous,Swish
+Income,2024-05-11,Åsa Williams,500.0,Miscellaneous,Swish
+Expense,2024-05-09,G2ABVSHOP,-176.06,Entertainment & Shopping,Toys & Games
+Expense,2024-05-09,COOP MUNKEB#CK,-91.8,Food & Drink,Groceries
+Expense,2024-05-09,N-M Frukt & Gr,-138.98,Food & Drink,Groceries
+Expense,2024-05-09,PAY*unkebacksg,-130.0,Miscellaneous,Miscellaneous
+Expense,2024-05-09,GOOGLE *Google,-399.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-10,"RICHTER, GUSTA",-14.0,Miscellaneous,Swish
+Expense,2024-05-10,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-09,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-09,Skattekonto,-485.0,Miscellaneous,Miscellaneous
+Expense,2024-05-07,SAMNIK AB,-92.0,Food & Drink,Groceries
+Expense,2024-05-07,AMIRS AFF#R,-56.0,Food & Drink,Groceries
+Expense,2024-05-08,K*adlibris.s,-510.6,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-04,Zettle_*Cafeba,-32.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-04,TEMPO GOTEBORG,-98.85,Food & Drink,Groceries
+Expense,2024-05-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
+Income,2024-05-06,Andre Williams,595.0,Miscellaneous,Swish
+Expense,2024-05-04,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-02,SAMNIK AB,-40.0,Food & Drink,Groceries
+Expense,2024-05-03,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-01,SAMNIK AB,-42.0,Food & Drink,Groceries
+Expense,2024-04-30,Systembolaget,-125.6,Food & Drink,Alcohol & Tobacco
+Expense,2024-04-29,SL,-84.0,Transport,Bus & Train
+Expense,2024-05-01,Västtrafik To,-72.0,Transport,Bus & Train
+Expense,2024-04-30,AB STORSTOCKHO,-52.0,Transport,Bus & Train
+Expense,2024-04-29,7-Eleven Klara,-27.0,Food & Drink,Cafe & Snacks
+Expense,2024-04-30,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-04-30,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2024-04-28,SAMNIK AB,-53.0,Food & Drink,Groceries
+Expense,2024-04-27,SAMNIK AB,-126.0,Food & Drink,Groceries
+Expense,2024-04-29,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-04-29,"WOLFF,JEFFREY",-20.0,Miscellaneous,Swish
+Expense,2024-04-26,Psykiatripartn,-100.0,Household,Healthcare & Wellness
+Expense,2024-04-24,AMIRS AFF#R,-84.0,Food & Drink,Groceries
+Expense,2024-04-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2024-04-22,STEAMGAMES.COM,-82.04,Entertainment & Shopping,Toys & Games
+Expense,2024-04-23,SJ AB,-1632.0,Transport,Bus & Train
+Expense,2024-04-19,G2ABVSHOP,-376.01,Entertainment & Shopping,Toys & Games
+Expense,2024-04-19,Luxury Sushi,-185.0,Food & Drink,Restaurant & Bar
+Expense,2024-04-19,OOTO,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-04-20,SAMNIK AB,-91.0,Food & Drink,Groceries
+Income,2024-04-19,STUDSTÖD,8220.0,Miscellaneous,Support & Subsidies
+Expense,2024-04-21,Västtrafik To,-72.0,Transport,Bus & Train
+Expense,2024-04-18,DJINAN LIVS,-70.0,Food & Drink,Groceries
+Expense,2024-04-18,DJINAN LIVS,-86.0,Food & Drink,Groceries
+Income,2024-04-18,"HÖHER,JOHANNES",30.0,Miscellaneous,Swish
+Expense,2024-04-16,G2A.COM,-39.31,Entertainment & Shopping,Toys & Games
+Expense,2024-04-17,"HED, CORNELIA",-3287.0,Miscellaneous,Swish
+Expense,2024-04-15,SAMNIK AB,-62.0,Food & Drink,Groceries
+Expense,2024-04-15,Apoteket Centr,-137.0,Household,Healthcare & Wellness
+Expense,2024-04-13,SAMNIK AB,-80.0,Food & Drink,Groceries
+Expense,2024-04-12,Systembolaget,-101.8,Food & Drink,Alcohol & Tobacco
+Expense,2024-04-12,ICA FOCUS,-489.53,Food & Drink,Groceries
+Expense,2024-04-15,SJ AB,-166.0,Transport,Bus & Train
+Expense,2024-04-12,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-04-08,STEAMGAMES.COM,-91.67,Entertainment & Shopping,Toys & Games
+Expense,2024-04-09,SJ AB,-231.0,Transport,Bus & Train
+Expense,2024-04-05,SAMNIK AB,-49.0,Food & Drink,Groceries
+Expense,2024-04-05,Pizzabageriet,-240.0,Food & Drink,Restaurant & Bar
+Expense,2024-04-06,Wh G¦teborg Bj,-455.01,Food & Drink,Groceries
+Expense,2024-04-08,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-04-08,CENTRALA STUDI,-3280.0,Miscellaneous,Miscellaneous
+Expense,2024-04-04,NETFLIX.COM,-129.0,Household,"Media, Mobile, and IT"
+Expense,2024-04-03,Torps Cafe AB,-75.0,Food & Drink,Cafe & Snacks
+Expense,2024-04-04,Psykiatripartn,-100.0,Household,Healthcare & Wellness
+Expense,2024-04-02,Gpasta Group A,-90.0,Food & Drink,Restaurant & Bar
+Expense,2024-04-01,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2024-03-31,"Zettle_*Najia,",-38.0,Miscellaneous,Miscellaneous
+Expense,2024-03-30,ICA SUPERMARKE,-28.0,Food & Drink,Groceries
+Expense,2024-03-30,CALM.COM SUBSC,-499.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-03-29,SAMNIK AB,-98.0,Food & Drink,Groceries
+Income,2024-03-29,Amazon Prime,163.29,Household,"Media, Mobile, and IT"
+Expense,2024-03-27,SAMNIK AB,-102.0,Food & Drink,Groceries
+Expense,2024-03-27,CAFE LINSEN,-400.0,Food & Drink,Cafe & Snacks
+Expense,2024-04-02,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-04-02,AVANZA BANK,-500.0,Miscellaneous,Savings
+Income,2024-03-29,"WILLIAMS, HARR",200.0,Miscellaneous,Swish
+Expense,2024-03-26,CAPITOL,-20.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-03-25,CAFE LINSEN,-23.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-25,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-26,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-03-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2024-03-23,Blizzard Enter,-150.32,Entertainment & Shopping,Toys & Games
+Expense,2024-03-22,OOTO,-115.0,Food & Drink,Restaurant & Bar
+Expense,2024-03-14,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-25,Västtrafik To,-36.0,Transport,Bus & Train
+Income,2024-03-21,STUDSTÖD,13156.0,Miscellaneous,Support & Subsidies
+Income,2024-03-24,Benny Olsson,500.0,Miscellaneous,Swish
+Income,2024-03-24,Åsa Williams,500.0,Miscellaneous,Swish
+Expense,2024-03-22,Apoteket Korsv,-23.9,Household,Healthcare & Wellness
+Expense,2024-03-21,SAMNIK AB,-117.0,Food & Drink,Groceries
+Expense,2024-03-21,Pizzabageriet,-245.0,Food & Drink,Restaurant & Bar
+Expense,2024-03-19,SAMNIK AB,-33.0,Food & Drink,Groceries
+Expense,2024-03-18,AMIRS AFF#R,-14.0,Food & Drink,Groceries
+Expense,2024-03-18,Google Play Ap,-119.0,Household,"Media, Mobile, and IT"
+Expense,2024-03-19,"HED, CORNELIA",-3088.0,Miscellaneous,Swish
+Expense,2024-03-17,ICA SUPERMARKE,-163.26,Food & Drink,Groceries
+Expense,2024-03-16,THAI SAMILA DE,-20.0,Food & Drink,Restaurant & Bar
+Expense,2024-03-16,THAI SAMILA DE,-240.0,Food & Drink,Restaurant & Bar
+Expense,2024-03-16,G2A.COM,-37.36,Entertainment & Shopping,Toys & Games
+Expense,2024-03-15,Systembolaget,-250.8,Food & Drink,Alcohol & Tobacco
+Expense,2024-03-15,ICA FOCUS,-144.7,Food & Drink,Groceries
+Expense,2024-03-15,STORE,-45.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-13,CAFE LINSEN,-48.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-08,CAFE LINSEN,-86.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-13,DJINAN LIVS,-25.0,Food & Drink,Groceries
+Expense,2024-03-13,ICA FOCUS,-437.69,Food & Drink,Groceries
+Expense,2024-03-14,"WOLFF,JEFFREY",-10.0,Miscellaneous,Swish
+Expense,2024-03-14,K*PAPER REPU,-1102.55,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-03-12,SAMNIK AB,-159.0,Food & Drink,Groceries
+Expense,2024-03-13,"WOLFF,JEFFREY",-115.0,Miscellaneous,Swish
+Expense,2024-03-13,Visma Amili AB,-100.0,Housing,Rent & Fee
+Expense,2024-03-08,SAMNIK AB,-92.0,Food & Drink,Groceries
+Expense,2024-03-08,Systembolaget,-254.9,Food & Drink,Alcohol & Tobacco
+Expense,2024-03-08,DJINAN LIVS,-60.0,Food & Drink,Groceries
+Expense,2024-03-08,OOTO,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-03-08,MONALIVS,-26.0,Food & Drink,Groceries
+Expense,2024-03-11,Abubaker Hasan,-550.0,Miscellaneous,Swish
+Expense,2024-03-07,Amazon Prime*R,-158.5,Household,"Media, Mobile, and IT"
+Expense,2024-03-07,MONALIVS,-22.0,Food & Drink,Groceries
+Expense,2024-03-07,S.M.A.K,-42.0,Food & Drink,Cafe & Snacks
+Expense,2024-03-08,VÄSTTRAFIK AB,-36.0,Transport,Bus & Train
+Expense,2024-03-07,K*lenson.com,-1590.0,Household,Healthcare & Wellness
+Expense,2024-03-06,Qliro,-1607.0,Miscellaneous,Miscellaneous
+Expense,2024-03-04,MAXI ICA STORM,-1556.97,Food & Drink,Groceries
+Expense,2024-03-04,NETFLIX.COM,-129.0,Household,"Media, Mobile, and IT"
+Expense,2024-03-02,DJINAN LIVS,-17.0,Food & Drink,Groceries
+Expense,2024-03-02,Golly Pasta,-95.0,Food & Drink,Restaurant & Bar
+Expense,2024-03-02,MONALIVS,-26.0,Food & Drink,Groceries
+Expense,2024-03-02,hallon,-109.25,Household,"Media, Mobile, and IT"
+Expense,2024-03-04,Felix Rosberg,-300.0,Miscellaneous,Swish
+Expense,2024-03-02,"WOLFF,JEFFREY",-41.0,Miscellaneous,Swish
+Expense,2024-02-29,SAMNIK AB,-66.0,Food & Drink,Groceries
+Expense,2024-02-29,CAFE LINSEN,-92.0,Food & Drink,Cafe & Snacks
+Expense,2024-02-29,7-Eleven 40152,-33.0,Food & Drink,Cafe & Snacks
+Expense,2024-02-28,SAMNIK AB,-96.0,Food & Drink,Groceries
+Expense,2024-02-29,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-02-29,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2024-02-27,SAMNIK AB,-58.0,Food & Drink,Groceries
+Expense,2024-02-27,DIN VETERINÄR,-590.0,Household,Pets
+Expense,2024-02-25,SAMNIK AB,-91.0,Food & Drink,Groceries
+Expense,2024-02-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2024-02-23,Systembolaget,-231.2,Food & Drink,Alcohol & Tobacco
+Income,2024-02-23,ICA KVANTUM MU,3.0,Food & Drink,Groceries
+Expense,2024-02-26,HUNDAKADEMIN A,-3600.0,Household,Pets
+Expense,2024-02-22,TEMPO SKATAS,-36.95,Food & Drink,Groceries
+Income,2024-02-21,STUDSTÖD,13156.0,Miscellaneous,Support & Subsidies
+Expense,2024-02-22,K*clasohlson,-218.9,Entertainment & Shopping,Home Electronics
+Expense,2024-02-20,SAMNIK AB,-84.0,Food & Drink,Groceries
+Expense,2024-02-20,STEAMGAMES.COM,-103.15,Entertainment & Shopping,Toys & Games
+Expense,2024-02-21,K*maxgaming.,-422.0,Entertainment & Shopping,Toys & Games
+Expense,2024-02-18,Motoristen AB,-25.0,Miscellaneous,Miscellaneous
+Expense,2024-02-17,GOOGLE *Google,-290.0,Household,"Media, Mobile, and IT"
+Expense,2024-02-16,MAXI ICA STORM,-105.4,Food & Drink,Groceries
+Expense,2024-02-16,MAXI ICA STORM,-111.95,Food & Drink,Groceries
+Expense,2024-02-16,G2A.COM,-38.01,Entertainment & Shopping,Toys & Games
+Expense,2024-02-16,COOP MUNKEB#CK,-82.5,Food & Drink,Groceries
+Expense,2024-02-18,AXELSSON ÖRBER,-974.0,Miscellaneous,Swish
+Expense,2024-02-13,MAXI ICA STORM,-1017.36,Food & Drink,Groceries
+Income,2024-02-13,Amazon Prime,59.0,Household,"Media, Mobile, and IT"
+Expense,2024-02-08,Pressbyran 442,-29.0,Food & Drink,Cafe & Snacks
+Expense,2024-02-08,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-02-07,Amazon Prime*R,-162.03,Household,"Media, Mobile, and IT"
+Expense,2024-02-07,Amazon Prime,-59.0,Household,"Media, Mobile, and IT"
+Expense,2024-02-07,VISMA FINANCIA,-100.0,Housing,Rent & Fee
+Expense,2024-02-06,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-02-06,K*Vetzoo,-318.9,Household,Pets
+Expense,2024-02-05,VINTED 8432267,-213.68,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-02-05,VINTED 8432220,-107.8,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-02-04,SAMNIK AB,-141.0,Food & Drink,Groceries
+Expense,2024-02-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
+Expense,2024-02-03,STEAMGAMES.COM,-154.47,Entertainment & Shopping,Toys & Games
+Expense,2024-02-02,SAMNIK AB,-69.0,Food & Drink,Groceries
+Expense,2024-02-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2024-01-31,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-01-31,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2024-01-29,SAMNIK AB,-41.0,Food & Drink,Groceries
+Expense,2024-01-28,ICA KVANTUM MU,-465.07,Food & Drink,Groceries
+Expense,2024-01-28,CIRCLE K GOTEB,-480.77,Transport,Vehicles & Fuel
+Expense,2024-01-26,MCD MARIESTAD,-175.0,Miscellaneous,Miscellaneous
+Expense,2024-01-26,GRANNGARDEN AL,-916.0,Household,Pets
+Expense,2024-01-25,ICA KVANTUM MU,-116.7,Food & Drink,Groceries
+Expense,2024-01-26,lån,-11500.0,Miscellaneous,Miscellaneous
+Expense,2024-01-24,OOTO,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-01-25,"HED, CORNELIA",-3031.0,Miscellaneous,Swish
+Expense,2024-01-25,MIKAEL PALM,-180.0,Miscellaneous,Swish
+Expense,2024-01-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2024-01-23,ICA FOCUS,-513.65,Food & Drink,Groceries
+Income,2024-01-23,AVANZA,20000.0,Miscellaneous,Savings
+Expense,2024-01-23,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-01-23,K*SNS,-709.0,Miscellaneous,Miscellaneous
+Expense,2024-01-21,Pizzabageriet,-250.0,Food & Drink,Restaurant & Bar
+Expense,2024-01-21,SAMNIK AB,-27.0,Food & Drink,Groceries
+Income,2024-01-22,STUDENTAPAN,240.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-01-21,Västtrafik To,-7.0,Transport,Bus & Train
+Expense,2024-01-21,Västtrafik To,-36.0,Transport,Bus & Train
+Income,2024-01-18,STUDSTÖD,19584.0,Miscellaneous,Support & Subsidies
+Expense,2024-01-18,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-01-16,STEAMGAMES.COM,-79.1,Entertainment & Shopping,Toys & Games
+Expense,2024-01-16,CAFE LINSEN,-200.0,Food & Drink,Cafe & Snacks
+Expense,2024-01-16,G2A.COM,-37.14,Entertainment & Shopping,Toys & Games
+Expense,2024-01-17,Västtrafik To,-7.0,Transport,Bus & Train
+Income,2024-01-16,AVANZA,3000.0,Miscellaneous,Savings
+Income,2024-01-16,"HED, CORNELIA",217.5,Miscellaneous,Swish
+Income,2024-01-16,7144017,63.0,Miscellaneous,Miscellaneous
+Expense,2024-01-14,AMIRS AFF#R,-28.0,Food & Drink,Groceries
+Expense,2024-01-13,SAMNIK AB,-139.0,Food & Drink,Groceries
+Expense,2024-01-12,G2ABVSHOP,-288.51,Entertainment & Shopping,Toys & Games
+Expense,2024-01-12,COOP MUNKEB#CK,-68.9,Food & Drink,Groceries
+Expense,2024-01-14,Åsa Williams,-435.0,Miscellaneous,Swish
+Income,2024-01-14,"HED, CORNELIA",430.0,Miscellaneous,Swish
+Income,2024-01-11,AMAZONRETAIL,62.17,Miscellaneous,Miscellaneous
+Income,2024-01-11,AMAZONRETAIL,225.0,Miscellaneous,Miscellaneous
+Expense,2024-01-11,ICA KVANTUM MU,-850.97,Food & Drink,Groceries
+Expense,2024-01-12,Skattekonto,-330.0,Miscellaneous,Miscellaneous
+Expense,2024-01-12,FÖRETAGSRESOR,-9448.0,Miscellaneous,Miscellaneous
+Expense,2024-01-10,S.M.A.K,-36.0,Food & Drink,Cafe & Snacks
+Expense,2024-01-10,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-01-09,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-01-07,ADA GODIS AB,-20.0,Food & Drink,Cafe & Snacks
+Expense,2024-01-07,Amazon Prime*R,-157.67,Household,"Media, Mobile, and IT"
+Expense,2024-01-07,Amazon Prime,-59.0,Household,"Media, Mobile, and IT"
+Expense,2024-01-08,K*lenson.com,-464.0,Household,Healthcare & Wellness
+Expense,2024-01-08,K*bokus.com,-352.0,Miscellaneous,Miscellaneous
+Expense,2024-01-08,K*adlibris.s,-183.35,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-01-08,K*adlibris.s,-158.65,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-01-04,G2ABVSHOP,-157.6,Entertainment & Shopping,Toys & Games
+Expense,2024-01-04,LIDL 304 GBG A,-651.51,Food & Drink,Groceries
+Expense,2024-01-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
+Expense,2024-01-02,4051 WHS LS GO,-49.0,Food & Drink,Groceries
+Expense,2024-01-02,HAWAII POKE,-318.0,Food & Drink,Restaurant & Bar
+Expense,2024-01-04,Västtrafik To,-7.0,Transport,Bus & Train
+Expense,2024-01-04,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2024-01-03,Västtrafik To,-35.0,Transport,Bus & Train
+Income,2024-01-03,Åsa Williams,1500.0,Miscellaneous,Swish
+Income,2024-01-03,Benny Olsson,1500.0,Miscellaneous,Swish
+Expense,2024-01-03,VISMA FINANCIA,-100.0,Housing,Rent & Fee
+Expense,2023-12-30,COOP GUNNARN,-554.64,Food & Drink,Groceries
+Expense,2024-01-01,CIRCLE K LYCKS,-98.0,Transport,Vehicles & Fuel
+Expense,2024-01-02,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2024-01-02,VY BUSS,-258.0,Transport,Bus & Train
+Expense,2024-01-02,"HED, CORNELIA",-1659.0,Miscellaneous,Swish
+Income,2024-01-02,SJ AB,3318.0,Transport,Bus & Train
+Expense,2024-01-02,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-01-02,AVANZA BANK,-500.0,Miscellaneous,Savings
+Income,2023-12-31,INLÅNINGSRÄNTA,10.0,Miscellaneous,Miscellaneous
+Expense,2023-12-28,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2023-12-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2023-12-22,Systembolaget,-163.0,Food & Drink,Alcohol & Tobacco
+Expense,2023-12-24,SUICIDE ZERO,-300.0,Miscellaneous,Miscellaneous
+Income,2023-12-23,"WILLIAMS, HARR",1000.0,Miscellaneous,Swish
+Expense,2023-12-23,Åsa Williams,-200.0,Miscellaneous,Swish
+Expense,2023-12-21,COOP GRISBACKA,-30.0,Food & Drink,Groceries
+Expense,2023-12-20,4128900 Pressb,-58.0,Food & Drink,Cafe & Snacks
+Expense,2023-12-22,Andre Williams,-405.0,Miscellaneous,Swish
+Income,2023-12-20,STUDSTÖD,9591.0,Miscellaneous,Support & Subsidies
+Expense,2023-12-21,SJ AB,-3318.0,Transport,Bus & Train
+Income,2023-12-21,"HED, CORNELIA",1659.0,Miscellaneous,Swish
+Expense,2023-12-19,ICA SUPERMARKE,-160.4,Food & Drink,Groceries
+Expense,2023-12-19,AKADEMIBOKHAND,-29.0,Miscellaneous,Miscellaneous
+Expense,2023-12-20,VY BUSS,-132.0,Transport,Bus & Train
+Expense,2023-12-20,VISMA FINANCIA,-100.0,Housing,Rent & Fee
+Expense,2023-12-16,G2A.COM,-37.16,Entertainment & Shopping,Toys & Games
+Expense,2023-12-17,Radiohjälpen,-50.0,Miscellaneous,Välgörenhet
+Expense,2023-12-17,Radiohjälpen,-100.0,Miscellaneous,Välgörenhet
+Expense,2023-12-16,Radiohjälpen,-50.0,Miscellaneous,Välgörenhet
+Expense,2023-12-15,Västtrafik To,-28.0,Transport,Bus & Train
+Expense,2023-12-14,Radiohjälpen,-50.0,Miscellaneous,Välgörenhet
+Expense,2023-12-11,G2ABVSHOP,-72.35,Entertainment & Shopping,Toys & Games
+Expense,2023-12-12,K*Elgiganten,-6495.0,Entertainment & Shopping,Home Electronics
+Expense,2023-12-12,K*proffsmaga,-571.0,Entertainment & Shopping,Home Electronics
+Expense,2023-12-12,K*clasohlson,-408.7,Entertainment & Shopping,Home Electronics
+Expense,2023-12-08,AMAZONRETAIL*X,-287.17,Miscellaneous,Miscellaneous
+Income,2023-12-11,"HED, CORNELIA",699.0,Miscellaneous,Swish
+Expense,2023-12-11,Elgiganten,-699.0,Entertainment & Shopping,Home Electronics
+Income,2023-12-11,AVANZA,35000.0,Miscellaneous,Savings
+Income,2023-12-11,CORNELIA HED,7535.0,Miscellaneous,Swish
+Expense,2023-12-07,WH GOTEBORG BJ,-235.58,Food & Drink,Groceries
+Expense,2023-12-06,STEAM PURCHASE,-112.48,Entertainment & Shopping,Toys & Games
+Expense,2023-12-08,Amazon Sweden,-300.0,Household,"Media, Mobile, and IT"
+Expense,2023-12-05,CLAS OHLSON,-798.6,Entertainment & Shopping,Home Electronics
+Expense,2023-12-05,SAMNIK AB,-29.0,Food & Drink,Groceries
+Income,2023-12-05,ÅterbäringLF,136.0,Miscellaneous,Miscellaneous
+Expense,2023-12-04,NETFLIX.COM,-129.0,Household,"Media, Mobile, and IT"
+Expense,2023-12-02,THAI SAMILA DE,-15.0,Food & Drink,Restaurant & Bar
+Expense,2023-12-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Income,2023-12-02,SJ AB,2150.0,Transport,Bus & Train
+Expense,2023-12-01,Tradera,-8554.0,Miscellaneous,Miscellaneous
+Expense,2023-11-30,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2023-11-30,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2023-11-25,WH GOTEBORG BJ,-280.46,Food & Drink,Groceries
+Expense,2023-11-24,SAMNIK AB,-64.0,Food & Drink,Groceries
+Expense,2023-11-24,SAMNIK AB,-111.0,Food & Drink,Groceries
+Expense,2023-11-24,AMIRS AFF#R,-30.0,Food & Drink,Groceries
+Income,2023-11-25,Liam Baker,127.0,Miscellaneous,Swish
+Expense,2023-11-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Income,2023-11-22,STUDSTÖD,12052.0,Miscellaneous,Support & Subsidies
+Expense,2023-11-22,SAMNIK AB,-56.0,Food & Drink,Groceries
+Expense,2023-11-22,SJ AB,-2150.0,Transport,Bus & Train
+Income,2023-11-22,"HED, CORNELIA",1075.0,Miscellaneous,Swish
+Expense,2023-11-20,STEAMGAMES.COM,-228.56,Entertainment & Shopping,Toys & Games
+Expense,2023-11-20,CAFE LINSEN,-400.0,Food & Drink,Cafe & Snacks
+Expense,2023-11-18,STEAMGAMES.COM,-280.86,Entertainment & Shopping,Toys & Games
+Expense,2023-11-18,Pop Boutique G,-315.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2023-11-18,WILLYS HEMMA K,-10.9,Food & Drink,Groceries
+Expense,2023-11-18,SAIGON CITY,-272.0,Food & Drink,Groceries
+Expense,2023-11-17,GOOGLE *Google,-21.75,Household,"Media, Mobile, and IT"
+Expense,2023-11-18,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-11-18,Nadja Ingeborg,-170.0,Miscellaneous,Swish
+Expense,2023-11-18,Västtrafik To,-70.0,Transport,Bus & Train
+Expense,2023-11-16,G2A.COM,-38.23,Entertainment & Shopping,Toys & Games
+Expense,2023-11-16,Zettle_*Bull,-362.0,Miscellaneous,Miscellaneous
+Expense,2023-11-16,Västtrafik To,-35.0,Transport,Bus & Train
+Income,2023-11-16,Liam Baker,109.0,Miscellaneous,Swish
+Expense,2023-11-14,SAMNIK AB,-57.0,Food & Drink,Groceries
+Expense,2023-11-13,SAMNIK AB,-64.0,Food & Drink,Groceries
+Expense,2023-11-14,K*Tribunen I,-600.0,Entertainment & Shopping,Culture & Entertainment
+Income,2023-11-10,VINTED 7500910,120.47,Entertainment & Shopping,Clothes & Fashion
+Expense,2023-11-10,COOP MUNKEB#CK,-65.95,Food & Drink,Groceries
+Expense,2023-11-11,ROLLIN BISTROS,-498.75,Food & Drink,Restaurant & Bar
+Expense,2023-11-11,COOP MUNKEB#CK,-124.4,Food & Drink,Groceries
+Expense,2023-11-11,N-M Frukt & Gr,-111.05,Food & Drink,Groceries
+Expense,2023-11-12,KAFFESTUGAN LY,-106.0,Food & Drink,Restaurant & Bar
+Expense,2023-11-12,WH GOTEBORG BJ,-354.34,Food & Drink,Groceries
+Expense,2023-11-11,Nadja Ingeborg,-170.0,Miscellaneous,Swish
+Income,2023-11-11,"HED, CORNELIA",85.0,Miscellaneous,Swish
+Expense,2023-11-08,SAMNIK AB,-49.0,Food & Drink,Groceries
+Expense,2023-11-08,DJINAN LIVS,-65.0,Food & Drink,Groceries
+Expense,2023-11-09,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-11-07,DJINAN LIVS,-80.0,Food & Drink,Groceries
+Income,2023-11-08,"HED, CORNELIA",2126.5,Miscellaneous,Swish
+Expense,2023-11-08,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-11-06,ICA FOCUS,-407.7,Food & Drink,Groceries
+Expense,2023-11-07,Västtrafik To,-35.0,Transport,Bus & Train
+Income,2023-11-07,"NAUMANEN,JONAT",25.0,Miscellaneous,Swish
+Expense,2023-11-07,K*lenson.com,-610.0,Household,Healthcare & Wellness
+Expense,2023-11-05,VINTED 7551136,-237.05,Entertainment & Shopping,Clothes & Fashion
+Expense,2023-11-04,NETFLIX.COM,-129.0,Household,"Media, Mobile, and IT"
+Expense,2023-11-03,WH GOTEBORG BJ,-359.08,Food & Drink,Groceries
+Expense,2023-11-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2023-11-01,VINTED 7500910,-120.47,Entertainment & Shopping,Clothes & Fashion
+Expense,2023-11-01,UGGLAN VC FRED,-50.0,Household,Healthcare & Wellness
+Expense,2023-11-02,KORTAVGIFT,-300.0,Miscellaneous,Miscellaneous
+Expense,2023-10-31,CAFE LINSEN,-20.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-30,WH GOTEBORG BJ,-420.59,Food & Drink,Groceries
+Expense,2023-10-31,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2023-10-31,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2023-10-28,WH GOTEBORG BJ,-320.8,Food & Drink,Groceries
+Expense,2023-10-27,WILLYS GOTEBOR,-313.35,Food & Drink,Groceries
+Expense,2023-10-29,"HED, CORNELIA",-666.0,Miscellaneous,Swish
+Expense,2023-10-26,J.A. PRIPPS PU,-46.0,Food & Drink,Restaurant & Bar
+Expense,2023-10-27,Blizzard EU244,-155.63,Entertainment & Shopping,Toys & Games
+Expense,2023-10-27,Brf Kålltorps,-3655.0,Housing,Rent & Fee
+Expense,2023-10-27,Telia Sverige,-598.0,Household,"Media, Mobile, and IT"
+Expense,2023-10-27,Parkster,-8.0,Transport,Vehicles & Fuel
+Expense,2023-10-26,4025133 Pressb,-109.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-25,CAFE LINSEN,-400.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2023-10-24,ICA FOCUS,-19.95,Food & Drink,Groceries
+Expense,2023-10-24,DJINAN LIVS,-25.0,Food & Drink,Groceries
+Income,2023-10-23,STUDSTÖD,12052.0,Miscellaneous,Support & Subsidies
+Expense,2023-10-23,ICA FOCUS,-274.25,Food & Drink,Groceries
+Expense,2023-10-23,Mona Livs,-26.0,Food & Drink,Groceries
+Expense,2023-10-22,Foodora AB,-321.0,Food & Drink,Restaurant & Bar
+Expense,2023-10-22,TEMPO SKATAS,-44.9,Food & Drink,Groceries
+Expense,2023-10-22,4025133 Pressb,-58.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-20,N-M Frukt & Gr,-99.95,Food & Drink,Groceries
+Expense,2023-10-23,Västtrafik To,-35.0,Transport,Bus & Train
+Income,2023-10-22,Andre Williams,600.0,Miscellaneous,Swish
+Income,2023-10-22,"HED, CORNELIA",10.0,Miscellaneous,Swish
+Expense,2023-10-22,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-10-20,MEDBORGARSKOLA,-587.0,Miscellaneous,Miscellaneous
+Expense,2023-10-18,WH GOTEBORG BJ,-297.94,Food & Drink,Groceries
+Expense,2023-10-17,G2A.COM,-39.83,Entertainment & Shopping,Toys & Games
+Expense,2023-10-17,DJINAN LIVS,-80.0,Food & Drink,Groceries
+Expense,2023-10-16,TEMPO SKATAS,-67.95,Food & Drink,Groceries
+Expense,2023-10-17,K*eventim.se,-643.2,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-10-15,ICA KVANTUM MU,-455.45,Food & Drink,Groceries
+Expense,2023-10-14,LARSSONS FISK,-550.0,Miscellaneous,Miscellaneous
+Expense,2023-10-13,ICA SUPERMARKE,-54.9,Food & Drink,Groceries
+Expense,2023-10-13,Max Burgers 20,-96.0,Miscellaneous,Miscellaneous
+Income,2023-10-16,Adam Frank,192.0,Miscellaneous,Miscellaneous
+Income,2023-10-16,AXELSSON ÖRBER,85.0,Miscellaneous,Swish
+Income,2023-10-16,"HED, CORNELIA",143.0,Miscellaneous,Swish
+Expense,2023-10-15,Margaretas Kök,-15.0,Miscellaneous,Miscellaneous
+Expense,2023-10-13,"HED, CORNELIA",-40.0,Miscellaneous,Swish
+Expense,2023-10-10,Västtrafik To,-35.0,Transport,Bus & Train
+Income,2023-10-10,SJ Återbetalni,200.0,Transport,Bus & Train
+Expense,2023-10-08,Foodora AB,-345.0,Food & Drink,Restaurant & Bar
+Expense,2023-10-08,Zettle_*INNEBA,-110.0,Miscellaneous,Miscellaneous
+Expense,2023-10-08,SAMNIK AB,-72.0,Food & Drink,Groceries
+Expense,2023-10-08,AMIRS AFF#R,-64.0,Food & Drink,Groceries
+Expense,2023-10-07,DIREKTEN TOPPE,-33.9,Miscellaneous,Miscellaneous
+Expense,2023-10-07,RODA STEN CAFE,-69.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-07,RODA STEN CAFE,-84.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-07,Zettle_*Roda S,-40.0,Miscellaneous,Miscellaneous
+Expense,2023-10-07,BJORKAFRIHET,-250.0,Food & Drink,Restaurant & Bar
+Expense,2023-10-07,7 O CLOCK,-99.0,Miscellaneous,Miscellaneous
+Expense,2023-10-06,ICA FOCUS,-58.85,Food & Drink,Groceries
+Income,2023-10-08,Ludvig Diehl,110.0,Miscellaneous,Swish
+Income,2023-10-08,"TAHMASEBI,ARIA",20.0,Miscellaneous,Swish
+Income,2023-10-08,"HED, CORNELIA",45.0,Miscellaneous,Swish
+Expense,2023-10-07,"HED, CORNELIA",-150.0,Miscellaneous,Swish
+Expense,2023-10-07,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-10-06,"NAUMANEN,JONAT",-25.0,Miscellaneous,Swish
+Expense,2023-10-06,"HED, CORNELIA",-925.0,Miscellaneous,Swish
+Expense,2023-10-04,WILLYS GOTEBOR,-361.04,Food & Drink,Groceries
+Expense,2023-10-04,UGGLAN VC FRED,-50.0,Household,Healthcare & Wellness
+Expense,2023-10-04,WILLYS GOTEBOR,-5.0,Food & Drink,Groceries
+Expense,2023-10-04,NETFLIX.COM,-129.0,Household,"Media, Mobile, and IT"
+Expense,2023-10-03,DJINAN LIVS,-78.9,Food & Drink,Groceries
+Expense,2023-10-03,CAFE BULTEN,-400.0,Food & Drink,Cafe & Snacks
+Expense,2023-10-03,"SUNDQVIST,MATT",-66.0,Miscellaneous,Swish
+Expense,2023-10-01,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2023-09-30,WILLYS PARTILL,-283.29,Food & Drink,Groceries
+Expense,2023-09-30,JULA SVERIGE A,-89.9,Housing,Building & Garden
+Expense,2023-10-02,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2023-10-02,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2023-10-02,UMEÅENERGI,-67.0,Housing,Rent & Fee
+Expense,2023-10-01,Liam Baker,-51.0,Miscellaneous,Swish
+Expense,2023-10-01,Tickster,-120.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-09-30,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-29,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-27,Zettle_*Bull &,-154.0,Miscellaneous,Miscellaneous
+Expense,2023-09-27,LIDL 302 / GBG,-211.05,Food & Drink,Groceries
+Expense,2023-09-27,UGGLAN VC FRED,-150.0,Household,Healthcare & Wellness
+Expense,2023-09-27,WILLYS GOTEBOR,-38.8,Food & Drink,Groceries
+Expense,2023-09-27,WILLYS GOTEBOR,-51.9,Food & Drink,Groceries
+Expense,2023-09-27,APOTEKSGRUPPEN,-88.0,Household,Healthcare & Wellness
+Expense,2023-09-28,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-27,Blizzard EU241,-157.47,Entertainment & Shopping,Toys & Games
+Expense,2023-09-26,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-24,WH GOTEBORG BJ,-230.94,Food & Drink,Groceries
+Expense,2023-09-24,TRIP.COM,-1152.45,Entertainment & Shopping,Vacation
+Expense,2023-09-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2023-09-23,THE ABYSS,-98.0,Miscellaneous,Miscellaneous
+Expense,2023-09-23,PUSTERVIK,-264.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-23,PUSTERVIK,-132.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-23,PUSTERVIK,-160.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-23,JARNGRILLEN,-208.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-22,COOP MUNKEB#CK,-59.84,Food & Drink,Groceries
+Expense,2023-09-22,N-M Frukt & Gr,-29.44,Food & Drink,Groceries
+Expense,2023-09-25,"HED, CORNELIA",-3145.0,Miscellaneous,Swish
+Income,2023-09-21,STUDSTÖD,12052.0,Miscellaneous,Support & Subsidies
+Income,2023-09-24,Åsa Williams,1000.0,Miscellaneous,Swish
+Income,2023-09-24,"HED, CORNELIA",27.0,Miscellaneous,Swish
+Expense,2023-09-23,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-23,"HED, CORNELIA",-50.0,Miscellaneous,Swish
+Expense,2023-09-23,"HED, CORNELIA",-350.0,Miscellaneous,Swish
+Expense,2023-09-23,Tickster,-225.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-09-21,DJINAN LIVS,-65.0,Food & Drink,Groceries
+Expense,2023-09-21,CAFE BULTEN,-21.0,Food & Drink,Cafe & Snacks
+Expense,2023-09-22,Chalmers Stude,-300.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-20,UGGLAN VC FRED,-50.0,Household,Healthcare & Wellness
+Expense,2023-09-20,WILLYS GOTEBOR,-122.3,Food & Drink,Groceries
+Expense,2023-09-20,APOTEKSGRUPPEN,-119.0,Household,Healthcare & Wellness
+Expense,2023-09-20,WILLYS GOTEBOR,-18.9,Food & Drink,Groceries
+Expense,2023-09-21,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-18,UGGLAN VC FRED,-50.0,Household,Healthcare & Wellness
+Expense,2023-09-17,PINAN PIZZERIA,-12.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-17,PINAN PIZZERIA,-115.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-17,ICA NARA ALEXI,-86.8,Food & Drink,Groceries
+Expense,2023-09-16,ICA KVANTUM MU,-280.25,Food & Drink,Groceries
+Expense,2023-09-16,G2A.COM,-40.33,Entertainment & Shopping,Toys & Games
+Expense,2023-09-15,SAMNIK AB,-83.0,Food & Drink,Groceries
+Expense,2023-09-12,Avanza,-10000.0,Miscellaneous,Savings
+Expense,2023-09-09,ICA NARA TRAFF,-33.8,Food & Drink,Groceries
+Expense,2023-09-08,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2023-09-08,JOYTUNES* TRIA,-1280.0,Household,"Media, Mobile, and IT"
+Income,2023-09-08,"HED, CORNELIA",2114.0,Miscellaneous,Swish
+Expense,2023-09-07,DJINAN LIVS,-55.0,Food & Drink,Groceries
+Expense,2023-09-07,CAFE BULTEN,-21.0,Food & Drink,Cafe & Snacks
+Expense,2023-09-06,Musik Utan Gr{,-245.0,Miscellaneous,Miscellaneous
+Expense,2023-09-06,CAFE BULTEN,-70.0,Food & Drink,Cafe & Snacks
+Income,2023-09-07,STUDENTAPAN,330.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-09-06,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-06,Region Västerb,-200.0,Transport,Bus & Train
+Expense,2023-09-04,N-M Frukt & Gr,-67.89,Food & Drink,Groceries
+Expense,2023-09-04,COOP MUNKEB#CK,-89.9,Food & Drink,Groceries
+Expense,2023-09-04,PAY*unkebacksg,-220.0,Miscellaneous,Miscellaneous
+Expense,2023-09-04,TEMPO SKATAS,-77.95,Food & Drink,Groceries
+Expense,2023-09-05,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-09-02,SAMNIK AB,-35.0,Food & Drink,Groceries
+Expense,2023-09-02,Ali Deniz,-41.0,Miscellaneous,Miscellaneous
+Expense,2023-09-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2023-09-01,Luxury Sushi,-310.0,Food & Drink,Restaurant & Bar
+Expense,2023-09-01,STORE,-30.0,Food & Drink,Cafe & Snacks
+Income,2023-09-04,Åsa Williams,2600.0,Miscellaneous,Swish
+Income,2023-09-04,Åsa Williams,1000.0,Miscellaneous,Swish
+Income,2023-09-03,"WILLIAMS, HARR",1000.0,Miscellaneous,Swish
+Income,2023-09-02,Åsa Williams,250.0,Miscellaneous,Swish
+Income,2023-09-01,"HED, CORNELIA",378.0,Miscellaneous,Swish
+Expense,2023-09-01,"HED, BIRGITTA",-5348.0,Miscellaneous,Swish
+Expense,2023-09-01,UMEÅENERGI,-222.0,Housing,Rent & Fee
+Income,2023-08-31,STUDSTÖD,14915.0,Miscellaneous,Support & Subsidies
+Expense,2023-08-29,CAFE BULTEN,-26.0,Food & Drink,Cafe & Snacks
+Expense,2023-08-29,Studentapan,-479.0,Entertainment & Shopping,Culture & Entertainment
+Income,2023-08-29,Åsa Williams,500.0,Miscellaneous,Swish
+Expense,2023-08-27,ICA NARA TRAFF,-86.4,Food & Drink,Groceries
+Expense,2023-08-27,Blizzard Enter,-157.62,Entertainment & Shopping,Toys & Games
+Income,2023-08-26,WH GOTEBORG BJ,44.0,Food & Drink,Groceries
+Expense,2023-08-26,WH GOTEBORG BJ,-115.11,Food & Drink,Groceries
+Expense,2023-08-25,WILLYS GOTEBOR,-163.5,Food & Drink,Groceries
+Expense,2023-08-25,APOTEKSGRUPPEN,-187.59,Household,Healthcare & Wellness
+Expense,2023-08-25,UGGLAN VC FRED,-50.0,Household,Healthcare & Wellness
+Expense,2023-08-28,Bredband2,-72.0,Housing,Rent & Fee
+Income,2023-08-27,"HED, CORNELIA",80.0,Miscellaneous,Swish
+Expense,2023-08-24,LIDL 304 / GOT,-171.75,Food & Drink,Groceries
+Expense,2023-08-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2023-08-23,ICA KVANTUM MU,-404.66,Food & Drink,Groceries
+Expense,2023-08-22,N-M Frukt & Gr,-64.36,Food & Drink,Groceries
+Expense,2023-08-22,COOP MUNKEB#CK,-54.45,Food & Drink,Groceries
+Expense,2023-08-22,"HED, CORNELIA",-35.0,Miscellaneous,Swish
+Expense,2023-08-18,CIRCLE K GOTEB,-435.07,Transport,Vehicles & Fuel
+Expense,2023-08-18,KJELL & CO 65,-1490.0,Entertainment & Shopping,Home Electronics
+Expense,2023-08-18,STORA COOP B#C,-11.0,Food & Drink,Groceries
+Income,2023-08-18,KJELL & CO 65,399.9,Entertainment & Shopping,Home Electronics
+Expense,2023-08-21,K*Tribunen I,-300.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-08-17,PETERSONS KROG,-1144.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-16,G2A.COM,-39.15,Entertainment & Shopping,Toys & Games
+Expense,2023-08-14,STORA COOP B#C,-92.85,Food & Drink,Groceries
+Expense,2023-08-14,KJELL & CO 65,-399.9,Entertainment & Shopping,Home Electronics
+Expense,2023-08-13,Benne Sverige,-253.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-12,Zettle_*Mats N,-49.0,Miscellaneous,Miscellaneous
+Expense,2023-08-12,MATS NORSDTROM,-156.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-11,MATS NORSDTROM,-396.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-10,MATS NORSDTROM,-156.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-10,MATS NORSDTROM,-35.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-10,MATS NORSDTROM,-260.0,Food & Drink,Restaurant & Bar
+Expense,2023-08-10,Zettle_*Mats N,-59.0,Miscellaneous,Miscellaneous
+Expense,2023-08-09,Systembolaget,-402.4,Food & Drink,Alcohol & Tobacco
+Expense,2023-08-09,ICHA ICHA CENT,-139.0,Miscellaneous,Miscellaneous
+Expense,2023-08-10,Ticketmaster S,-1995.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-08-08,FIRST HOTEL ST,-68.0,Entertainment & Shopping,Vacation
+Expense,2023-08-08,COOP GRISBACKA,-135.5,Food & Drink,Groceries
+Expense,2023-08-09,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-08-09,Maja Lundberg,-300.0,Miscellaneous,Swish
+Income,2023-08-08,SJ AB,1665.0,Transport,Bus & Train
+Expense,2023-08-07,FELIX FORSGREN,-358.0,Miscellaneous,Swish
+Income,2023-08-07,FELIX FORSGREN,50.0,Miscellaneous,Swish
+Expense,2023-08-04,KD APOTEK,-341.47,Household,Healthcare & Wellness
+Income,2023-08-07,Åsa Williams,350.0,Miscellaneous,Swish
+Income,2023-08-07,"HED, CORNELIA",600.0,Miscellaneous,Swish
+Expense,2023-08-07,SJ AB,-1665.0,Transport,Bus & Train
+Expense,2023-08-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2023-08-01,ICA SUPERMARKE,-297.05,Food & Drink,Groceries
+Expense,2023-07-30,OKQ8,-61.0,Transport,Vehicles & Fuel
+Income,2023-08-02,PHILIP ÖSTER,50.0,Miscellaneous,Miscellaneous
+Income,2023-08-02,"SUNDQVIST,MATT",150.0,Miscellaneous,Swish
+Expense,2023-08-01,"SUNDQVIST,MATT",-320.0,Miscellaneous,Swish
+Expense,2023-07-31,ICA SUPERMARKE,-72.9,Food & Drink,Groceries
+Expense,2023-08-01,Andre Williams,-46.0,Miscellaneous,Swish
+Income,2023-08-01,SUSANNE SANDST,500.0,Miscellaneous,Swish
+Expense,2023-08-01,Länsförsäkring,-591.0,Housing,Rent & Fee
+Expense,2023-07-30,FILMSTADEN UME,-134.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-07-28,ICA KVANTUM KR,-310.85,Food & Drink,Groceries
+Expense,2023-07-31,AB HousingEN,-2176.0,Housing,Rent & Fee
+Expense,2023-07-31,UMEÅENERGI,-240.0,Housing,Rent & Fee
+Expense,2023-07-25,SJOBRIS,-323.4,Transport,Bus & Train
+Expense,2023-07-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Income,2023-07-25,"HED, CORNELIA",1798.0,Miscellaneous,Swish
+Income,2023-07-25,Hyra,6100.0,Miscellaneous,Miscellaneous
+Expense,2023-07-23,COOP GRISBACKA,-268.6,Food & Drink,Groceries
+Expense,2023-07-22,CIRCLE K UMEA,-89.0,Transport,Vehicles & Fuel
+Expense,2023-07-22,ICA SUPERMARKE,-240.59,Food & Drink,Groceries
+Expense,2023-07-21,5151 RITAZZA S,-99.0,Miscellaneous,Miscellaneous
+Expense,2023-07-21,Teknikmagasine,-69.9,Entertainment & Shopping,Home Electronics
+Expense,2023-07-21,5151 RITAZZA S,-43.0,Miscellaneous,Miscellaneous
+Expense,2023-07-21,COOP KONSUM T-,-118.42,Food & Drink,Groceries
+Expense,2023-07-21,4128810 Pressb,-135.0,Food & Drink,Cafe & Snacks
+Expense,2023-07-21,Brf Kålltorps,-3596.0,Housing,Rent & Fee
+Expense,2023-07-17,WH GOTEBORG BJ,-360.29,Food & Drink,Groceries
+Expense,2023-07-16,G2A.COM,-36.99,Entertainment & Shopping,Toys & Games
+Expense,2023-07-16,G2A.COM,-75.12,Entertainment & Shopping,Toys & Games
+Expense,2023-07-15,Brewers Beer B,-80.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,KAF MAGASINET,-46.2,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,Caswe AB,-140.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,Poppels Citybr,-100.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,CITY KEBAB,-417.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,OLSTUGAN TULLE,-54.6,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,AFGHAN IMPORT,-17.0,Miscellaneous,Miscellaneous
+Expense,2023-07-15,THE GRILL REST,-159.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-14,APOTEKSGRUPPEN,-122.5,Household,Healthcare & Wellness
+Expense,2023-07-14,PAY*Portens Ba,-128.0,Food & Drink,Cafe & Snacks
+Expense,2023-07-14,MALAYSIA SATE,-600.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-15,Happy Order,-64.0,Miscellaneous,Miscellaneous
+Expense,2023-07-15,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-07-13,COOP MUNKEB#CK,-53.5,Food & Drink,Groceries
+Expense,2023-07-11,SAMNIK AB,-32.0,Food & Drink,Groceries
+Expense,2023-07-11,ICA FOCUS,-129.85,Food & Drink,Groceries
+Expense,2023-07-09,DJURAS RESTAUR,-124.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-08,Zettle_*LEK,-200.0,Miscellaneous,Miscellaneous
+Expense,2023-07-08,Zettle_*LEK &,-200.0,Miscellaneous,Miscellaneous
+Expense,2023-07-08,ICA SUPERMARKE,-53.9,Food & Drink,Groceries
+Expense,2023-07-07,Zettle_*LEK &,-200.0,Miscellaneous,Miscellaneous
+Expense,2023-07-07,DJURAS RESTAUR,-198.0,Food & Drink,Restaurant & Bar
+Income,2023-07-10,"IVANOFF, ANNA",545.0,Miscellaneous,Swish
+Expense,2023-07-10,Mikaela Trouvé,-13.5,Miscellaneous,Swish
+Income,2023-07-09,Liam Baker,480.0,Miscellaneous,Swish
+Expense,2023-07-08,Olivia Archer,-200.0,Miscellaneous,Swish
+Expense,2023-07-08,SJ AB,-48.0,Transport,Bus & Train
+Expense,2023-07-06,DJURAS RESTAUR,-110.0,Food & Drink,Restaurant & Bar
+Expense,2023-07-06,ICA SUPERMARKE,-452.2,Food & Drink,Groceries
+Expense,2023-07-06,VASA KONDITORI,-132.0,Food & Drink,Cafe & Snacks
+Expense,2023-07-06,Systembolaget,-226.4,Food & Drink,Alcohol & Tobacco
+Expense,2023-07-07,SJ AB,-48.0,Transport,Bus & Train
+Expense,2023-07-06,Olivia Archer,-135.0,Miscellaneous,Swish
+Expense,2023-07-06,Apoteket Vaghu,-400.9,Household,Healthcare & Wellness
+Expense,2023-07-06,4128810 Pressb,-37.0,Food & Drink,Cafe & Snacks
+Expense,2023-07-06,AIRBNB * HMCJW,-352.95,Entertainment & Shopping,Vacation
+Expense,2023-07-05,SAMNIK AB,-34.0,Food & Drink,Groceries
+Income,2023-07-06,Mikaela Trouvé,545.0,Miscellaneous,Swish
+Income,2023-07-05,AVANZA,10000.0,Miscellaneous,Savings
+Expense,2023-07-05,"HED, CORNELIA",-175.0,Miscellaneous,Swish
+Expense,2023-07-03,N-M Frukt & Gr,-69.0,Food & Drink,Groceries
+Expense,2023-07-03,COOP MUNKEB#CK,-234.25,Food & Drink,Groceries
+Expense,2023-07-03,N-M Frukt & Gr,-79.95,Food & Drink,Groceries
+Expense,2023-07-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2023-07-01,TAVLEBORDS HON,-100.0,Miscellaneous,Miscellaneous
+Expense,2023-07-01,KD APOTEK,-69.0,Household,Healthcare & Wellness
+Expense,2023-06-30,MSUND LIVS AB,-24.95,Food & Drink,Groceries
+Expense,2023-06-29,SJOMACKEN MOLL,-797.0,Transport,Bus & Train
+Expense,2023-06-30,AB HousingEN,-5232.0,Housing,Rent & Fee
+Expense,2023-06-30,UMEÅENERGI,-221.0,Housing,Rent & Fee
+Income,2023-06-29,"HED, BIRGITTA",800.0,Miscellaneous,Swish
+Expense,2023-06-27,Systembolaget,-199.3,Food & Drink,Alcohol & Tobacco
+Expense,2023-06-27,ICA KVANTUM MU,-478.32,Food & Drink,Groceries
+Expense,2023-06-27,ICA KVANTUM MU,-55.9,Food & Drink,Groceries
+Expense,2023-06-26,COOP MUNKEB#CK,-64.45,Food & Drink,Groceries
+Expense,2023-06-26,APOTEKSGRUPPEN,-94.7,Household,Healthcare & Wellness
+Expense,2023-06-26,SAMNIK AB,-42.0,Food & Drink,Groceries
+Expense,2023-06-25,SAMNIK AB,-28.0,Food & Drink,Groceries
+Expense,2023-06-24,SAMNIK AB,-49.0,Food & Drink,Groceries
+Expense,2023-06-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Expense,2023-06-22,N-M Frukt & Gr,-119.9,Food & Drink,Groceries
+Expense,2023-06-22,ICA KVANTUM MU,-537.49,Food & Drink,Groceries
+Expense,2023-06-22,Systembolaget,-491.1,Food & Drink,Alcohol & Tobacco
+Expense,2023-06-22,STEAMGAMES.COM,-59.98,Entertainment & Shopping,Toys & Games
+Expense,2023-06-22,STEAM PURCHASE,-263.08,Entertainment & Shopping,Toys & Games
+Income,2023-06-26,Hyra,6100.0,Miscellaneous,Miscellaneous
+Expense,2023-06-25,"HED, CORNELIA",-2263.0,Miscellaneous,Swish
+Expense,2023-06-24,Food Butik Swe,-240.6,Food & Drink,Restaurant & Bar
+Expense,2023-06-24,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-06-23,Tombola,-50.0,Entertainment & Shopping,Toys & Games
+Expense,2023-06-23,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-06-21,SPORTPRODUKTER,-488.0,Sports & Leisure,Sports & Leisure
+Expense,2023-06-18,SECOND HAND HO,-100.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2023-06-17,Apoteket Centr,-205.0,Household,Healthcare & Wellness
+Expense,2023-06-16,MORENO BIERGAR,-78.0,Food & Drink,Restaurant & Bar
+Expense,2023-06-16,COOP KONSUM K#,-177.85,Food & Drink,Groceries
+Expense,2023-06-16,AIRBNB * HMCJW,-352.94,Entertainment & Shopping,Vacation
+Income,2023-06-18,AVANZA,10000.0,Miscellaneous,Savings
+Expense,2023-06-19,AB STORSTOCKHO,-39.0,Transport,Bus & Train
+Income,2023-06-19,"HED, CORNELIA",39.0,Miscellaneous,Swish
+Expense,2023-06-18,AB STORSTOCKHO,-39.0,Transport,Bus & Train
+Expense,2023-06-18,"HED, CORNELIA",-138.5,Miscellaneous,Swish
+Expense,2023-06-17,AB STORSTOCKHO,-39.0,Transport,Bus & Train
+Expense,2023-06-17,Jonas Larsson,-140.0,Miscellaneous,Swish
+Expense,2023-06-16,SJ AB,-114.0,Transport,Bus & Train
+Expense,2023-06-15,TEMPO SKATAS,-67.95,Food & Drink,Groceries
+Expense,2023-06-15,5020148 7-Elev,-32.0,Food & Drink,Cafe & Snacks
+Expense,2023-06-15,Optimum Scandi,-2550.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2023-06-14,SJ AB,-670.0,Transport,Bus & Train
+Income,2023-06-14,Liam Baker,523.99,Miscellaneous,Swish
+Expense,2023-06-14,SJ AB,-1572.0,Transport,Bus & Train
+Expense,2023-06-14,4015219 7-Elev,-29.0,Food & Drink,Cafe & Snacks
+Expense,2023-06-14,Västtrafik To,-105.0,Transport,Bus & Train
+Expense,2023-06-12,ICA FOCUS,-650.61,Food & Drink,Groceries
+Expense,2023-06-12,Systembolaget,-185.0,Food & Drink,Alcohol & Tobacco
+Expense,2023-06-10,WH GOTEBORG BJ,-180.33,Food & Drink,Groceries
+Expense,2023-06-10,SAMNIK AB,-26.0,Food & Drink,Groceries
+Expense,2023-06-12,"HED, CORNELIA",-170.0,Miscellaneous,Swish
+Expense,2023-06-08,G2ABVSHOP,-254.44,Entertainment & Shopping,Toys & Games
+Expense,2023-06-09,"HED, CORNELIA",-260.0,Miscellaneous,Swish
+Expense,2023-06-09,"HED, CORNELIA",-327.0,Miscellaneous,Swish
+Expense,2023-06-07,G2ABVSHOP,-62.34,Entertainment & Shopping,Toys & Games
+Expense,2023-06-07,Triumf Glassca,-83.0,Food & Drink,Cafe & Snacks
+Expense,2023-06-05,Restaurang Gul,-209.0,Food & Drink,Restaurant & Bar
+Expense,2023-06-07,"HED, CORNELIA",-15.0,Miscellaneous,Swish
+Expense,2023-06-04,ICA SUPERMARKE,-139.4,Food & Drink,Groceries
+Expense,2023-06-04,Zettle_*Big Ta,-165.0,Miscellaneous,Miscellaneous
+Expense,2023-06-04,MATS NORSTROM,-98.0,Food & Drink,Restaurant & Bar
+Expense,2023-06-02,Disney Plus,-89.0,Household,"Media, Mobile, and IT"
+Expense,2023-06-02,ADA GODIS AB,-98.0,Food & Drink,Cafe & Snacks
+Expense,2023-06-05,Billetto,-3150.0,Entertainment & Shopping,Culture & Entertainment
+Income,2023-06-03,AVANZA,10000.0,Miscellaneous,Savings
+Income,2023-06-04,"HED, CORNELIA",33.0,Miscellaneous,Swish
+Expense,2023-06-04,Liam Baker,-65.0,Miscellaneous,Swish
+Income,2023-06-04,Åsa Williams,1000.0,Miscellaneous,Swish
+Expense,2023-06-03,"HED, CORNELIA",-590.0,Miscellaneous,Swish
+Expense,2023-06-03,SJ AB,-1021.0,Transport,Bus & Train
+Expense,2023-06-03,"HED, CORNELIA",-1833.0,Miscellaneous,Swish
+Expense,2023-06-03,"HED, CORNELIA",-300.0,Miscellaneous,Swish
+Expense,2023-06-01,hallon,-49.0,Household,"Media, Mobile, and IT"
+Expense,2023-06-01,WH GOTEBORG BJ,-407.7,Food & Drink,Groceries
+Expense,2023-06-01,AIRBNB * HMCJW,-2020.0,Entertainment & Shopping,Vacation
+Expense,2023-05-31,ICA KVANTUM MU,-141.75,Food & Drink,Groceries
+Expense,2023-05-31,Liam Baker,-39.0,Miscellaneous,Swish
+Expense,2023-05-31,AB HousingEN,-5232.0,Housing,Rent & Fee
+Expense,2023-05-31,UMEÅENERGI,-195.0,Housing,Rent & Fee
+Expense,2023-05-30,"HED, CORNELIA",-31.0,Miscellaneous,Swish
+Expense,2023-05-28,M/S Gotapetter,-69.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,M/S Gotapetter,-312.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,M/S Gotapetter,-269.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,M/S Gotapetter,-177.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,M/S Gotapetter,-256.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,Poppels Citybr,-200.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,OVES GATUKOK,-100.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-27,Elgiganten Par,-299.0,Entertainment & Shopping,Home Electronics
+Expense,2023-05-26,SYNVARD OLSKRO,-780.0,Household,Healthcare & Wellness
+Expense,2023-05-27,BLOMSTERLANDET,-835.6,Housing,Building & Garden
+Income,2023-05-29,"IVANOFF, ERIK",80.0,Miscellaneous,Swish
+Income,2023-05-29,"HED, CORNELIA",80.0,Miscellaneous,Swish
+Expense,2023-05-29,"HED, CORNELIA",-2950.0,Miscellaneous,Swish
+Expense,2023-05-29,Bredband2,-927.0,Housing,Rent & Fee
+Income,2023-05-28,LEO WESTLIN,150.0,Miscellaneous,Swish
+Income,2023-05-28,"IVANOFF, ANNA",80.0,Miscellaneous,Swish
+Expense,2023-05-25,7-Eleven Gbg V,-62.0,Food & Drink,Cafe & Snacks
+Expense,2023-05-25,CAPITOL,-25.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2023-05-25,JONSBORGSGRILL,-120.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-26,Liam Baker,-400.0,Miscellaneous,Swish
+Expense,2023-05-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Income,2023-05-25,Hyra,6100.0,Miscellaneous,Miscellaneous
+Income,2023-05-23,STUDSTÖD,6026.0,Miscellaneous,Support & Subsidies
+Expense,2023-05-23,WH GOTEBORG BJ,-19.9,Food & Drink,Groceries
+Expense,2023-05-23,WH GOTEBORG BJ,-37.94,Food & Drink,Groceries
+Expense,2023-05-24,"HED, CORNELIA",-130.0,Miscellaneous,Swish
+Expense,2023-05-22,WH GOTEBORG BJ,-331.0,Food & Drink,Groceries
+Income,2023-05-19,ELSTÖD,133.0,Miscellaneous,Miscellaneous
+Expense,2023-05-21,TICKSTER AB,-115.0,Miscellaneous,Miscellaneous
+Expense,2023-05-19,SAMNIK AB,-14.0,Food & Drink,Groceries
+Expense,2023-05-19,COOP MUNKEB#CK,-168.85,Food & Drink,Groceries
+Expense,2023-05-19,Systembolaget,-192.1,Food & Drink,Alcohol & Tobacco
+Expense,2023-05-22,Optimum Scandi,-2550.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2023-05-20,Jonas Larsson,-208.33,Miscellaneous,Swish
+Expense,2023-05-20,Västtrafik To,-35.0,Transport,Bus & Train
+Income,2023-05-19,Felix Rosberg,60.0,Miscellaneous,Swish
+Expense,2023-05-18,WH GOTEBORG BJ,-419.2,Food & Drink,Groceries
+Expense,2023-05-18,SAMNIK AB,-53.0,Food & Drink,Groceries
+Expense,2023-05-17,Torps Cafe AB,-45.0,Food & Drink,Cafe & Snacks
+Expense,2023-05-16,AMIRS AFF#R,-29.0,Food & Drink,Groceries
+Income,2023-05-18,AVANZA,10000.0,Miscellaneous,Savings
+Expense,2023-05-17,Västtrafik To,-105.0,Transport,Bus & Train
+Expense,2023-05-17,Västtrafik To,-77.0,Transport,Bus & Train
+Expense,2023-05-15,Revolut**5693*,-520.0,Miscellaneous,Miscellaneous
+Expense,2023-05-14,WH GOTEBORG BJ,-145.5,Food & Drink,Groceries
+Expense,2023-05-13,OLSTUGAN TULLE,-54.6,Food & Drink,Restaurant & Bar
+Expense,2023-05-13,7-Eleven Slott,-87.0,Food & Drink,Cafe & Snacks
+Expense,2023-05-13,Ramen-ya,-450.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-13,Google Play Ap,-40.0,Household,"Media, Mobile, and IT"
+Expense,2023-05-13,ESCACITO AB,-60.0,Miscellaneous,Miscellaneous
+Expense,2023-05-16,Liam Baker,-250.0,Miscellaneous,Swish
+Income,2023-05-15,AVANZA,2550.0,Miscellaneous,Savings
+Income,2023-05-15,AVANZA,811.0,Miscellaneous,Savings
+Income,2023-05-15,Liam Baker,250.0,Miscellaneous,Swish
+Expense,2023-05-14,"HED, CORNELIA",-711.0,Miscellaneous,Swish
+Expense,2023-05-11,WH GOTEBORG BJ,-262.33,Food & Drink,Groceries
+Expense,2023-05-12,"HED, CORNELIA",-2947.0,Miscellaneous,Swish
+Expense,2023-05-12,K*LensWay Gr,-195.0,Household,Healthcare & Wellness
+Expense,2023-05-09,GOOGLE *Google,-399.0,Household,"Media, Mobile, and IT"
+Income,2023-05-08,Jonas Larsson,180.0,Miscellaneous,Swish
+Expense,2023-05-06,CIRCLE K GOTEB,-231.02,Transport,Vehicles & Fuel
+Expense,2023-05-06,"Zettle_*Najia,",-108.0,Miscellaneous,Miscellaneous
+Expense,2023-05-06,"Zettle_*Najia,",-35.0,Miscellaneous,Miscellaneous
+Expense,2023-05-05,ICA SUPERMARKE,-647.8,Food & Drink,Groceries
+Expense,2023-05-05,Systembolaget,-262.2,Food & Drink,Alcohol & Tobacco
+Expense,2023-05-04,GG BAR,-138.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-04,S.M.A.K,-52.0,Food & Drink,Cafe & Snacks
+Expense,2023-05-04,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-05-04,"NAUMANEN,JONAT",-69.0,Miscellaneous,Swish
+Expense,2023-05-01,ULLEVI KONFERE,-151.0,Food & Drink,Restaurant & Bar
+Expense,2023-05-04,"NAUMANEN,JONAT",-99.0,Miscellaneous,Swish
+Expense,2023-05-03,Alfred Anderss,-140.0,Miscellaneous,Miscellaneous
+Expense,2023-05-03,Västtrafik To,-14.0,Transport,Bus & Train
+Expense,2023-05-03,SAMNIK AB,-24.0,Food & Drink,Groceries
+Expense,2023-05-02,Disney Plus,-89.0,Household,"Media, Mobile, and IT"
+Expense,2023-05-03,Optimum Scandi,-2550.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2023-05-01,hallon,-49.0,Household,"Media, Mobile, and IT"
+Expense,2023-05-01,SAMNIK AB,-24.0,Food & Drink,Groceries
+Expense,2023-05-01,FOLKBAREN,-192.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-30,LINNETERRASSEN,-168.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-29,Sannegardens P,-7.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-29,ADA GODIS AB,-83.0,Food & Drink,Cafe & Snacks
+Expense,2023-04-29,STADSMISSIONEN,-135.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2023-04-28,4125208 Pressb,-74.0,Food & Drink,Cafe & Snacks
+Expense,2023-04-28,SAMNIK AB,-30.0,Food & Drink,Groceries
+Expense,2023-05-02,UMEÅENERGI,-198.0,Housing,Rent & Fee
+Expense,2023-04-30,FIROS CREP HAN,-90.0,Miscellaneous,Miscellaneous
+Expense,2023-04-29,Food Butik Swe,-316.6,Food & Drink,Restaurant & Bar
+Expense,2023-04-29,Västtrafik To,-35.0,Transport,Bus & Train
+Expense,2023-04-27,WH GOTEBORG BJ,-504.56,Food & Drink,Groceries
+Expense,2023-04-28,Västtrafik To,-105.0,Transport,Bus & Train
+Expense,2023-04-28,AB HousingEN,-5232.0,Housing,Rent & Fee
+Expense,2023-04-28,Telia,-429.0,Household,"Media, Mobile, and IT"
+Expense,2023-04-25,DJINAN LIVS,-110.0,Food & Drink,Groceries
+Expense,2023-04-25,DJINAN LIVS,-50.0,Food & Drink,Groceries
+Income,2023-04-26,Andre Williams,6100.0,Miscellaneous,Swish
+Expense,2023-04-24,GOOGLE *Google,-15.99,Household,"Media, Mobile, and IT"
+Income,2023-04-25,"NAUMANEN,JONAT",55.0,Miscellaneous,Swish
+Income,2023-04-25,"NAUMANEN,JONAT",25.0,Miscellaneous,Swish
+Expense,2023-04-25,Chalmers Stude,-300.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-25,Qliro,-248.82,Miscellaneous,Miscellaneous
+Income,2023-04-21,STUDSTÖD,12052.0,Miscellaneous,Support & Subsidies
+Expense,2023-04-23,N-M Frukt & Gr,-79.95,Food & Drink,Groceries
+Expense,2023-04-23,MEDIA MARKT,-699.0,Entertainment & Shopping,Home Electronics
+Expense,2023-04-23,YILI RESTAURAN,-240.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-21,N-M Frukt & Gr,-96.43,Food & Drink,Groceries
+Expense,2023-04-21,HONOFISK MUNKE,-195.0,Food & Drink,Groceries
+Expense,2023-04-21,LILLA SUR GOTE,-133.0,Food & Drink,Groceries
+Income,2023-04-23,"HED, CORNELIA",120.0,Miscellaneous,Swish
+Income,2023-04-23,"HED, CORNELIA",80.0,Miscellaneous,Swish
+Expense,2023-04-23,"HED, CORNELIA",-1000.0,Miscellaneous,Swish
+Expense,2023-04-20,SYNVARD OLSKRO,-815.0,Household,Healthcare & Wellness
+Expense,2023-04-20,"HED, CORNELIA",-500.0,Miscellaneous,Swish
+Expense,2023-04-19,Felix Rosberg,-125.0,Miscellaneous,Swish
+Expense,2023-04-17,WH GOTEBORG BJ,-596.4,Food & Drink,Groceries
+Expense,2023-04-15,ICA FOCUS,-457.49,Food & Drink,Groceries
+Expense,2023-04-15,COOLCARD G@TEB,-329.0,Miscellaneous,Miscellaneous
+Expense,2023-04-15,4428155 Pressb,-31.0,Food & Drink,Cafe & Snacks
+Expense,2023-04-14,COOP MUNKEB#CK,-131.95,Food & Drink,Groceries
+Expense,2023-04-17,Intrum Sverige,-364.0,Miscellaneous,Miscellaneous
+Expense,2023-04-16,SkalHuset.se,-338.0,Entertainment & Shopping,Toys & Games
+Expense,2023-04-14,Avanza,-3000.0,Miscellaneous,Savings
+Expense,2023-04-12,TEMPO SKATAS,-54.0,Food & Drink,Groceries
+Expense,2023-04-11,CIRCLE K GOTEB,-502.81,Transport,Vehicles & Fuel
+Expense,2023-04-11,Burger King St,-167.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-11,MSUND LIVS AB,-111.9,Food & Drink,Groceries
+Expense,2023-04-08,YAKI-DA AB,-192.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-07,ICA KVANTUM MU,-823.94,Food & Drink,Groceries
+Expense,2023-04-07,"ENGBERG,JOEL",-136.0,Miscellaneous,Swish
+Expense,2023-04-07,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2023-04-05,APOTEK HJARTAT,-426.0,Household,Healthcare & Wellness
+Expense,2023-04-05,SUBWAY 61148 R,-180.0,Food & Drink,Restaurant & Bar
+Expense,2023-04-04,SAMNIK AB,-28.0,Food & Drink,Groceries
+Expense,2023-04-06,K*Media Mark,-299.0,Entertainment & Shopping,Home Electronics
+Expense,2023-04-03,IKEA BECKEBOL,-188.0,Entertainment & Shopping,Home Electronics
+Expense,2023-04-02,Disney Plus,-89.0,Household,"Media, Mobile, and IT"
+Expense,2023-04-01,hallon,-49.0,Household,"Media, Mobile, and IT"
+Expense,2023-04-01,COOP MUNKEB#CK,-150.85,Food & Drink,Groceries
+Expense,2023-04-01,N-M Frukt & Gr,-63.71,Food & Drink,Groceries
+Expense,2023-04-01,KALLTORP TRADG,-607.0,Miscellaneous,Miscellaneous
+Expense,2023-03-30,CALM.COM SUBSC,-249.5,Entertainment & Shopping,Beauty & Personal Care
+Expense,2023-03-31,AB HousingEN,-5232.0,Housing,Rent & Fee
+Expense,2023-03-31,Telia,-339.0,Household,"Media, Mobile, and IT"
+Expense,2023-03-31,UMEÅENERGI,-204.0,Housing,Rent & Fee
+Expense,2023-03-29,4125130 Pressb,-51.0,Food & Drink,Cafe & Snacks
+Expense,2024-07-01,ICA Kvantum,-541.25,Food & Drink,Groceries
+Expense,2024-07-02,McDonald's,-97.5,Food & Drink,Restaurant & Bar
+Expense,2024-07-03,Biltema,-1299.0,Transport,Vehicles & Fuel
+Expense,2024-07-04,Apotek Hjärtat,-213.4,Household,Healthcare & Wellness
+Expense,2024-07-05,H&M,-645.9,Entertainment & Shopping,Kläder & accessoarer
+Income,2024-07-06,Lön,21000.0,Miscellaneous,Lön
+Expense,2024-07-07,Spotify,-99.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-08,Preem,-453.25,Transport,Vehicles & Fuel
+Expense,2024-07-09,Sushi Yama,-198.75,Food & Drink,Restaurant & Bar
+Expense,2024-07-10,City Gross,-1243.0,Food & Drink,Groceries
+Income,2024-07-11,Swish,1000.0,Miscellaneous,Swish
+Expense,2024-07-12,Bauhaus,-3790.0,Housing,Building & Garden
+Expense,2024-07-13,Netflix,-139.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-14,H&M,-345.5,Entertainment & Shopping,Kläder & accessoarer
+Expense,2024-07-15,Elgiganten,-1249.0,Household,Elektronik
+Income,2024-07-16,Skatteåterbäring,7500.0,Miscellaneous,Support & Subsidies
+Expense,2024-07-17,Kjell & Company,-452.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-18,Lidl,-721.9,Food & Drink,Groceries
+Expense,2024-07-19,Wilma,-420.0,Miscellaneous,Swish
+Expense,2024-07-20,Clas Ohlson,-299.5,Household,Elektronik
+Expense,2024-07-21,SF Bio,-159.0,Entertainment & Shopping,Culture & Entertainment
+Income,2024-07-22,Bonus,500.0,Miscellaneous,Bonus
+Expense,2024-07-23,Shell,-563.45,Transport,Vehicles & Fuel
+Expense,2024-07-24,MAX Burgers,-87.6,Food & Drink,Restaurant & Bar
+Expense,2024-07-25,IKEA,-2875.0,Housing,Inredning
+Expense,2024-07-26,ICA Nära,-312.15,Food & Drink,Groceries
+Expense,2024-07-27,VR Sverige,-399.0,Entertainment & Shopping,Elektronik
+Expense,2024-07-28,Shell,-483.75,Transport,Vehicles & Fuel
+Income,2024-07-29,Swish,1500.0,Miscellaneous,Swish
+Expense,2024-07-30,NetOnNet,-1245.5,Household,Elektronik
+Expense,2024-07-01,ICA Kvantum,-541.25,Household,Groceries
+Expense,2024-07-02,Apotek Hjärtat,-213.4,Household,Healthcare & Wellness
+Expense,2024-07-03,Elgiganten,-1249.0,Household,Elektronik
+Expense,2024-07-04,Spotify,-99.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-05,Kjell & Company,-452.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-06,NetOnNet,-1245.5,Household,Elektronik
+Expense,2024-07-07,Preem,-453.25,Transport,Vehicles & Fuel
+Expense,2024-07-08,Shell,-563.45,Transport,Vehicles & Fuel
+Expense,2024-07-09,Västtrafik,-87.6,Transport,Bus & Train
+Expense,2024-07-10,Biltema,-1299.0,Transport,Vehicles & Fuel
+Expense,2024-07-11,OKQ8,-325.75,Transport,Vehicles & Fuel
+Expense,2024-07-12,Shell,-483.75,Transport,Vehicles & Fuel
+Expense,2024-07-13,H&M,-645.9,Entertainment & Shopping,Kläder & accessoarer
+Expense,2024-07-14,Clas Ohlson,-299.5,Entertainment & Shopping,Elektronik
+Expense,2024-07-15,SF Bio,-159.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-07-16,Netflix,-139.0,Entertainment & Shopping,"Media, Mobile, and IT"
+Expense,2024-07-17,Zalando,-124.0,Entertainment & Shopping,Kläder & accessoarer
+Expense,2024-07-18,Amazon,-543.3,Entertainment & Shopping,Toys & Games
+Expense,2024-07-19,IKEA,-2875.0,Household,Inredning
+Expense,2024-07-20,Clas Ohlson,-499.5,Household,Elektronik
+Expense,2024-07-21,Elgiganten,-1999.0,Household,Elektronik
+Expense,2024-07-22,Spotify,-99.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-23,Kjell & Company,-452.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-24,NetOnNet,-1245.5,Household,Elektronik
+Expense,2024-07-25,Preem,-453.25,Transport,Vehicles & Fuel
+Expense,2024-07-26,Shell,-563.45,Transport,Vehicles & Fuel
+Expense,2024-07-27,Västtrafik,-87.6,Transport,Bus & Train
+Expense,2024-07-28,Biltema,-1299.0,Transport,Vehicles & Fuel
+Expense,2024-07-29,OKQ8,-325.75,Transport,Vehicles & Fuel
+Expense,2024-07-30,Shell,-483.75,Transport,Vehicles & Fuel
+Expense,2024-07-31,H&M,-645.9,Entertainment & Shopping,Kläder & accessoarer
+Expense,2024-08-01,Clas Ohlson,-299.5,Entertainment & Shopping,Elektronik
+Expense,2024-08-02,SF Bio,-159.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-08-03,Netflix,-139.0,Entertainment & Shopping,"Media, Mobile, and IT"
+Expense,2024-08-04,Zalando,-124.0,Entertainment & Shopping,Kläder & accessoarer
+Expense,2024-08-05,Amazon,-543.3,Entertainment & Shopping,Toys & Games
+Expense,2024-07-01,Byggmax,-1500.0,Housing,Building & Garden
+Expense,2024-07-02,Hemköp,-300.0,Food & Drink,Groceries
+Expense,2024-07-03,Wayne's Coffee,-75.0,Food & Drink,Cafe & Snacks
+Expense,2024-07-04,MAX Burgers,-120.0,Food & Drink,Restaurant & Bar
+Expense,2024-07-05,Systembolaget,-230.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-07-06,ICA,-450.0,Food & Drink,Groceries
+Expense,2024-07-07,Elgiganten,-2400.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-08,Veterinärkliniken,-850.0,Household,Pets
+Expense,2024-07-09,Apoteket,-200.0,Household,Healthcare & Wellness
+Expense,2024-07-10,Shell,-600.0,Transport,Vehicles & Fuel
+Expense,2024-07-11,Västtrafik,-45.0,Transport,Bus & Train
+Expense,2024-07-12,Biltema,-1500.0,Transport,Vehicles & Fuel
+Expense,2024-07-13,Clas Ohlson,-300.0,Entertainment & Shopping,Home Electronics
+Expense,2024-07-14,Zalando,-500.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-07-15,MediaMarkt,-1000.0,Entertainment & Shopping,Home Electronics
+Expense,2024-07-16,SF Bio,-150.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-07-17,Sephora,-300.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-07-18,"Toys""R""Us",-400.0,Entertainment & Shopping,Toys & Games
+Expense,2024-07-19,Scandic Hotels,-1500.0,Entertainment & Shopping,Vacation
+Expense,2024-07-20,XXL,-800.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-07-21,IKEA,-3000.0,Housing,Rent & Fee
+Expense,2024-07-22,Coop,-350.0,Food & Drink,Groceries
+Expense,2024-07-23,Espresso House,-85.0,Food & Drink,Cafe & Snacks
+Expense,2024-07-24,McDonald's,-95.0,Food & Drink,Restaurant & Bar
+Expense,2024-07-25,Alko,-150.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-07-26,Lidl,-220.0,Food & Drink,Groceries
+Expense,2024-07-27,NetOnNet,-2000.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-28,Djurmagazinet,-750.0,Household,Pets
+Expense,2024-07-29,Apotek Hjärtat,-250.0,Household,Healthcare & Wellness
+Expense,2024-07-30,Preem,-500.0,Transport,Vehicles & Fuel
+Expense,2024-07-31,SL,-50.0,Transport,Bus & Train
+Expense,2024-08-01,OKQ8,-800.0,Transport,Vehicles & Fuel
+Expense,2024-08-02,Elgiganten,-3500.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-03,HM,-600.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-08-04,Mediamarkt,-1200.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-05,CineStar,-180.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-08-06,The Body Shop,-320.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-08-07,BR,-450.0,Entertainment & Shopping,Toys & Games
+Expense,2024-08-08,Radisson Blu,-1700.0,Entertainment & Shopping,Vacation
+Expense,2024-08-09,Intersport,-900.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-08-10,Hyresrättsföreningen,-3500.0,Housing,Rent & Fee
+Expense,2024-08-11,MatHem,-450.0,Food & Drink,Groceries
+Expense,2024-08-12,Coffeehouse by George,-90.0,Food & Drink,Cafe & Snacks
+Expense,2024-08-13,Burger King,-100.0,Food & Drink,Restaurant & Bar
+Expense,2024-08-14,Alko,-200.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-08-15,Willys,-300.0,Food & Drink,Groceries
+Expense,2024-08-16,Siba,-2700.0,Household,"Media, Mobile, and IT"
+Expense,2024-08-17,Arken Zoo,-850.0,Household,Pets
+Expense,2024-08-18,Apoteksgruppen,-280.0,Household,Healthcare & Wellness
+Expense,2024-08-19,St1,-600.0,Transport,Vehicles & Fuel
+Expense,2024-08-20,Skånetrafiken,-55.0,Transport,Bus & Train
+Expense,2024-08-21,Preem,-900.0,Transport,Vehicles & Fuel
+Expense,2024-08-22,Webhallen,-4200.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-23,Foot Locker,-700.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-08-24,Elgiganten,-1500.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-25,Filmstaden,-160.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-08-26,KICKS,-340.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-08-27,BR,-480.0,Entertainment & Shopping,Toys & Games
+Expense,2024-08-28,Scandic Hotels,-1800.0,Entertainment & Shopping,Vacation
+Expense,2024-08-29,Stadium,-950.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-08-30,Bauhaus,-5000.0,Housing,Building & Garden
+Expense,2024-08-31,Hemköp,-350.0,Food & Drink,Groceries
+Expense,2024-09-01,Espresso House,-95.0,Food & Drink,Cafe & Snacks
+Expense,2024-09-02,KFC,-105.0,Food & Drink,Restaurant & Bar
+Expense,2024-09-03,Systembolaget,-250.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-09-04,City Gross,-470.0,Food & Drink,Groceries
+Expense,2024-09-05,Power,-3200.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-06,Zoo.se,-900.0,Household,Pets
+Expense,2024-09-07,Apoteket,-300.0,Household,Healthcare & Wellness
+Expense,2024-09-08,Circle K,-700.0,Transport,Vehicles & Fuel
+Expense,2024-09-09,Västtrafik,-60.0,Transport,Bus & Train
+Expense,2024-09-10,OKQ8,-1000.0,Transport,Vehicles & Fuel
+Expense,2024-07-01,Byggmax,-1500.0,Housing,Building & Garden
+Expense,2024-07-02,Hemköp,-300.0,Food & Drink,Groceries
+Expense,2024-07-03,Wayne's Coffee,-75.0,Food & Drink,Cafe & Snacks
+Expense,2024-07-04,MAX Burgers,-120.0,Food & Drink,Restaurant & Bar
+Expense,2024-07-05,Systembolaget,-230.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-07-06,ICA,-450.0,Food & Drink,Groceries
+Expense,2024-07-07,Elgiganten,-2400.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-08,Veterinärkliniken,-850.0,Household,Pets
+Expense,2024-07-09,Apoteket,-200.0,Household,Healthcare & Wellness
+Expense,2024-07-10,Shell,-600.0,Transport,Vehicles & Fuel
+Expense,2024-07-11,Västtrafik,-45.0,Transport,Bus & Train
+Expense,2024-07-12,Biltema,-1500.0,Transport,Vehicles & Fuel
+Expense,2024-07-13,Clas Ohlson,-300.0,Entertainment & Shopping,Home Electronics
+Expense,2024-07-14,Zalando,-500.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-07-15,MediaMarkt,-1000.0,Entertainment & Shopping,Home Electronics
+Expense,2024-07-16,SF Bio,-150.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-07-17,Sephora,-300.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-07-18,"Toys""R""Us",-400.0,Entertainment & Shopping,Toys & Games
+Expense,2024-07-19,Scandic Hotels,-1500.0,Entertainment & Shopping,Vacation
+Expense,2024-07-20,XXL,-800.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-07-21,IKEA,-3000.0,Housing,Rent & Fee
+Expense,2024-07-22,Coop,-350.0,Food & Drink,Groceries
+Expense,2024-07-23,Espresso House,-85.0,Food & Drink,Cafe & Snacks
+Expense,2024-07-24,McDonald's,-95.0,Food & Drink,Restaurant & Bar
+Expense,2024-07-25,Alko,-150.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-07-26,Lidl,-220.0,Food & Drink,Groceries
+Expense,2024-07-27,NetOnNet,-2000.0,Household,"Media, Mobile, and IT"
+Expense,2024-07-28,Djurmagazinet,-750.0,Household,Pets
+Expense,2024-07-29,Apotek Hjärtat,-250.0,Household,Healthcare & Wellness
+Expense,2024-07-30,Preem,-500.0,Transport,Vehicles & Fuel
+Expense,2024-07-31,SL,-50.0,Transport,Bus & Train
+Expense,2024-08-01,OKQ8,-800.0,Transport,Vehicles & Fuel
+Expense,2024-08-02,Elgiganten,-3500.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-03,HM,-600.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-08-04,Mediamarkt,-1200.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-05,CineStar,-180.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-08-06,The Body Shop,-320.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-08-07,BR,-450.0,Entertainment & Shopping,Toys & Games
+Expense,2024-08-08,Radisson Blu,-1700.0,Entertainment & Shopping,Vacation
+Expense,2024-08-09,Intersport,-900.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-08-10,Hyresrättsföreningen,-3500.0,Housing,Rent & Fee
+Expense,2024-08-11,MatHem,-450.0,Food & Drink,Groceries
+Expense,2024-08-12,Coffeehouse by George,-90.0,Food & Drink,Cafe & Snacks
+Expense,2024-08-13,Burger King,-100.0,Food & Drink,Restaurant & Bar
+Expense,2024-08-14,Alko,-200.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-08-15,Willys,-300.0,Food & Drink,Groceries
+Expense,2024-08-16,Siba,-2700.0,Household,"Media, Mobile, and IT"
+Expense,2024-08-17,Arken Zoo,-850.0,Household,Pets
+Expense,2024-08-18,Apoteksgruppen,-280.0,Household,Healthcare & Wellness
+Expense,2024-08-19,St1,-600.0,Transport,Vehicles & Fuel
+Expense,2024-08-20,Skånetrafiken,-55.0,Transport,Bus & Train
+Expense,2024-08-21,Preem,-900.0,Transport,Vehicles & Fuel
+Expense,2024-08-22,Webhallen,-4200.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-23,Foot Locker,-700.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-08-24,Elgiganten,-1500.0,Entertainment & Shopping,Home Electronics
+Expense,2024-08-25,Filmstaden,-160.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-08-26,KICKS,-340.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-08-27,BR,-480.0,Entertainment & Shopping,Toys & Games
+Expense,2024-08-28,Scandic Hotels,-1800.0,Entertainment & Shopping,Vacation
+Expense,2024-08-29,Stadium,-950.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-08-30,Bauhaus,-5000.0,Housing,Building & Garden
+Expense,2024-08-31,Hemköp,-350.0,Food & Drink,Groceries
+Expense,2024-09-01,Espresso House,-95.0,Food & Drink,Cafe & Snacks
+Expense,2024-09-02,KFC,-105.0,Food & Drink,Restaurant & Bar
+Expense,2024-09-03,Systembolaget,-250.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-09-04,City Gross,-470.0,Food & Drink,Groceries
+Expense,2024-09-05,Power,-3200.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-06,Zoo.se,-900.0,Household,Pets
+Expense,2024-09-07,Apoteket,-300.0,Household,Healthcare & Wellness
+Expense,2024-09-08,Circle K,-700.0,Transport,Vehicles & Fuel
+Expense,2024-09-09,Västtrafik,-60.0,Transport,Bus & Train
+Expense,2024-09-10,OKQ8,-1000.0,Transport,Vehicles & Fuel
+Expense,2024-09-11,Elgiganten,-500.0,Entertainment & Shopping,Home Electronics
+Expense,2024-09-12,Hornbach,-1600.0,Housing,Building & Garden
+Expense,2024-09-13,Lidl Supermarket,-320.0,Food & Drink,Groceries
+Expense,2024-09-14,Starbucks,-85.0,Food & Drink,Cafe & Snacks
+Expense,2024-09-15,Burger King,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-09-16,Vinmonopolet,-250.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-09-17,City Gross,-480.0,Food & Drink,Groceries
+Expense,2024-09-18,Media Markt,-2300.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-19,Djuraffär,-900.0,Household,Pets
+Expense,2024-09-20,Kronans Apotek,-270.0,Household,Healthcare & Wellness
+Expense,2024-09-21,Circle K,-650.0,Transport,Vehicles & Fuel
+Expense,2024-09-22,SL Pendeltåg,-50.0,Transport,Bus & Train
+Expense,2024-09-23,Biltema,-1600.0,Transport,Vehicles & Fuel
+Expense,2024-09-24,NetOnNet,-3100.0,Entertainment & Shopping,Home Electronics
+Expense,2024-09-25,Zara,-600.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-09-26,Electrolux,-1100.0,Entertainment & Shopping,Home Electronics
+Expense,2024-09-27,Royal Cinema,-170.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-09-28,Rituals,-350.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-09-29,Toy Kingdom,-450.0,Entertainment & Shopping,Toys & Games
+Expense,2024-09-30,Holiday Inn,-1800.0,Entertainment & Shopping,Vacation
+Expense,2024-10-01,Decathlon,-950.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-10-02,Hem & Villa,-3000.0,Housing,Rent & Fee
+Expense,2024-10-03,ICA Maxi,-500.0,Food & Drink,Groceries
+Expense,2024-10-04,Wayne's Coffee,-95.0,Food & Drink,Cafe & Snacks
+Expense,2024-10-05,Sushi Yama,-105.0,Food & Drink,Restaurant & Bar
+Expense,2024-10-06,Systembolaget,-270.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-10-07,Lidl,-330.0,Food & Drink,Groceries
+Expense,2024-10-08,Elgiganten,-3600.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-09,Pet Store,-850.0,Household,Pets
+Expense,2024-10-10,Apoteket AB,-300.0,Household,Healthcare & Wellness
+Expense,2024-10-11,Shell,-650.0,Transport,Vehicles & Fuel
+Expense,2024-10-12,Västtrafik,-65.0,Transport,Bus & Train
+Expense,2024-10-13,OKQ8,-1100.0,Transport,Vehicles & Fuel
+Expense,2024-10-14,Clas Ohlson,-3800.0,Entertainment & Shopping,Home Electronics
+Expense,2024-10-15,Foot Locker,-720.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-10-16,Elon,-1600.0,Entertainment & Shopping,Home Electronics
+Expense,2024-10-17,Cinema City,-190.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-10-18,KICKS,-360.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-10-19,Leksakslandet,-500.0,Entertainment & Shopping,Toys & Games
+Expense,2024-10-20,Radisson,-2000.0,Entertainment & Shopping,Vacation
+Expense,2024-10-21,Adidas Store,-1000.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-10-22,Hemköpsföreningen,-4000.0,Housing,Rent & Fee
+Expense,2024-10-23,Willys,-400.0,Food & Drink,Groceries
+Expense,2024-10-24,Espresso House,-105.0,Food & Drink,Cafe & Snacks
+Expense,2024-10-25,Max,-115.0,Food & Drink,Restaurant & Bar
+Expense,2024-10-26,Alko,-300.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-10-27,City Gross,-550.0,Food & Drink,Groceries
+Expense,2024-10-28,Media Markt,-3700.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-29,Djurtillbehör,-950.0,Household,Pets
+Expense,2024-10-30,Apotek Hjärtat,-350.0,Household,Healthcare & Wellness
+Expense,2024-10-31,St1,-700.0,Transport,Vehicles & Fuel
+Expense,2024-11-01,SL,-70.0,Transport,Bus & Train
+Expense,2024-11-02,Preem,-1200.0,Transport,Vehicles & Fuel
+Expense,2024-11-03,Webhallen,-4500.0,Entertainment & Shopping,Home Electronics
+Expense,2024-11-04,Foot Locker,-750.0,Entertainment & Shopping,Clothes & Fashion
+Expense,2024-11-05,Elgiganten,-1700.0,Entertainment & Shopping,Home Electronics
+Expense,2024-11-06,Filmstaden,-200.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-11-07,KICKS,-380.0,Entertainment & Shopping,Beauty & Personal Care
+Expense,2024-11-08,BR Leksaker,-520.0,Entertainment & Shopping,Toys & Games
+Expense,2024-11-09,Scandic,-2100.0,Entertainment & Shopping,Vacation
+Expense,2024-11-10,Stadium,-1100.0,Entertainment & Shopping,Sports & Leisure
+Expense,2024-11-11,Bauhaus,-5500.0,Housing,Building & Garden
+Expense,2024-11-12,Hemköp,-400.0,Food & Drink,Groceries
+Expense,2024-11-13,Espresso House,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-11-14,KFC,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-11-15,Systembolaget,-320.0,Food & Drink,Alcohol & Tobacco
+Expense,2024-11-16,City Gross,-600.0,Food & Drink,Groceries
+Expense,2024-11-17,Power,-4000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-18,Zoo.se,-1000.0,Household,Pets
+Expense,2024-11-19,Apoteket AB,-400.0,Household,Healthcare & Wellness
+Expense,2024-11-20,Circle K,-800.0,Transport,Vehicles & Fuel
+Expense,2024-11-21,Västtrafik,-80.0,Transport,Bus & Train
+Expense,2024-11-22,OKQ8,-1300.0,Transport,Vehicles & Fuel
+Expense,2024-09-12,NetOnNet,-2300.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-13,Djuraffär,-950.0,Household,Pets
+Expense,2024-09-14,Apotek Hjärtat,-270.0,Household,Healthcare & Wellness
+Expense,2024-09-15,Elgiganten,-2400.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-16,Pet Store,-1000.0,Household,Pets
+Expense,2024-09-17,Apoteket,-300.0,Household,Healthcare & Wellness
+Expense,2024-09-18,Media Markt,-2500.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-19,Djurmagazinet,-1100.0,Household,Pets
+Expense,2024-09-20,Kronans Apotek,-320.0,Household,Healthcare & Wellness
+Expense,2024-09-21,Power,-2700.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-22,Arken Zoo,-1200.0,Household,Pets
+Expense,2024-09-23,Apoteket AB,-350.0,Household,Healthcare & Wellness
+Expense,2024-09-24,Elgiganten,-3000.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-25,Djurtillbehör,-1300.0,Household,Pets
+Expense,2024-09-26,Apotek Hjärtat,-400.0,Household,Healthcare & Wellness
+Expense,2024-09-27,NetOnNet,-3500.0,Household,"Media, Mobile, and IT"
+Expense,2024-09-28,Djurkliniken,-1450.0,Household,Pets
+Expense,2024-09-29,Apoteket,-450.0,Household,Healthcare & Wellness
+Expense,2024-09-30,Media Markt,-3800.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-01,Pet Shop,-1600.0,Household,Pets
+Expense,2024-10-02,Kronans Apotek,-500.0,Household,Healthcare & Wellness
+Expense,2024-10-03,Elgiganten,-4000.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-04,Djurmagazinet,-1750.0,Household,Pets
+Expense,2024-10-05,Apoteket AB,-600.0,Household,Healthcare & Wellness
+Expense,2024-10-06,NetOnNet,-4500.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-07,Arken Zoo,-1900.0,Household,Pets
+Expense,2024-10-08,Apotek Hjärtat,-700.0,Household,Healthcare & Wellness
+Expense,2024-10-09,Elgiganten,-5000.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-10,Djurbutiken,-2100.0,Household,Pets
+Expense,2024-10-11,Apoteket,-800.0,Household,Healthcare & Wellness
+Expense,2024-10-12,Media Markt,-5200.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-13,Pet Store,-2300.0,Household,Pets
+Expense,2024-10-14,Kronans Apotek,-900.0,Household,Healthcare & Wellness
+Expense,2024-10-15,NetOnNet,-6000.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-16,Djuraffär,-2500.0,Household,Pets
+Expense,2024-10-17,Apotek Hjärtat,-1000.0,Household,Healthcare & Wellness
+Expense,2024-10-18,Elgiganten,-6500.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-19,Djurmagazinet,-2700.0,Household,Pets
+Expense,2024-10-20,Apoteket AB,-1200.0,Household,Healthcare & Wellness
+Expense,2024-10-21,Power,-7000.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-22,Arken Zoo,-2900.0,Household,Pets
+Expense,2024-10-23,Apoteket,-1400.0,Household,Healthcare & Wellness
+Expense,2024-10-24,Media Markt,-7800.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-25,Pet Shop,-3100.0,Household,Pets
+Expense,2024-10-26,Kronans Apotek,-1500.0,Household,Healthcare & Wellness
+Expense,2024-10-27,Elgiganten,-8500.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-28,Djurmagazinet,-3500.0,Household,Pets
+Expense,2024-10-29,Apoteket AB,-1600.0,Household,Healthcare & Wellness
+Expense,2024-10-30,NetOnNet,-9000.0,Household,"Media, Mobile, and IT"
+Expense,2024-10-31,Djurkliniken,-3900.0,Household,Pets
+Expense,2024-11-01,Apoteket,-1800.0,Household,Healthcare & Wellness
+Expense,2024-11-02,Media Markt,-9500.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-03,Pet Store,-4200.0,Household,Pets
+Expense,2024-11-04,Kronans Apotek,-2000.0,Household,Healthcare & Wellness
+Expense,2024-11-05,Elgiganten,-10000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-06,Djuraffär,-4500.0,Household,Pets
+Expense,2024-11-07,Apotek Hjärtat,-2200.0,Household,Healthcare & Wellness
+Expense,2024-11-08,NetOnNet,-11000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-09,Djurmagazinet,-4900.0,Household,Pets
+Expense,2024-11-10,Apoteket AB,-2400.0,Household,Healthcare & Wellness
+Expense,2024-11-11,Elgiganten,-12000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-12,Pet Store,-5200.0,Household,Pets
+Expense,2024-11-13,Apoteket,-2600.0,Household,Healthcare & Wellness
+Expense,2024-11-14,Media Markt,-13000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-15,Arken Zoo,-5500.0,Household,Pets
+Expense,2024-11-16,Apotek Hjärtat,-2800.0,Household,Healthcare & Wellness
+Expense,2024-11-17,NetOnNet,-14000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-18,Djurkliniken,-5800.0,Household,Pets
+Expense,2024-11-19,Apoteket AB,-3000.0,Household,Healthcare & Wellness
+Expense,2024-11-20,Elgiganten,-15000.0,Household,"Media, Mobile, and IT"
+Expense,2024-11-21,Pet Shop,-6100.0,Household,Pets

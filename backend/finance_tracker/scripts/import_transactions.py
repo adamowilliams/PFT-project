@@ -1,7 +1,7 @@
 import pandas as pd
 
 def import_transactions(file_path):
-    if file_path.name.endswith('.xlsx'):
+    if file_path.endswith('.xlsx'):
         transactions_data = pd.read_excel(file_path, engine='openpyxl')
     elif file_path.name.endswith('.csv'):
         transactions_data = pd.read_csv(file_path)
@@ -70,6 +70,6 @@ def import_transactions(file_path):
 
 # Example usage
 if __name__ == "__main__":
-    file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\BankenDataCleanSmall.xlsx'
+    file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\ml_app\\data\\BankenDataClean (1).xlsx'
     transactions = import_transactions(file_path)
     print(transactions)

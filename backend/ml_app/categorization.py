@@ -10,10 +10,10 @@ def initialize_lookup_table():
     try:
         lookup_table = pd.read_csv('./data/lookup_table.csv')
         if lookup_table.empty:
-            lookup_table = pd.DataFrame(columns=['Text', 'Kategori', 'Subkategori'])
+            lookup_table = pd.DataFrame(columns=['Text', 'Category', 'Subcategory'])
             lookup_table.to_csv('./data/lookup_table.csv', index=False)
     except FileNotFoundError:
-        lookup_table = pd.DataFrame(columns=['Text', 'Kategori', 'Subkategori'])
+        lookup_table = pd.DataFrame(columns=['Text', 'Category', 'Subcategory'])
         lookup_table.to_csv('./data/lookup_table.csv', index=False)
     return lookup_table
 
@@ -21,15 +21,15 @@ def initialize_lookup_table():
 lookup_table = initialize_lookup_table()
 
 # Make lookup table a dictionary for faster lookup
-lookup_dict = {row['Text']: (row['Kategori'], row['Subkategori']) for _, row in lookup_table.iterrows()}
+lookup_dict = {row['Text']: (row['Category'], row['Subcategory']) for _, row in lookup_table.iterrows()}
 
 def log_new_data(text, category, subcategory):
-    new_entry = pd.DataFrame({'Text': [text], 'Kategori': [category], 'Subkategori': [subcategory]})
+    new_entry = pd.DataFrame({'Text': [text], 'Category': [category], 'Subcategory': [subcategory]})
     new_entry.to_csv('./data/new_data_log.csv', mode='a', header=False, index=False)
 
 def update_lookup_table(text, category, subcategory):
     lookup_dict[text] = (category, subcategory)
-    new_entry = pd.DataFrame({'Text': [text], 'Kategori': [category], 'Subkategori': [subcategory]})
+    new_entry = pd.DataFrame({'Text': [text], 'Category': [category], 'Subcategory': [subcategory]})
     new_entry.to_csv('./data/lookup_table.csv', mode='a', header=False, index=False)
 
 def categorize_and_predict(text):
@@ -70,12 +70,12 @@ def categorize_and_predict(text):
 def get_user_input(text):
     print(f"Transaction: {text}")
     available_categories = {
-        'Bostad': ['Bygg & trädgård', 'Hyra & avgift'],
-        'Mat & dryck': ['Livsmedel', 'Café & snacks', 'Restaurang & bar', 'Alkohol & tobak'],
-        'Hushåll': ['Husdjur', 'Media, mobil och IT', 'Sjukvård & hälsa'],
-        'Transport': ['Fordon & drivmedel', 'Buss & tåg'],
-        'Nöje & shopping': ['Leksaker & spel', 'Kultur & Nöjen', 'Skönhet & hälsa', 'Hemelektronik', 'Kläder & mode', 'Semester', 'Sport & fritid'],
-        'Övrigt': ['Stöd & Bidrag', 'Sparande', 'Swish']
+        "Housing": ['Building & Garden', 'Rent & Fee'],
+        "Food & Drink": ['Groceries', 'Cafe & Snacks', 'Restaurant & Bar', 'Alcohol & Tobacco'],
+        "Household": ['Pets', 'Media, Mobile, and IT', 'Healthcare & Wellness'],
+        'Transport': ['Vehicles & Fuel', 'Bus & Train'],
+        "Entertainment & Shopping": ['Toys & Games', 'Culture & Entertainment', 'Beauty & Personal Care', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
+        "Miscellaneous": ['Support & Subsidies', 'Savings', 'Swish']
     }
     print("Please select a category for this transaction:")
     for i, category in enumerate(available_categories, 1):
