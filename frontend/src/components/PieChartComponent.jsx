@@ -1,48 +1,77 @@
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
 import '../styles/Dashboard.css';
 
 const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
+    const [hoveredCategoryIndex, setHoveredCategoryIndex] = useState(null);
+    const [hoveredCategory, setHoveredCategory] = useState(null);
+    const [subCategoryData, setSubCategoryData] = useState([]);
 
     const categoryColors = [
-      { label: 'Salary', color: '#007BFF', icon: 'fa-solid fa-wallet' },
-      { label: 'Gift', color: '#4CAF50', icon: 'fa-solid fa-gift' },
-      { label: 'Food', color: '#FF6347', icon: 'fa-solid fa-utensils' },
-      { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-bus' },
-      { label: 'Rent', color: '#FFC107', icon: 'fa-solid fa-home' },
-      { label: 'Bills', color: '#673AB7', icon: 'fa-solid fa-file-invoice-dollar' },
-      { label: 'Health', color: '#2196F3', icon: 'fa-solid fa-heartbeat' },
-      { label: 'Fun', color: '#E91E63', icon: 'fa-solid fa-face-grin-beam' },
-      { label: 'Charity', color: '#8BC34A', icon: 'fa-solid fa-hands-helping' },
-      { label: 'Other', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
+        { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
+        { label: 'Food & Drink', color: '#FF6347', icon: 'fa-solid fa-utensils' },
+        { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
+        { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-bus' },
+        { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
+        { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
     ];
-    
+
+    const subcategories = {
+        'Housing': ['Building & Garden', 'Rent & Fee'],
+        'Food & Drink': ['Groceries', 'Cafe & Snacks', 'Restaurant & Bar', 'Alcohol & Tobacco'],
+        'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Health'],
+        'Transport': ['Vehicles & Fuel', 'Bus & Train'],
+        'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Health', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
+        'Miscellaneous': ['Swish']
+    };
+
+    const subcategoriesIcons = {
+        'Building & Garden': 'fa-solid fa-tree',
+        'Rent & Fee': 'fa-solid fa-file-invoice',
+        'Groceries': 'fa-solid fa-apple-alt',
+        'Cafe & Snacks': 'fa-solid fa-coffee',
+        'Restaurant & Bar': 'fa-solid fa-utensils',
+        'Alcohol & Tobacco': 'fa-solid fa-wine-bottle',
+        'Pets': 'fa-solid fa-dog',
+        'Media, Mobile, and IT': 'fa-solid fa-mobile-alt',
+        'Healthcare & Health': 'fa-solid fa-heartbeat',
+        'Vehicles & Fuel': 'fa-solid fa-gas-pump',
+        'Bus & Train': 'fa-solid fa-bus',
+        'Toys & Games': 'fa-solid fa-gamepad',
+        'Culture & Entertainment': 'fa-solid fa-theater-masks',
+        'Beauty & Health': 'fa-solid fa-spa',
+        'Home Electronics': 'fa-solid fa-tv',
+        'Clothes & Fashion': 'fa-solid fa-tshirt',
+        'Vacation': 'fa-solid fa-plane',
+        'Sports & Leisure': 'fa-solid fa-futbol',
+        'Swish': 'fa-solid fa-mobile-alt'
+    };
 
     const fetchData = () => {
-      const groupedData = transactions.reduce((acc, transaction) => {
-        if (transaction.transaction_type === 'Expense') {
-            if (!acc[transaction.category]) {
-                acc[transaction.category] = "";
+        const groupedData = transactions.reduce((acc, transaction) => {
+            if (transaction.transaction_type === 'Expense') {
+                if (!acc[transaction.category]) {
+                    acc[transaction.category] = 0;
+                }
+                acc[transaction.category] -= parseFloat(transaction.amount);
             }
-            acc[transaction.category] -= parseFloat(transaction.amount);
-            }
-        return acc;
-      }, {});
+            return acc;
+        }, {});
 
-      const formattedData = Object.keys(groupedData).map((category) => {
-        const colorInfo = categoryColors.find(c => c.label === category);
-        const color = colorInfo ? colorInfo.color : '#999';
-        const icon = colorInfo ? colorInfo.icon : 'fa-solid fa-question';
-        return {
-        name: category,
-        value: groupedData[category],
-        color: color,
-        icon: icon
-        };  
-      });
+        const formattedData = Object.keys(groupedData).map((category) => {
+            const colorInfo = categoryColors.find(c => c.label === category);
+            const color = colorInfo ? colorInfo.color : '#999';
+            const icon = colorInfo ? colorInfo.icon : 'fa-solid fa-question';
+            return {
+                name: category,
+                value: groupedData[category],
+                color: color,
+                icon: icon
+            };
+        });
 
-      setChartData(formattedData);
+        setChartData(formattedData);
     };
 
     useImperativeHandle(ref, () => ({
@@ -53,88 +82,119 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         fetchData();
     }, [transactions]);
 
-    const getTooltipContent = ({ payload, active }) => {
-      if (active && payload && payload.length) {
+    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+        const RADIAN = Math.PI / 180;
+        const radius = (innerRadius + outerRadius) / 2;
+        const x = cx + radius * Math.cos(-midAngle * RADIAN);
+        const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+        let iconClass;
+        if (hoveredCategoryIndex !== null && index >= hoveredCategoryIndex && index < hoveredCategoryIndex + subCategoryData.length) {
+            const subIndex = index - hoveredCategoryIndex;
+            iconClass = subcategoriesIcons[subCategoryData[subIndex]?.name] || 'fa-solid fa-question';
+        } else {
+            iconClass = chartData[index]?.icon || 'fa-solid fa-question';
+        }
+
         return (
-          <div className="custom-tooltip">
-            <p className="label">
-              {`${payload[0].name} : ${payload[0].value}:-`}
-            </p>
-          </div>
+            <g>
+                <foreignObject x={x - 10} y={y - 10} width={20} height={20} style={{ overflow: "visible", pointerEvents: 'none' }}>
+                    <i className={iconClass} style={{ color: "white" }}></i>
+                </foreignObject>
+            </g>
         );
-      }
-      return null;
     };
-  
 
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-    const RADIAN = Math.PI / 180;
-    const radius = (innerRadius + outerRadius) / 2;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const iconClass = chartData[index].icon;
+    const handleMouseEnter = (data, index) => {
+        const categoryName = subcategories[data.name] ? data.name : hoveredCategory;
+        const categoryIndex = subcategories[data.name] ? index : hoveredCategoryIndex;
 
-    return (
-        <g>
-            <foreignObject x={x - 10} y={y - 10} width={20} height={20} style={{overflow:"visible"}}>
-                <i className={iconClass} style={{ color: "white" }}></i>
-            </foreignObject>
-        </g>
-    );
-};
-    
+        if (categoryName) {
+            setHoveredCategory(categoryName);
+            setHoveredCategoryIndex(categoryIndex);
+
+            const subcategoryData = transactions.reduce((acc, transaction) => {
+                if (transaction.transaction_type === 'Expense' && transaction.category === categoryName) {
+                    if (!acc[transaction.subCategory]) {
+                        acc[transaction.subCategory] = 0;
+                    }
+                    acc[transaction.subCategory] -= parseFloat(transaction.amount);
+                }
+                return acc;
+            }, {});
+
+            const formattedSubcategoryData = Object.keys(subcategoryData).map((subCategory) => {
+                return {
+                    name: subCategory,
+                    value: subcategoryData[subCategory],
+                    color: chartData[categoryIndex].color,
+                    icon: subcategoriesIcons[subCategory] || 'fa-solid fa-question'
+                };
+            });
+
+            setSubCategoryData(formattedSubcategoryData);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredCategory(null);
+        setHoveredCategoryIndex(null);
+        setSubCategoryData([]);
+    };
 
     const Legend = ({ data }) => {
-      const sortedData = data.sort((a, b) => b.value - a.value);
-      return (
-        <div className="legend">
-          {sortedData.map((entry, index) => (
-            <div key={index} className="legend-item">
-              <span
-                className="legend-color"
-                style={{ backgroundColor: entry.color }}
-              ></span>
-              <span className="legend-text">{`${entry.name}: ${entry.value}:-`}</span>
+        return (
+            <div className="legend">
+                {data.map((entry, index) => (
+                    <div key={index} className="legend-item">
+                        <i className={entry.icon} style={{ color: entry.color, marginRight: '8px' }}></i>
+                        <span className="legend-text">{`${entry.name}: ${entry.value}:-`}</span>
+                    </div>
+                ))}
             </div>
-          ))}
-        </div>
-      );
+        );
     };
 
     return (
-      <div id="pie-chart-with-legend">
-        <div className="pie-chart">
-          <ResponsiveContainer>
-            <PieChart>
-              <Pie
-                data={chartData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={115}
-                innerRadius={80}
-                fill="#8884d8"
-                labelLine={false}
-                label={renderCustomizedLabel}
-                paddingAngle={0}
-              >
-                {chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color}  />
-                ))}
-              </Pie>
-              <Tooltip content={getTooltipContent} />
-            </PieChart>
-          </ResponsiveContainer>
-          </div>
-          <Legend
-            data={chartData.map((entry) => ({
-              name: entry.name,
-              color: entry.color,
-              value: entry.value,
-            }))}
-          />
-      </div>
+        <div id="pie-chart-with-legend">
+            <div className="pie-chart">
+                <ResponsiveContainer>
+                    <PieChart>
+                        <Pie
+                            data={hoveredCategoryIndex !== null ? [
+                                ...chartData.slice(0, hoveredCategoryIndex),
+                                ...subCategoryData,
+                                ...chartData.slice(hoveredCategoryIndex + 1)
+                            ] : chartData}
+                            dataKey="value"
+                            nameKey="name"
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={115}
+                            innerRadius={80}
+                            fill="#8884d8"
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            paddingAngle={0}
+                            isAnimationActive={false} // Disable animations
+                            onMouseEnter={(data, index) => handleMouseEnter(data, index)}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            {(hoveredCategoryIndex !== null ? [
+                                ...chartData.slice(0, hoveredCategoryIndex),
+                                ...subCategoryData,
+                                ...chartData.slice(hoveredCategoryIndex + 1)
+                            ] : chartData).map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.color} />
+                            ))}
+                        </Pie>
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
+            <Legend
+                data={hoveredCategoryIndex !== null ? subCategoryData : chartData}
+            />
+        </div>
     );
 });
 

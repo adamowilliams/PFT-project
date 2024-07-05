@@ -19,7 +19,7 @@ function TransactionsPage() {
     return (
       <div id="all-transactions">
         <h2>All Transactions</h2>
-        {transactions.map((transaction) => (
+        {[...transactions].reverse().map((transaction) => (
           <Transaction key={transaction.id} transaction={transaction}>
             <div className="button-delete">
               <button

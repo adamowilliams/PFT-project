@@ -8,20 +8,30 @@ import * as XLSX from 'xlsx';
 
 const incomeCategories = [
   { value: 'Salary', label: 'Salary' },
+  { value: 'Savings', label: 'Savings' },
+  { value: 'Support & Subsidies', label: 'Support & Subsidies' },
+  { value: 'Swish', label: 'Swish'},
   { value: 'Gift', label: 'Gift' },
   { value: 'Other', label: 'Other' }
 ];
 
 const outcomeCategories = [
-  { value: 'Food', label: 'Food' },
+  { value: 'Housing', label: 'Housing' },
+  { value: 'Food & Drink', label: 'Food & Drink' },
+  { value: 'Household', label: 'Household' },
   { value: 'Transport', label: 'Transport' },
-  { value: 'Rent', label: 'Rent' },
-  { value: 'Bills', label: 'Bills' },
-  { value: 'Health', label: 'Health' },
-  { value: 'Fun', label: 'Fun' },
-  { value: 'Charity', label: 'Charity' },
-  { value: 'Other', label: 'Other' }
+  { value: 'Entertainment & Shopping', label: 'Entertainment & Shopping' },
+  { value: 'Miscellaneous', label: 'Miscellaneous' }
 ];
+
+const subcategories = {
+  'Housing': ['Building & Garden', 'Rent & Fee'],
+  'Food & Drink': ['Groceries', 'Cafe & Snacks', 'Restaurant & Bar', 'Alcohol & Tobacco'],
+  'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Health'],
+  'Transport': ['Vehicles & Fuel', 'Bus & Train'],
+  'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Health', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
+  'Miscellaneous': ['Swish']
+};
 
 const repetitionIntervals = [
   { value: 'Daily', label: 'Daily' },
@@ -66,6 +76,29 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
     });
   };
 
+  useEffect(() => {
+    if (parseFloat(formData.amount) < 0 && formData.category) {
+      const selectElement = document.getElementById('subCategory');
+      if (selectElement) {
+        selectElement.innerHTML = ''; // Clear existing options
+  
+        if (subcategories[formData.category]) {
+          subcategories[formData.category].forEach(subcategory => {
+            const option = document.createElement('option');
+            option.value = subcategory;
+            option.textContent = subcategory;
+            selectElement.appendChild(option);
+          });
+
+          setFormData(formData => ({
+            ...formData,
+            subCategory: subcategories[formData.category][0]
+          }));
+        }
+      }
+    }
+  }, [formData.category, formData.amount]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const transactionType = parseFloat(formData.amount) < 0 ? "Expense" : "Income";
@@ -74,7 +107,8 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
       amount: parseFloat(formData.amount),
       created_at: formData.created_at || new Date().toISOString().split('T')[0],
       transaction_type: transactionType,
-      category: formData.category || 'Other',
+      category: formData.category,
+      subCategory: formData.subCategory
     };
 
     try {
@@ -98,6 +132,14 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
       console.error('There was an error adding the transaction!', error);
     }
   };
+
+  useEffect(() => {
+    setFormData({
+      ...formData,
+      category: '',
+      subCategory: ''
+    });
+  }, [formData.amount]);
 
   // File upload handlers and functions
   const handleFileChange = (e) => {
@@ -188,13 +230,19 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
                   </option>
                 ))}
               </select>
-              <input
-                type="text"
+              {parseFloat(formData.amount) < 0 && (
+              <select
                 name="subCategory"
-                value={formData.subCategory} // Added subCategory input
+                value={formData.subCategory}
                 onChange={handleChange}
-                placeholder="Sub Category (optional)"
-              />
+                id="subCategory"
+              >
+                <option value="" disabled>
+                  Subcategory
+                </option>
+
+              </select>
+              )}
               <input
                 type="text"
                 name="description"

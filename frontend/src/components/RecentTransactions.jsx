@@ -17,7 +17,7 @@ const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
     return (
         <div id="recent_transactions">
             <h2>Recent Transactions</h2>
-            {recentTransactions.map((transaction) => (
+            {[...recentTransactions].reverse().map((transaction) => (
                 <Transaction
                     key={transaction.id}
                     transaction={transaction}
