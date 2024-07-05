@@ -1,4 +1,5 @@
 import pandas as pd
+from .main import process_transactions
 
 def import_transactions(file_path):
     if file_path.name.endswith('.xlsx'):
@@ -61,15 +62,21 @@ def import_transactions(file_path):
     # Convert the dataframe to a list of dictionaries
     transactions_list = transactions_data.to_dict(orient='records')
 
-    transactions_df = pd.DataFrame(transactions_list)
-    csv_file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\transactions.csv'
-    transactions_df.to_csv(csv_file_path, index=False)
+    #transactions_df = pd.DataFrame(transactions_list)
+    #csv_file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\transactions.csv'
+    #transactions_df.to_csv(csv_file_path, index=False)
 
+    # Process the transactions
+    transactions_list = process_transactions(transactions_data)
+    transactions_list.to_csv('categorized_transactions.csv', index=False)
+
+    transactions_list = transactions_list.to_dict(orient='records')
     return transactions_list
 
 
 # Example usage
 if __name__ == "__main__":
-    file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\ml_app\\data\\BankenDataClean (1).xlsx'
+    file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\HandelsbankenRAWSMALL (1).xlsx'
     transactions = import_transactions(file_path)
-    print(transactions)
+
+    #print(transactions)

@@ -12,7 +12,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
         { label: 'Food & Drink', color: '#FF6347', icon: 'fa-solid fa-utensils' },
         { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-        { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-bus' },
+        { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
         { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
         { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
     ];
@@ -20,9 +20,9 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const subcategories = {
         'Housing': ['Building & Garden', 'Rent & Fee'],
         'Food & Drink': ['Groceries', 'Cafe & Snacks', 'Restaurant & Bar', 'Alcohol & Tobacco'],
-        'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Health'],
+        'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Wellness'],
         'Transport': ['Vehicles & Fuel', 'Bus & Train'],
-        'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Health', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
+        'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Personal Care', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
         'Miscellaneous': ['Swish']
     };
 
@@ -35,12 +35,12 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         'Alcohol & Tobacco': 'fa-solid fa-wine-bottle',
         'Pets': 'fa-solid fa-dog',
         'Media, Mobile, and IT': 'fa-solid fa-mobile-alt',
-        'Healthcare & Health': 'fa-solid fa-heartbeat',
+        'Healthcare & Wellness': 'fa-solid fa-heartbeat',
         'Vehicles & Fuel': 'fa-solid fa-gas-pump',
-        'Bus & Train': 'fa-solid fa-bus',
+        'Bus & Train': 'fa-solid fa-train',
         'Toys & Games': 'fa-solid fa-gamepad',
         'Culture & Entertainment': 'fa-solid fa-theater-masks',
-        'Beauty & Health': 'fa-solid fa-spa',
+        'Beauty & Personal Care': 'fa-solid fa-spa',
         'Home Electronics': 'fa-solid fa-tv',
         'Clothes & Fashion': 'fa-solid fa-tshirt',
         'Vacation': 'fa-solid fa-plane',

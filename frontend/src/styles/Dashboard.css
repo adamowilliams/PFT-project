@@ -13,10 +13,9 @@
 }
 
 #activity-graph {
-  top: auto;
   left: 600px;
   width: 650px;
-  height: auto;
+  height: 300px;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -74,7 +73,7 @@
   width: auto; 
 }
 #import_transaction {
-  margin-left: 23px;
+  margin-left: 262px;
   display : flex;
   width: 280px;
   align-items: center; 
@@ -83,10 +82,10 @@
 }
   
 #add_transaction {
-  margin-top: -20px;
-  margin-left: 23px;
+  margin-top: -11px;
+  margin-left: -9px;
   width: 280px;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: start;
   gap: 10px;
@@ -96,11 +95,11 @@
   background-color: #0f3964; /* Slightly lighter dark blue */
   color: white; /* White text */
   border: none; /* Remove border */
-  padding: 10px 20px; /* Add some padding */
+  padding: 19px 38px; /* Add some padding */
   text-align: center; /* Center the text */
   text-decoration: none; /* Remove underline */
   display: inline-block; /* Make it inline-block */
-  font-size: 12px; /* Increase font size */
+  font-size: 19px; /* Increase font size */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer/hand icon */
   margin-right: 10px;
@@ -112,15 +111,15 @@
 }
 
 .form-dropdown-container {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-
+    display: flex;
+    flex-direction: column;
+    width: 551px;
+    height: 25px;
 }
 .form-dropdown-container h2 {
-  width: 340px;
-  height: 38px;
-  margin-top: -2px;
+  width: 551px;
+  height: 121px;
+  margin-top: 3px;
 }
 
 .icon-space {
@@ -129,15 +128,14 @@
 
 
 #recent_transactions {
-  top: 333px;
-  left: 133px;
-  position: relative;
   width: 380px;
   display: flex;
   min-height: 20px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 598px;
+  margin-top: 56px;
 }
 
 #recent_transactions button {

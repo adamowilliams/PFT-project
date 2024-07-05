@@ -1,0 +1,5 @@
+transaction_type,created_at,description,amount,category,subCategory
+Expense,2024-06-15,Prel ICA Nara,-103.7,Food & Drink,Groceries
+Expense,2024-06-10,Wh G¦teborg Bj,-432.3,Food & Drink,Groceries
+Expense,2024-06-04,COOP MUNKEB#CK,-79.4,Food & Drink,Groceries
+Expense,2024-06-04,APOTEKSGRUPPEN,-152.24,Household,Healthcare & Wellness
