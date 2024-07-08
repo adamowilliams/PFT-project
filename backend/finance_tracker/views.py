@@ -16,7 +16,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Transaction.objects.filter(author=user)
+        return Transaction.objects.filter(author=user).order_by('created_at')
 
     def perform_create(self, serializer):
         if serializer.is_valid():
@@ -24,13 +24,13 @@ class TransactionListCreateView(generics.ListCreateAPIView):
         else:
             print(serializer.errors)
 
-class TransactionDetailView(generics.DestroyAPIView):
+class TransactionDeleteView(generics.DestroyAPIView):
     serializer_class = TransactionSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
-        return Transaction.objects.filter(author=user)
+        return Transaction.objects.filter(author=user).order_by('created_at')
     
 class TransactionImportView(generics.ListCreateAPIView):
     serializer_class = TransactionSerializer
@@ -56,4 +56,4 @@ class TransactionImportView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Transaction.objects.filter(author=user)
+        return Transaction.objects.filter(author=user).order_by('created_at')

@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef, useCallback, useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
 import '../styles/Dashboard.css';
 
 const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
     const [hoveredCategoryIndex, setHoveredCategoryIndex] = useState(null);
-    const [hoveredCategory, setHoveredCategory] = useState(null);
-    const [subCategoryData, setSubCategoryData] = useState([]);
+    //const [hoveredCategory, setHoveredCategory] = useState(null);
+    //const [subCategoryData, setSubCategoryData] = useState([]);
 
     const categoryColors = [
         { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-        { label: 'Food & Drink', color: '#FF6347', icon: 'fa-solid fa-utensils' },
+        { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
         { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
         { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
         { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
@@ -48,7 +48,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         'Swish': 'fa-solid fa-mobile-alt'
     };
 
-    const fetchData = () => {
+    const fetchData = useCallback(() => {
         const groupedData = transactions.reduce((acc, transaction) => {
             if (transaction.transaction_type === 'Expense') {
                 if (!acc[transaction.category]) {
@@ -72,7 +72,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         });
 
         setChartData(formattedData);
-    };
+    }, [transactions]);
 
     useImperativeHandle(ref, () => ({
         fetchData
@@ -80,21 +80,24 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
     useEffect(() => {
         fetchData();
-    }, [transactions]);
+    }, [fetchData]);
 
-    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const renderCustomizedLabel = useCallback(({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
         const radius = (innerRadius + outerRadius) / 2;
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
+        const iconClass = chartData[index]?.icon || 'fa-solid fa-question';
+/*
         let iconClass;
         if (hoveredCategoryIndex !== null && index >= hoveredCategoryIndex && index < hoveredCategoryIndex + subCategoryData.length) {
             const subIndex = index - hoveredCategoryIndex;
             iconClass = subcategoriesIcons[subCategoryData[subIndex]?.name] || 'fa-solid fa-question';
         } else {
-            iconClass = chartData[index]?.icon || 'fa-solid fa-question';
+            
         }
+*/
 
         return (
             <g>
@@ -103,15 +106,18 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 </foreignObject>
             </g>
         );
-    };
+    }, [chartData]);
 
+           /*
     const handleMouseEnter = (data, index) => {
+        setHoveredCategoryIndex(categoryIndex);
+ 
         const categoryName = subcategories[data.name] ? data.name : hoveredCategory;
         const categoryIndex = subcategories[data.name] ? index : hoveredCategoryIndex;
 
         if (categoryName) {
             setHoveredCategory(categoryName);
-            setHoveredCategoryIndex(categoryIndex);
+            
 
             const subcategoryData = transactions.reduce((acc, transaction) => {
                 if (transaction.transaction_type === 'Expense' && transaction.category === categoryName) {
@@ -134,12 +140,23 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
             setSubCategoryData(formattedSubcategoryData);
         }
+        
+    };*/
+    
+
+    const memoizedChartData = useMemo(() => {
+        return chartData.map((entry, index) => ({
+            ...entry,
+            isHovered: index === hoveredCategoryIndex
+        }));
+    }, [chartData, hoveredCategoryIndex]);
+
+    const handleMouseEnter = (index) => {
+        setHoveredCategoryIndex(index);
     };
 
     const handleMouseLeave = () => {
-        setHoveredCategory(null);
         setHoveredCategoryIndex(null);
-        setSubCategoryData([]);
     };
 
     const Legend = ({ data }) => {
@@ -148,7 +165,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 {data.map((entry, index) => (
                     <div key={index} className="legend-item">
                         <i className={entry.icon} style={{ color: entry.color, marginRight: '8px' }}></i>
-                        <span className="legend-text">{`${entry.name}: ${entry.value}:-`}</span>
+                        <span className="legend-text">{`${entry.name}: ${Math.round(entry.value)}:-`}</span>
                     </div>
                 ))}
             </div>
@@ -161,30 +178,30 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 <ResponsiveContainer>
                     <PieChart>
                         <Pie
-                            data={hoveredCategoryIndex !== null ? [
+                            data={/*hoveredCategoryIndex !== null ? [
                                 ...chartData.slice(0, hoveredCategoryIndex),
                                 ...subCategoryData,
                                 ...chartData.slice(hoveredCategoryIndex + 1)
-                            ] : chartData}
+                            ] : */memoizedChartData}
                             dataKey="value"
                             nameKey="name"
                             cx="50%"
                             cy="50%"
-                            outerRadius={115}
+                            outerRadius={125}
                             innerRadius={80}
                             fill="#8884d8"
                             labelLine={false}
                             label={renderCustomizedLabel}
                             paddingAngle={0}
                             isAnimationActive={false} // Disable animations
-                            onMouseEnter={(data, index) => handleMouseEnter(data, index)}
+                            onMouseEnter={(index) => handleMouseEnter(index)}
                             onMouseLeave={handleMouseLeave}
                         >
-                            {(hoveredCategoryIndex !== null ? [
+                            {/*(hoveredCategoryIndex !== null ? [
                                 ...chartData.slice(0, hoveredCategoryIndex),
                                 ...subCategoryData,
                                 ...chartData.slice(hoveredCategoryIndex + 1)
-                            ] : chartData).map((entry, index) => (
+                            ] :*/ memoizedChartData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={entry.color} />
                             ))}
                         </Pie>
@@ -192,7 +209,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 </ResponsiveContainer>
             </div>
             <Legend
-                data={hoveredCategoryIndex !== null ? subCategoryData : chartData}
+                data={/*hoveredCategoryIndex !== null ? subCategoryData :*/ chartData}
             />
         </div>
     );
