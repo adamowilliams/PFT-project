@@ -49,14 +49,12 @@ const Dashboard = () => {
 
     return (
         <div id="dashboard-wrapper" >
-            <AddTransactionForm handleTransactionAdded={handleTransactionAdded} />
             <BalanceDisplay ref={balanceDisplayRef} transactions={transactions}>
                 <PieChartComponent ref={pieChartRef} transactions={transactions} />
             </BalanceDisplay>
-            <RecentTransactions ref={recentTransactionsRef} transactions={transactions} />
+            <AddTransactionForm handleTransactionAdded={handleTransactionAdded} />
             <ActivityGraph ref={graphRef} transactions={transactions} />
-
-
+            <RecentTransactions ref={recentTransactionsRef} transactions={transactions} />
         </div>
     );
 }

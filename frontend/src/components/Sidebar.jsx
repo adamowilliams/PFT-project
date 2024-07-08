@@ -5,7 +5,7 @@ import "../styles/Sidebar.css";
 
 const Sidebar = () => {
   const [dropdowns, setDropdowns] = useState({
-    Notes: false,
+    "Notes": false,
     "Finance Tracker": false,
   });
 

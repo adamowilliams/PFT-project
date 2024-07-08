@@ -24,12 +24,12 @@ const apiService = {
         }
     },
     
-    createNote: async (content, title) => {
-        try {
-            const response = await api.post('/api/notes/', { content, title });
+    createNote: async (title, content) => {
+        try {   
+            const response = await api.post('/api/notes/', { title, content });
             return response;
         } catch (error) {
-            alert(error);
+            alert("Problem with creating note in api call");
             throw error;
         }
     },

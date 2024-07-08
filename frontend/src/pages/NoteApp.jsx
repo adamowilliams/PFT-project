@@ -23,7 +23,7 @@ function NoteApp() {
   };
 
   const handleDeleteNote = async (id) => {
-    const response = await apiService.deleteNote();
+    const response = await apiService.deleteNote(id);
     if (response.status === 204) {
       alert("Note deleted successfully");
       handleGetNotes();
@@ -32,9 +32,10 @@ function NoteApp() {
     }
   };
 
-  const handleCreateNote = async (event) => {
-    event.preventDefault();
-    const response = await apiService.createNote({ content, title });
+  const handleCreateNote = async (e) => {
+    e.preventDefault();
+    console.log(title, content);
+    const response = await apiService.createNote(title, content);
     if (response.status === 201) {
       alert("Note created successfully");
       handleGetNotes();
@@ -48,7 +49,7 @@ function NoteApp() {
       <div>
         <h2>Notes</h2>
         {notes.map((note) =>
-          <Note note={note} onDelete={handleDeleteNote(note.id)} key={note.id} />
+          <Note note={note} onDelete={() => handleDeleteNote(note.id)} key={note.id} />
         )}
       </div>
       <h2>Create a Note</h2>
