@@ -12,7 +12,9 @@
 }
 
 .container-fluid {
-  padding: 20px;
+  padding-left: 10px;
+  padding-bottom: 17px;
+  padding-right: 10px;
 }
 
 body {

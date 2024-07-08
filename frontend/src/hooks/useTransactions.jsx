@@ -13,7 +13,10 @@ const useTransactions = () => {
         try {
             const response = await apiService.getTransactions();
             if (response.status === 200) {
-                setTransactions(response.data);
+              const sortedTransactions = response.data.sort(
+                (a, b) => new Date(b.created_at) - new Date(a.created_at)
+              );
+                setTransactions(sortedTransactions);
             } else {
                 alert("Failed to fetch transactions");
             }
@@ -30,7 +33,7 @@ const useTransactions = () => {
         try {
           const response = await apiService.createTransaction(dataToSend);
           if (response.status === 201) {
-            handleGetTransactions();
+            await handleGetTransactions();
           } else {
             setError("Failed to create transaction");
           }
@@ -64,7 +67,10 @@ const useTransactions = () => {
         try {
             const response = await apiService.getImportedTransactions();
             if (response.status === 200) {
-                setTransactions(response.data);
+              const sortedTransactions = response.data.sort((a, b) => { 
+                new Date(b.created_at) - new Date(a.created_at);
+              });
+              setTransactions(sortedTransactions);
             } else {
                 alert("Failed to fetch imported transactions");
             }
@@ -81,8 +87,8 @@ const useTransactions = () => {
         try {
           const response = await apiService.importTransactions(formData);
           if (response.status === 200) {
-            handleGetTransactions();
-            handleGetImportedTransactions();
+            await handleGetTransactions();
+            await handleGetImportedTransactions();
           } else {
             setError("Failed to import transactions");
           }

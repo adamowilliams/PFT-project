@@ -2,7 +2,7 @@ import React from 'react';
 
 const categoryColors = [
   { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-  { label: 'Food & Drink', color: '#FF6347', icon: 'fa-solid fa-utensils' },
+  { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
   { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
   { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-bus' },
   { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
@@ -51,9 +51,9 @@ function Transaction({ transaction, children }) {
       <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
         {subCategoryIcon && <i className={subCategoryIcon}></i>}
       </h3>
-      <p>{transaction.description}</p>
+      <p id="transactionDescription"> {transaction.description}</p>
       <p>{transaction.amount}:-</p>
-      <p>{transaction.created_at}</p>
+      <p id="transactionDate"> {transaction.created_at}</p>
       {children}
     </div>
   );

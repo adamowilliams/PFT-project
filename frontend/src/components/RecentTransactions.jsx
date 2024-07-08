@@ -6,7 +6,7 @@ import Transaction from "./Transaction";
 const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
 
 
-    const recentTransactions = transactions.slice(0, 5);
+    const recentTransactions = transactions.slice(0, 8);
     const navigate = useNavigate();
 
     const handleViewAllTransactionsClick = () => {
@@ -16,14 +16,16 @@ const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
 
     return (
         <div id="recent_transactions">
-            <h2>Recent Transactions</h2>
-            {[...recentTransactions].reverse().map((transaction) => (
-                <Transaction
-                    key={transaction.id}
-                    transaction={transaction}
-                />
-            ))}
-            <button onClick={handleViewAllTransactionsClick}>View All Transactions</button>
+            <div className="recent-transactions-container">
+                <h2>Recent Transactions</h2>
+                {recentTransactions.map((transaction) => (
+                    <Transaction
+                        key={transaction.id}
+                        transaction={transaction}
+                    />
+                ))}
+                <button onClick={handleViewAllTransactionsClick}>View All Transactions</button>
+            </div>
         </div>
     );
 });
