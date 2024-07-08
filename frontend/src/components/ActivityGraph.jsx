@@ -17,8 +17,7 @@ const categoryInfo = categoryColors.reduce((acc, { label, color, icon }) => {
     return acc;
 }, {});
 
-// Custom tooltip component
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload, label, coordinate }) => {
     if (active && payload && payload.length) {
         const expenses = payload.find(p => p.dataKey === 'expense');
         const expenseDetails = expenses && expenses.payload.expenseDetails;
@@ -35,18 +34,19 @@ const CustomTooltip = ({ active, payload, label }) => {
 
         return (
             <div className="custom-tooltip">
-                <p>{label}</p>
                 {expenseDetails && Object.keys(accumulatedExpenses).length > 0 && (
-                    <div>
-                        <p>Expenses:</p>
-                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    <div className="custom-tooltip-container">
+                        <div style={{ display: 'flex', flexWrap: 'wrap', fontSize: "13px" }}>
                             {Object.entries(accumulatedExpenses).map(([category, data], index) => (
                                 <div key={index} style={{ margin: '0 5px' }}>
-                                    <i className={categoryInfo[category]?.icon || 'fa-solid fa-question'} style={{ marginRight: '5px', color: categoryInfo[category]?.color || '#000' }}></i>
-                                    <span>{data.count}x "{category}" {data.amount.toFixed(2)}</span>
+                                    <i className={categoryInfo[category]?.icon || 'fa-solid fa-question'} style={{ marginRight: '5px', color: categoryInfo[category]?.color || '#000' }}>
+                                        <sup style={{ fontSize: '9px', position: 'relative', left: '1px', top: '-4px' }}>{data.count}</sup>
+                                    </i>
+                                    <span> {data.amount.toFixed(2)}</span>
                                 </div>
                             ))}
                         </div>
+                        <p>{label}</p>
                     </div>
                 )}
             </div>
@@ -129,13 +129,23 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
     };
 
     const getXAxisTickFormatter = () => {
+        let lastMonth = null;
         if (timePeriod === 'weekly') {
             return (tick) => dayjs(tick, 'YY/MM/DD').format('DD MMM');
         } else if (timePeriod === 'monthly') {
             return (tick) => dayjs(tick, 'YY/MM/DD').format('WW');
         } else if (timePeriod === 'all') {
-            return (tick) => dayjs(tick, 'YY/MM/DD').format('MMM');
-        } else {
+            return (tick) => {
+                const currentTickDate = dayjs(tick, 'YY/MM/DD');
+                const currentMonth = currentTickDate.month();
+                if (currentMonth !== lastMonth) {
+                    lastMonth = currentMonth;
+                    return currentTickDate.format('MMM');
+                }
+                return '';
+            }
+        }
+        else {
             return (tick) => dayjs(tick, 'YY/MM/DD').format('YY/MM/DD');
         }
     };
