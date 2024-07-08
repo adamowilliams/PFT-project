@@ -10,23 +10,19 @@
 }
 
 .expense-dot {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
     background-color: red;
     border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    right: 2px;
+    /* Adjust positioning as needed */
 }
 
 .income-dot {
-    width: 8px;
-    height: 8px;
-    background-color: blue;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(0, 0, 255);
     border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    right: 10px;
+    /* Adjust positioning as needed */
 }
 
 .react-calendar__navigation {

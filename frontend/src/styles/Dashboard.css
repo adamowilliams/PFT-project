@@ -165,6 +165,38 @@
   left: 0;
 }
 
+time-period-buttons-pie {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+.time-period-buttons-pie button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  position: relative;
+  outline: none;
+}
+
+.time-period-buttons-pie button.active {
+  color: #1e90ff; /* Active color */
+}
+
+.time-period-buttons-pie button.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #1e90ff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 #recent_transactions {
   width: 35%;
   display: flex;
@@ -268,16 +300,16 @@
 
 }
 .legend {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  height: 50%;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+    /* border: 1px solid #ddd; */
+    border-radius: 8px;
+    /* box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.1); */
+    /* padding: 16px; */
+    height: 85%;
+    width: 62px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .legend-item {

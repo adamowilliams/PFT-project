@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useImperativeHandle, forwardRef, useCallback, useMemo } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import dayjs from 'dayjs';
 import '../styles/Dashboard.css';
 
 const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
-    const [hoveredCategoryIndex, setHoveredCategoryIndex] = useState(null);
-    //const [hoveredCategory, setHoveredCategory] = useState(null);
-    //const [subCategoryData, setSubCategoryData] = useState([]);
+    const [subCategoryData, setSubCategoryData] = useState([]);
+    const [hoveredCategory, setHoveredCategory] = useState(null);
+    const [timePeriod, setTimePeriod] = useState('all');
 
     const categoryColors = [
         { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
@@ -49,7 +50,24 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     };
 
     const fetchData = useCallback(() => {
-        const groupedData = transactions.reduce((acc, transaction) => {
+        const today = dayjs();
+        let filteredTransactions = transactions;
+
+        if (timePeriod === 'weekly') {
+            filteredTransactions = transactions.filter(transaction =>
+                dayjs(transaction.created_at).isAfter(today.subtract(1, 'week'))
+            );
+        } else if (timePeriod === 'monthly') {
+            filteredTransactions = transactions.filter(transaction =>
+                dayjs(transaction.created_at).isAfter(today.subtract(1, 'month'))
+            );
+        } else if (timePeriod === 'yearly') {
+            filteredTransactions = transactions.filter(transaction =>
+                dayjs(transaction.created_at).isAfter(today.subtract(1, 'year'))
+            );
+        }
+
+        const groupedData = filteredTransactions.reduce((acc, transaction) => {
             if (transaction.transaction_type === 'Expense') {
                 if (!acc[transaction.category]) {
                     acc[transaction.category] = 0;
@@ -72,7 +90,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         });
 
         setChartData(formattedData);
-    }, [transactions]);
+    }, [transactions, timePeriod]);
 
     useImperativeHandle(ref, () => ({
         fetchData
@@ -82,6 +100,39 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         fetchData();
     }, [fetchData]);
 
+    const handleTimePeriodChange = (period) => {
+        setTimePeriod(period);
+    };
+
+    const handleMouseEnter = (category) => {
+        setHoveredCategory(category);
+        const subcategoryData = transactions.reduce((acc, transaction) => {
+            if (transaction.transaction_type === 'Expense' && transaction.category === category) {
+                if (!acc[transaction.subCategory]) {
+                    acc[transaction.subCategory] = 0;
+                }
+                acc[transaction.subCategory] -= parseFloat(transaction.amount);
+            }
+            return acc;
+        }, {});
+
+        const formattedSubcategoryData = Object.keys(subcategoryData).map((subCategory) => {
+            return {
+                name: subCategory,
+                value: subcategoryData[subCategory],
+                color: categoryColors.find(c => c.label === category).color,
+                icon: subcategoriesIcons[subCategory] || 'fa-solid fa-question'
+            };
+        });
+
+        setSubCategoryData(formattedSubcategoryData);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredCategory(null);
+        setSubCategoryData([]);
+    };
+
     const renderCustomizedLabel = useCallback(({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
         const radius = (innerRadius + outerRadius) / 2;
@@ -89,15 +140,6 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
         const iconClass = chartData[index]?.icon || 'fa-solid fa-question';
-/*
-        let iconClass;
-        if (hoveredCategoryIndex !== null && index >= hoveredCategoryIndex && index < hoveredCategoryIndex + subCategoryData.length) {
-            const subIndex = index - hoveredCategoryIndex;
-            iconClass = subcategoriesIcons[subCategoryData[subIndex]?.name] || 'fa-solid fa-question';
-        } else {
-            
-        }
-*/
 
         return (
             <g>
@@ -108,56 +150,22 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         );
     }, [chartData]);
 
-           /*
-    const handleMouseEnter = (data, index) => {
-        setHoveredCategoryIndex(categoryIndex);
- 
-        const categoryName = subcategories[data.name] ? data.name : hoveredCategory;
-        const categoryIndex = subcategories[data.name] ? index : hoveredCategoryIndex;
+    const renderSubcategoryLabel = useCallback(({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+        const RADIAN = Math.PI / 180;
+        const radius = (innerRadius + outerRadius) / 2;
+        const x = cx + radius * Math.cos(-midAngle * RADIAN);
+        const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-        if (categoryName) {
-            setHoveredCategory(categoryName);
-            
+        const iconClass = subCategoryData[index]?.icon || 'fa-solid fa-question';
 
-            const subcategoryData = transactions.reduce((acc, transaction) => {
-                if (transaction.transaction_type === 'Expense' && transaction.category === categoryName) {
-                    if (!acc[transaction.subCategory]) {
-                        acc[transaction.subCategory] = 0;
-                    }
-                    acc[transaction.subCategory] -= parseFloat(transaction.amount);
-                }
-                return acc;
-            }, {});
-
-            const formattedSubcategoryData = Object.keys(subcategoryData).map((subCategory) => {
-                return {
-                    name: subCategory,
-                    value: subcategoryData[subCategory],
-                    color: chartData[categoryIndex].color,
-                    icon: subcategoriesIcons[subCategory] || 'fa-solid fa-question'
-                };
-            });
-
-            setSubCategoryData(formattedSubcategoryData);
-        }
-        
-    };*/
-    
-
-    const memoizedChartData = useMemo(() => {
-        return chartData.map((entry, index) => ({
-            ...entry,
-            isHovered: index === hoveredCategoryIndex
-        }));
-    }, [chartData, hoveredCategoryIndex]);
-
-    const handleMouseEnter = (index) => {
-        setHoveredCategoryIndex(index);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredCategoryIndex(null);
-    };
+        return (
+            <g>
+                <foreignObject x={x - 10} y={y - 10} width={20} height={20} style={{ overflow: "visible", pointerEvents: 'none' }}>
+                    <i className={iconClass} style={{ color: "white" }}></i>
+                </foreignObject>
+            </g>
+        );
+    }, [subCategoryData]);
 
     const Legend = ({ data }) => {
         return (
@@ -165,7 +173,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 {data.map((entry, index) => (
                     <div key={index} className="legend-item">
                         <i className={entry.icon} style={{ color: entry.color, marginRight: '8px' }}></i>
-                        <span className="legend-text">{`${entry.name}: ${Math.round(entry.value)}:-`}</span>
+                        <span className="legend-text">{`${Math.round(entry.value)}:-`}</span>
                     </div>
                 ))}
             </div>
@@ -174,43 +182,79 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
     return (
         <div id="pie-chart-with-legend">
+            <div className="time-period-buttons-pie">
+                <button
+                    className={timePeriod === 'weekly' ? 'active' : ''}
+                    onClick={() => handleTimePeriodChange('weekly')}
+                >
+                    1W
+                </button>
+                <button
+                    className={timePeriod === 'monthly' ? 'active' : ''}
+                    onClick={() => handleTimePeriodChange('monthly')}
+                >
+                    1M
+                </button>
+                <button
+                    className={timePeriod === 'yearly' ? 'active' : ''}
+                    onClick={() => handleTimePeriodChange('yearly')}
+                >
+                    1Y
+                </button>
+                <button
+                    className={timePeriod === 'all' ? 'active' : ''}
+                    onClick={() => handleTimePeriodChange('all')}
+                >
+                    All
+                </button>
+            </div>
             <div className="pie-chart">
                 <ResponsiveContainer>
                     <PieChart>
                         <Pie
-                            data={/*hoveredCategoryIndex !== null ? [
-                                ...chartData.slice(0, hoveredCategoryIndex),
-                                ...subCategoryData,
-                                ...chartData.slice(hoveredCategoryIndex + 1)
-                            ] : */memoizedChartData}
+                            data={chartData}
                             dataKey="value"
                             nameKey="name"
                             cx="50%"
                             cy="50%"
-                            outerRadius={125}
-                            innerRadius={80}
+                            outerRadius={100}
+                            innerRadius={65}
                             fill="#8884d8"
                             labelLine={false}
                             label={renderCustomizedLabel}
                             paddingAngle={0}
-                            isAnimationActive={false} // Disable animations
-                            onMouseEnter={(index) => handleMouseEnter(index)}
+                            isAnimationActive={false}
+                            onMouseEnter={({ name }) => handleMouseEnter(name)}
                             onMouseLeave={handleMouseLeave}
                         >
-                            {/*(hoveredCategoryIndex !== null ? [
-                                ...chartData.slice(0, hoveredCategoryIndex),
-                                ...subCategoryData,
-                                ...chartData.slice(hoveredCategoryIndex + 1)
-                            ] :*/ memoizedChartData.map((entry, index) => (
+                            {chartData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={entry.color} />
                             ))}
                         </Pie>
+                        {hoveredCategory && (
+                            <Pie
+                                data={subCategoryData}
+                                dataKey="value"
+                                nameKey="name"
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={120}
+                                innerRadius={100}
+                                fill="#82ca9d"
+                                labelLine={false}
+                                label={renderSubcategoryLabel}
+                                paddingAngle={0}
+                                isAnimationActive={false}
+                            >
+                                {subCategoryData.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={entry.color} />
+                                ))}
+                            </Pie>
+                        )}
                     </PieChart>
                 </ResponsiveContainer>
             </div>
-            <Legend
-                data={/*hoveredCategoryIndex !== null ? subCategoryData :*/ chartData}
-            />
+            <Legend data={hoveredCategory ? subCategoryData : chartData} />
         </div>
     );
 });
