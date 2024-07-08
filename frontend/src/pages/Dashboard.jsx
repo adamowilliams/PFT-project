@@ -4,7 +4,8 @@ import {
     BalanceDisplay,
     ActivityGraph,
     PieChartComponent,
-    RecentTransactions
+    RecentTransactions,
+    Calendar
 } from "../components/Index";
 import '../styles/Dashboard.css';
 import useTransactions from '../hooks/useTransactions';
@@ -15,6 +16,7 @@ const Dashboard = () => {
     const graphRef = React.useRef(null);
     const pieChartRef = React.useRef(null);
     const recentTransactionsRef = React.useRef(null);
+    const calendarRef = React.useRef(null);
 
     const {
         transactions,
@@ -39,6 +41,9 @@ const Dashboard = () => {
         if (recentTransactionsRef.current) {
             recentTransactionsRef.current.fetchData();
         }
+        if (calendarRef.current) {
+            calendarRef.current.fetchData();
+        }
     };
 
     useEffect(() => {
@@ -52,6 +57,7 @@ const Dashboard = () => {
             <BalanceDisplay ref={balanceDisplayRef} transactions={transactions}>
                 <PieChartComponent ref={pieChartRef} transactions={transactions} />
             </BalanceDisplay>
+            <Calendar ref={calendarRef} transactions={transactions} />
             <AddTransactionForm handleTransactionAdded={handleTransactionAdded} />
             <ActivityGraph ref={graphRef} transactions={transactions} />
             <RecentTransactions ref={recentTransactionsRef} transactions={transactions} />

@@ -1,0 +1,59 @@
+#calendar-container {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-left: 20px;
+    margin-top: 42px;
+    align-items: center;
+}
+
+.expense-dot {
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.income-dot {
+    width: 8px;
+    height: 8px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+
+.react-calendar__navigation {
+    display: flex;
+    height: 15px;
+    margin-bottom: 1em;
+}
+
+.react-calendar {
+    width: 228px;
+    max-width: 100%;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+    border: 0px solid #a0a096
+}
+
+.react-calendar button {
+    margin-bottom: -7px;
+    border: 0;
+    outline: none;
+}
+
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font: inherit;
+    font-size: 11px;
+    font-weight: bold;
+}
