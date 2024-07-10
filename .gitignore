@@ -22,3 +22,5 @@ node_modules/
 backend/ml_app/data/*
 backend/lookup_table.csv
 *.csv
+backend/categorized_transactions.csv
+backend/lookup_table.csv
