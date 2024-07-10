@@ -165,37 +165,7 @@
   left: 0;
 }
 
-time-period-buttons-pie {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 16px;
-}
-.time-period-buttons-pie button {
-  background: none;
-  border: none;
-  color: #000;
-  font-size: 14px;
-  margin: 0 5px;
-  cursor: pointer;
-  padding: 5px 10px;
-  position: relative;
-  outline: none;
-}
 
-.time-period-buttons-pie button.active {
-  color: #1e90ff; /* Active color */
-}
-
-.time-period-buttons-pie button.active::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #1e90ff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
 
 #recent_transactions {
   width: 35%;
@@ -305,17 +275,23 @@ time-period-buttons-pie {
     /* box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.1); */
     /* padding: 16px; */
     height: 85%;
-    width: 62px;
+    width: 137px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-left: 45px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-top: 13px;
+}
+
+.legend-item i {
+  width: 30px;
+  text-align: center;
 }
 
 .legend-color {
@@ -327,13 +303,21 @@ time-period-buttons-pie {
 }
 
 .legend-text {
+  align-self: flex-end;
   font-size: 12px;
 }
 
 .pie-chart {
-  width: 300px;
-  height: 250px;
+  margin-right: 15px;
+  border: 3px solid #ddd;
+  box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  margin-top: 15px;
+  width: 180px;
+  height: 180px;
   display: flex;
+  border-radius: 120px;
+  margin-left: 11px;
 }
 
 #pie-chart-with-legend {
@@ -345,4 +329,43 @@ time-period-buttons-pie {
   display: flex;
   width: 485px;
   height: 250px;
+}
+
+#pie-chart-with-legend-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.time-period-buttons-pie {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+.time-period-buttons-pie button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  position: relative;
+  outline: none;
+}
+
+.time-period-buttons-pie button.active {
+  color: #1e90ff; /* Active color */
+}
+
+.time-period-buttons-pie button.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #1e90ff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

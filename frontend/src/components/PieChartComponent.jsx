@@ -4,9 +4,10 @@ import dayjs from 'dayjs';
 import '../styles/Dashboard.css';
 
 const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
-    const [chartData, setChartData] = useState([]);
+    const [categoryData, setCategoryData] = useState([]);
     const [subCategoryData, setSubCategoryData] = useState([]);
     const [hoveredCategory, setHoveredCategory] = useState(null);
+    const [hoveredSubCategoryData, setHoveredSubCategoryData] = useState([]);
     const [timePeriod, setTimePeriod] = useState('all');
 
     const categoryColors = [
@@ -18,7 +19,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
     ];
 
-    const subcategories = {
+    const subCategories = {
         'Housing': ['Building & Garden', 'Rent & Fee'],
         'Food & Drink': ['Groceries', 'Cafe & Snacks', 'Restaurant & Bar', 'Alcohol & Tobacco'],
         'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Wellness'],
@@ -27,12 +28,12 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         'Miscellaneous': ['Swish']
     };
 
-    const subcategoriesIcons = {
+    const subCategoriesIcons = {
         'Building & Garden': 'fa-solid fa-tree',
         'Rent & Fee': 'fa-solid fa-file-invoice',
-        'Groceries': 'fa-solid fa-apple-alt',
+        'Groceries': 'fa-solid fa-shopping-cart',
         'Cafe & Snacks': 'fa-solid fa-coffee',
-        'Restaurant & Bar': 'fa-solid fa-utensils',
+        'Restaurant & Bar': 'fa-solid fa-pizza-slice',
         'Alcohol & Tobacco': 'fa-solid fa-wine-bottle',
         'Pets': 'fa-solid fa-dog',
         'Media, Mobile, and IT': 'fa-solid fa-mobile-alt',
@@ -51,46 +52,71 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
     const fetchData = useCallback(() => {
         const today = dayjs();
-        let filteredTransactions = transactions;
-
-        if (timePeriod === 'weekly') {
-            filteredTransactions = transactions.filter(transaction =>
-                dayjs(transaction.created_at).isAfter(today.subtract(1, 'week'))
-            );
-        } else if (timePeriod === 'monthly') {
-            filteredTransactions = transactions.filter(transaction =>
-                dayjs(transaction.created_at).isAfter(today.subtract(1, 'month'))
-            );
-        } else if (timePeriod === 'yearly') {
-            filteredTransactions = transactions.filter(transaction =>
-                dayjs(transaction.created_at).isAfter(today.subtract(1, 'year'))
-            );
-        }
-
-        const groupedData = filteredTransactions.reduce((acc, transaction) => {
-            if (transaction.transaction_type === 'Expense') {
-                if (!acc[transaction.category]) {
-                    acc[transaction.category] = 0;
-                }
-                acc[transaction.category] -= parseFloat(transaction.amount);
+        let filteredTransactions = transactions.filter(transaction => {
+            if (timePeriod === 'weekly') {
+                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'week'));
+            } else if (timePeriod === 'monthly') {
+                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'month'));
+            } else if (timePeriod === 'yearly') {
+                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'year'));
             }
-            return acc;
-        }, {});
+            return true; // all
+        });
 
-        const formattedData = Object.keys(groupedData).map((category) => {
+        const categoryData= {};
+        const subCategoryData = {};
+
+        filteredTransactions.forEach(transaction => {
+            if (transaction.transaction_type === 'Expense') {
+                const category = transaction.category;
+                if (!categoryData[category]) {
+                    categoryData[category] = 0;
+                }
+                categoryData[category] -= parseFloat(transaction.amount);
+
+                if (!subCategoryData[category]) {
+                    subCategoryData[category] = {};
+                }
+                const subCategory = transaction.subCategory;
+                if (!subCategoryData[category][subCategory]) {
+                    subCategoryData[category][subCategory] = 0;
+                }
+                subCategoryData[category][subCategory] -= parseFloat(transaction.amount);
+            }
+        });
+
+        const formattedCategoryData = Object.keys(categoryData).map((category) => {
             const colorInfo = categoryColors.find(c => c.label === category);
-            const color = colorInfo ? colorInfo.color : '#999';
-            const icon = colorInfo ? colorInfo.icon : 'fa-solid fa-question';
             return {
                 name: category,
-                value: groupedData[category],
-                color: color,
-                icon: icon
+                value: categoryData[category],
+                color: colorInfo ? colorInfo.color : '#999',
+                icon: colorInfo ? colorInfo.icon : 'fa-solid fa-question',
             };
         });
 
-        setChartData(formattedData);
+        setCategoryData(formattedCategoryData);
+        setSubCategoryData(subCategoryData);
     }, [transactions, timePeriod]);
+
+    const handleMouseEnter = (category) => {
+        setHoveredCategory(category);
+    
+        const formattedSubcategoryData = Object.keys(subCategoryData[category] || {}).map((subCategory) => {
+            return {
+                name: subCategory,
+                value: subCategoryData[category][subCategory],
+                color: categoryColors.find(c => c.label === category).color,
+                icon: subCategoriesIcons[subCategory] || 'fa-solid fa-question'
+            };
+        });
+        setHoveredSubCategoryData(formattedSubcategoryData);
+    };
+    
+    const handleMouseLeave = () => {
+        setHoveredCategory(null);
+        setHoveredSubCategoryData([]);
+    };
 
     useImperativeHandle(ref, () => ({
         fetchData
@@ -104,42 +130,13 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         setTimePeriod(period);
     };
 
-    const handleMouseEnter = (category) => {
-        setHoveredCategory(category);
-        const subcategoryData = transactions.reduce((acc, transaction) => {
-            if (transaction.transaction_type === 'Expense' && transaction.category === category) {
-                if (!acc[transaction.subCategory]) {
-                    acc[transaction.subCategory] = 0;
-                }
-                acc[transaction.subCategory] -= parseFloat(transaction.amount);
-            }
-            return acc;
-        }, {});
-
-        const formattedSubcategoryData = Object.keys(subcategoryData).map((subCategory) => {
-            return {
-                name: subCategory,
-                value: subcategoryData[subCategory],
-                color: categoryColors.find(c => c.label === category).color,
-                icon: subcategoriesIcons[subCategory] || 'fa-solid fa-question'
-            };
-        });
-
-        setSubCategoryData(formattedSubcategoryData);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredCategory(null);
-        setSubCategoryData([]);
-    };
-
     const renderCustomizedLabel = useCallback(({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
         const radius = (innerRadius + outerRadius) / 2;
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-        const iconClass = chartData[index]?.icon || 'fa-solid fa-question';
+        const iconClass = categoryData[index]?.icon || 'fa-solid fa-question';
 
         return (
             <g>
@@ -148,7 +145,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 </foreignObject>
             </g>
         );
-    }, [chartData]);
+    }, [categoryData]);
 
     const renderSubcategoryLabel = useCallback(({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
@@ -156,7 +153,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-        const iconClass = subCategoryData[index]?.icon || 'fa-solid fa-question';
+        const iconClass = hoveredSubCategoryData[index]?.icon || 'fa-solid fa-question';
 
         return (
             <g>
@@ -165,96 +162,104 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 </foreignObject>
             </g>
         );
-    }, [subCategoryData]);
+    }, [hoveredSubCategoryData]);
 
     const Legend = ({ data }) => {
+
+        const total = data.reduce((acc, entry) => acc + entry.value, 0);
+
         return (
             <div className="legend">
-                {data.map((entry, index) => (
+                {data.map((entry, index) => {
+                    const percentage = ((entry.value / total) * 100).toFixed(2);
+                    return(
                     <div key={index} className="legend-item">
                         <i className={entry.icon} style={{ color: entry.color, marginRight: '8px' }}></i>
-                        <span className="legend-text">{`${Math.round(entry.value)}:-`}</span>
+                        <span className="legend-text">{`${Math.round(entry.value)}:- (${percentage}%)`}</span>
                     </div>
-                ))}
+                );
+    })}
             </div>
         );
     };
 
     return (
         <div id="pie-chart-with-legend">
-            <div className="time-period-buttons-pie">
-                <button
-                    className={timePeriod === 'weekly' ? 'active' : ''}
-                    onClick={() => handleTimePeriodChange('weekly')}
-                >
-                    1W
-                </button>
-                <button
-                    className={timePeriod === 'monthly' ? 'active' : ''}
-                    onClick={() => handleTimePeriodChange('monthly')}
-                >
-                    1M
-                </button>
-                <button
-                    className={timePeriod === 'yearly' ? 'active' : ''}
-                    onClick={() => handleTimePeriodChange('yearly')}
-                >
-                    1Y
-                </button>
-                <button
-                    className={timePeriod === 'all' ? 'active' : ''}
-                    onClick={() => handleTimePeriodChange('all')}
-                >
-                    All
-                </button>
-            </div>
-            <div className="pie-chart">
-                <ResponsiveContainer>
-                    <PieChart>
-                        <Pie
-                            data={chartData}
-                            dataKey="value"
-                            nameKey="name"
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={100}
-                            innerRadius={65}
-                            fill="#8884d8"
-                            labelLine={false}
-                            label={renderCustomizedLabel}
-                            paddingAngle={0}
-                            isAnimationActive={false}
-                            onMouseEnter={({ name }) => handleMouseEnter(name)}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            {chartData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={entry.color} />
-                            ))}
-                        </Pie>
-                        {hoveredCategory && (
+            <div id="pie-chart-with-legend-container">
+                <div className="time-period-buttons-pie">
+                    <button
+                        className={timePeriod === 'weekly' ? 'active' : ''}
+                        onClick={() => handleTimePeriodChange('weekly')}
+                    >
+                        1W
+                    </button>
+                    <button
+                        className={timePeriod === 'monthly' ? 'active' : ''}
+                        onClick={() => handleTimePeriodChange('monthly')}
+                    >
+                        1M
+                    </button>
+                    <button
+                        className={timePeriod === 'yearly' ? 'active' : ''}
+                        onClick={() => handleTimePeriodChange('yearly')}
+                    >
+                        1Y
+                    </button>
+                    <button
+                        className={timePeriod === 'all' ? 'active' : ''}
+                        onClick={() => handleTimePeriodChange('all')}
+                    >
+                        All
+                    </button>
+                </div>
+                <div className="pie-chart">
+                    <ResponsiveContainer>
+                        <PieChart>
                             <Pie
-                                data={subCategoryData}
+                                data={categoryData}
                                 dataKey="value"
                                 nameKey="name"
                                 cx="50%"
                                 cy="50%"
-                                outerRadius={120}
-                                innerRadius={100}
-                                fill="#82ca9d"
+                                outerRadius={90}
+                                innerRadius={60}
+                                fill="#8884d8"
                                 labelLine={false}
-                                label={renderSubcategoryLabel}
+                                label={renderCustomizedLabel}
                                 paddingAngle={0}
                                 isAnimationActive={false}
+                                onMouseEnter={({ name }) => handleMouseEnter(name)}
+                                onMouseLeave={handleMouseLeave}
                             >
-                                {subCategoryData.map((entry, index) => (
+                                {categoryData.map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={entry.color} />
                                 ))}
                             </Pie>
-                        )}
-                    </PieChart>
-                </ResponsiveContainer>
+                            {hoveredCategory && hoveredSubCategoryData.length > 0 && (
+                                <Pie
+                                    data={hoveredSubCategoryData}
+                                    dataKey="value"
+                                    nameKey="name"
+                                    cx="50%"
+                                    cy="50%"
+                                    outerRadius={60}
+                                    innerRadius={0}
+                                    fill="#82ca9d"
+                                    labelLine={false}
+                                    label={renderSubcategoryLabel}
+                                    paddingAngle={0}
+                                    isAnimationActive={false}
+                                >
+                                    {hoveredSubCategoryData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                    ))}
+                                </Pie>
+                            )}
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
+                <Legend data={hoveredCategory ? hoveredSubCategoryData : categoryData} />
             </div>
-            <Legend data={hoveredCategory ? subCategoryData : chartData} />
         </div>
     );
 });
