@@ -16,7 +16,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
         { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
         { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
-        { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
+        { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
     ];
 
     const subCategories = {

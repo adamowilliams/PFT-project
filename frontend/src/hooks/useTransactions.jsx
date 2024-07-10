@@ -61,6 +61,20 @@ const useTransactions = () => {
         }
         };
 
+    const handleUpdateTransaction = async (id, transactionData) => {
+        try {
+          const response = await apiService.updateTransaction(id, transactionData);
+          if (response.status === 200) {
+            await handleGetTransactions();
+          } else {
+            setError("Failed to update transaction");
+          }
+          return response;
+        } catch (error) {
+          setError(error.message);
+        }
+      }
+
     const handleGetImportedTransactions = async () => {
         setLoading(true);
         setError(null);
@@ -111,7 +125,8 @@ const useTransactions = () => {
             handleDeleteTransaction, 
             handleGetImportedTransactions,
             handleCreateTransaction,
-            handleImportTransactions
+            handleImportTransactions,
+            handleUpdateTransaction
         };
 };
 

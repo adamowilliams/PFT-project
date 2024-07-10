@@ -4,17 +4,17 @@ const categoryColors = [
   { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
   { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
   { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-  { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-bus' },
+  { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-solid fa-road' },
   { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
-  { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
+  { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
 ];
 
 const subcategoriesIcons = {
   'Building & Garden': 'fa-solid fa-tree',
   'Rent & Fee': 'fa-solid fa-file-invoice',
-  'Groceries': 'fa-solid fa-apple-alt',
+  'Groceries': 'fa-solid fa-shopping-cart',
   'Cafe & Snacks': 'fa-solid fa-coffee',
-  'Restaurant & Bar': 'fa-solid fa-utensils',
+  'Restaurant & Bar': 'fa-solid fa-pizza-slice',
   'Alcohol & Tobacco': 'fa-solid fa-wine-bottle',
   'Pets': 'fa-solid fa-dog',
   'Media, Mobile, and IT': 'fa-solid fa-mobile-alt',

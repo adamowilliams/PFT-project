@@ -21,7 +21,7 @@ const BalanceDisplay = forwardRef(({ children, transactions = [] }, ref) => {
 
     return (
         <div id="balance-display">
-            <h2>Balance: ${balance.toFixed(2)}</h2>
+            <h2>Balance: {balance.toFixed(2)} SEK</h2>
             {children}
         </div>
     );

@@ -5,7 +5,6 @@ import useTransactions from '../hooks/useTransactions.jsx';
 import * as XLSX from 'xlsx';
 
 
-
 const incomeCategories = [
   { value: 'Salary', label: 'Salary' },
   { value: 'Savings', label: 'Savings' },
@@ -50,8 +49,6 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
     subCategory: "",
     description: "",
     created_at: "",
-    recurring: false,
-    recurring_interval: 5, // Default to "None"
     transaction_type: "",
   });
   const [file, setFile] = useState(null);
@@ -121,8 +118,6 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
           subCategory: '',
           description: '',
           created_at: '',
-          recurring: false,
-          recurring_interval: 5,
           transaction_type: '',
         });
       } else {
@@ -257,28 +252,6 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
                 onChange={handleChange}
                 placeholder='Specify date or leave empty for today' //doesnt work
               />
-              <label>
-                Recurring
-                <input
-                  type="checkbox"
-                  name="recurring"
-                  checked={formData.recurring}
-                  onChange={handleChange}
-                />
-              </label>
-              {formData.recurring && (
-                <select
-                  name="recurring_interval"
-                  value={formData.recurring_interval}
-                  onChange={handleChange}
-                >
-                  {repetitionIntervals.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              )}
               <button type="submit">Add</button>
             </form>
           </div>

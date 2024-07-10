@@ -6,11 +6,9 @@ import '../styles/Calendar.css';
 const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
     // Transform transactions into a format suitable for quick lookup by date
     const markedDates = transactions.reduce((acc, transaction) => {
-        console.log('Original Date:', transaction.created_at.toString());
         const transactionDate = new Date(transaction.created_at);
         const adjustedDate = new Date(transactionDate.getTime() - transactionDate.getTimezoneOffset() * 60000);
         const dateStr = adjustedDate.toISOString().split('T')[0];
-        console.log('Adjusted Date String:', dateStr);
 
         if (!acc[dateStr]) {
             acc[dateStr] = { hasExpense: false, hasIncome: false };
@@ -27,7 +25,6 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
         if (view === 'month') {
             const adjustedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
             const dateStr = adjustedDate.toISOString().split('T')[0];
-            console.log('Calendar Tile Date String:', dateStr);
             const hasExpense = markedDates[dateStr]?.hasExpense;
             const hasIncome = markedDates[dateStr]?.hasIncome;
             return (

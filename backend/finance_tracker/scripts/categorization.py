@@ -23,9 +23,25 @@ lookup_dict = {row['description']: (row['category'], row['subCategory']) for _, 
 
 # Function to update the lookup table
 def update_lookup_table(description, category, subCategory):
-    lookup_dict[description] = (category, subCategory)
+    # Read the existing lookup table
+    lookup_table_path = './lookup_table.csv'
+    if os.path.exists(lookup_table_path):
+        lookup_table = pd.read_csv(lookup_table_path)
+    else:
+        lookup_table = pd.DataFrame(columns=['description', 'category', 'subCategory'])
+
+    # Remove entries with the same description
+    lookup_table = lookup_table[lookup_table['description'] != description]
+
+    # Add the updated entry
     new_entry = pd.DataFrame({'description': [description], 'category': [category], 'subCategory': [subCategory]})
-    new_entry.to_csv('./lookup_table.csv', mode='a', header=False, index=False)
+    lookup_table = pd.concat([lookup_table, new_entry], ignore_index=True)
+
+    # Save the updated lookup table
+    lookup_table.to_csv(lookup_table_path, index=False)
+
+    # Update the lookup_dict
+    lookup_dict[description] = (category, subCategory)
 
 def ml_categorization(description):
     
@@ -47,10 +63,10 @@ def ml_categorization(description):
     predicted_subCategory = model.classes_[1][probas_subCategory.argmax()]
     
     if max_prob_category < 0.8 or max_prob_subCategory < 0.8:  # Confidence threshold
-        chosen_category, chosen_subCategory = get_user_input(description)
-        return chosen_category, chosen_subCategory
+        chosen_category, chosen_subCategory = "", ""
     else:
-        return predicted_category, predicted_subCategory
+        chosen_category, chosen_subCategory = predicted_category, predicted_subCategory
+        return chosen_category, chosen_subCategory
 
 
 def categorize_transaction(description):

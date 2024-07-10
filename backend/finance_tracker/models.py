@@ -14,8 +14,6 @@ class Transaction(models.Model):
     subCategory = models.CharField(max_length=50, default="")
     description = models.TextField(blank=True, default="")
     created_at = models.DateField(blank=True, null=True)
-    recurring = models.BooleanField(default=False)
-    recurring_interval = models.TextField(max_length=20, default="")
     transaction_type = models.CharField(max_length=7, choices=TRANSACTION_TYPES , default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="transactions")
     

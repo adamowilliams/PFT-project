@@ -20,3 +20,5 @@ node_modules/
 
 # Ignore machine learning data files
 backend/ml_app/data/*
+backend/lookup_table.csv
+*.csv

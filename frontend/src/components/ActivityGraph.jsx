@@ -9,7 +9,7 @@ const categoryColors = [
     { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
     { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
     { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
-    { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-ellipsis-h' }
+    { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
 ];
 
 const categoryInfo = categoryColors.reduce((acc, { label, color, icon }) => {
@@ -17,7 +17,7 @@ const categoryInfo = categoryColors.reduce((acc, { label, color, icon }) => {
     return acc;
 }, {});
 
-const CustomTooltip = ({ active, payload, label, coordinate }) => {
+const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         const expenses = payload.find(p => p.dataKey === 'expense');
         const expenseDetails = expenses && expenses.payload.expenseDetails;
@@ -46,7 +46,7 @@ const CustomTooltip = ({ active, payload, label, coordinate }) => {
                                 </div>
                             ))}
                         </div>
-                        <p>{label}</p>
+                        <p>{dayjs(label).format('dddd, MMMM D, YYYY')}</p> {/* Display the date in a friendly format */}
                     </div>
                 )}
             </div>
@@ -200,8 +200,8 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
                             return <span style={{ color }}>{value.charAt(0).toUpperCase() + value.slice(1)}</span>;
                           }}
                         />
-                        {visibleLines.expense && <Area type="monotone" dataKey="expense" stroke="#FF0000" fillOpacity={0.3} fill="#FF0000" />}
-                        {visibleLines.balance && <Area type="monotone" dataKey="balance" stroke="#0000FF" fillOpacity={0.3} fill="#0000FF" />}
+                        {visibleLines.expense && <Area type="monotone" dataKey="expense" stroke="#FF0000" fillOpacity={0.4} fill="#FF0000" />}
+                        {visibleLines.balance && <Area type="monotone" dataKey="balance" stroke="#0000FF" fillOpacity={0.1} fill="#0000FF" />}
                     </AreaChart>
                 </ResponsiveContainer>
             </div>

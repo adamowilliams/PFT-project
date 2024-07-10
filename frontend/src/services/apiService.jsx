@@ -54,6 +54,16 @@ const apiService = {
         }
     },
 
+    updateTransaction : async (id, transactionData) => {
+        try {
+            const response = await api.put(`/api/transactions/${id}/update/`, transactionData);
+            return response;
+        } catch (error) {
+            alert(error);
+            throw error;
+        }
+    },
+
     deleteTransaction: async (id) => {
         try {
             const response = await api.delete(`/api/transactions/delete/${id}/`);
