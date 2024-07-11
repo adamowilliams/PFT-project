@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     "notes",
     "finance_tracker",
     "ml_app",
-    "frontend",
 ]
 
 MIDDLEWARE = [
