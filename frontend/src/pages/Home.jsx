@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from "../api";
 
 function Home () {
@@ -9,12 +8,15 @@ function Home () {
         getUsername();
     }, []);
 
-    const getUsername = () => {
-        api
-            .get("/api/current-user/")
-            .then((res) => setUsername(res.data.username))
-            .catch((err) => alert('Failed to fetch username:',err));
-    }
+    const getUsername = async () => {
+        try {
+            const res = await api.get("/api/current-user/");
+            setUsername(res.data.username);
+        } catch (err) {
+            console.error('Failed to fetch username:', err);
+            setError(err.response ? err.response.data : "An error occurred");
+        }
+    };
 
     return (
         <div>
