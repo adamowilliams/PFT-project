@@ -1,14 +1,10 @@
 import axios from "axios"
 import { ACCESS_TOKEN } from "./constants"
 
-const apiUrl = window?.configs?.apiUrl ? window.configs.apiUrl : "/";
+const apiUrl = "/choreo-apis/pftsummerproject/backend/v1";
 
 const api = axios.create({
-    baseURL: apiUrl,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    timeout: 10000,  // 10 seconds timeout
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
 });
 
 api.interceptors.request.use(
@@ -16,7 +12,7 @@ api.interceptors.request.use(
         const token = localStorage.getItem(ACCESS_TOKEN);
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
-        } 
+        }
         return config
     },
     (error) => {
