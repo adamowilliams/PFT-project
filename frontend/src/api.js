@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ACCESS_TOKEN } from "./constants"
 
-const apiUrl = "/choreo-apis/pftsummerproject/backend/v1";
+const apiUrl = window?.configs?.apiUrl ? window.configs.apiUrl : "/";
 
 const api = axios.create({
     baseURL: apiUrl,
