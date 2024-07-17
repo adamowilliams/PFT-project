@@ -1,7 +1,7 @@
 transaction_type,created_at,description,amount,category,subCategory
 Expense,2024-07-06,CIRCLE K VENNE,-55.0,Transport,Vehicles & Fuel
 Expense,2024-07-04,WEST SIDE REST,-422.0,Food & Drink,Restaurant & Bar
-Expense,2024-07-04,Bygdens restau,-70.0,,
+Expense,2024-07-04,Bygdens restau,-70.0,Food & Drink,Restaurant & Bar
 Expense,2024-07-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
 Expense,2024-07-03,ICA KVANTUM KR,-90.0,Food & Drink,Groceries
 Expense,2024-07-03,ICA KVANTUM KR,-272.54,Food & Drink,Groceries
@@ -12,14 +12,14 @@ Expense,2024-07-02,SJ AB OMBORD,-52.0,Transport,Bus & Train
 Expense,2024-07-01,ARKEN ZOO 2042,-589.9,Household,Pets
 Expense,2024-07-02,hallon,-109.0,Household,"Media, Mobile, and IT"
 Expense,2024-07-02,Västtrafik To,-36.0,Transport,Bus & Train
-Expense,2024-07-01,"HAGGREN, SIMON",-1270.0,,
+Expense,2024-07-01,"HAGGREN, SIMON",-1270.0,Miscellaneous,Swish
 Expense,2024-07-01,AVANZA BANK,-1000.0,Miscellaneous,Savings
 Expense,2024-07-01,AVANZA BANK,-500.0,Miscellaneous,Savings
 Expense,2024-06-26,Disney Plus,-89.0,Household,"Media, Mobile, and IT"
 Expense,2024-06-25,MAXI ICA STORM,-1096.2,Food & Drink,Groceries
 Expense,2024-06-25,WH GOTEBORG BJ,-229.1,Food & Drink,Groceries
 Expense,2024-06-25,AMIRS AFF#R,-22.0,Food & Drink,Groceries
-Expense,2024-06-26,Stripe Payment,-1400.0,,
+Expense,2024-06-26,Stripe Payment,-1400.0,Miscellaneous,Swish
 Expense,2024-06-26,"HED, CORNELIA",-390.0,Food & Drink,Restaurant & Bar
 Expense,2024-06-26,Telia Sverige,-608.0,Household,"Media, Mobile, and IT"
 Expense,2024-06-26,Brf Kålltorps,-3655.0,Housing,Rent & Fee
@@ -36,7 +36,7 @@ Expense,2024-06-20,APOTEKSGRUPPEN,-338.8,Household,Healthcare & Wellness
 Expense,2024-06-20,"HED, CORNELIA",-1000.0,Food & Drink,Restaurant & Bar
 Income,2024-06-18,STUDSTÖD,9717.0,Miscellaneous,Support & Subsidies
 Expense,2024-06-17,LEJONET OCH BJ,-160.0,Food & Drink,Café & Snacks
-Expense,2024-06-17,"HUSSEIN, SHIRW",-45.0,,
+Expense,2024-06-17,"HUSSEIN, SHIRW",-45.0,Food & Drink,Cafe & Snacks
 Expense,2024-06-16,G2A.COM,-38.19,Entertainment & Shopping,Toys & Games
 Expense,2024-06-16,SAMNIK AB,-159.0,Food & Drink,Groceries
 Expense,2024-06-15,ICA NARA EFFKA,-103.7,Food & Drink,Groceries

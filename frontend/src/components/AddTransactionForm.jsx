@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import useTransactions from '../hooks/useTransactions.jsx';
-import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 
 
 const incomeCategories = [
@@ -140,15 +140,22 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
-
+  
     if (selectedFile) {
       const reader = new FileReader();
-      reader.onload = (event) => {
-        const data = new Uint8Array(event.target.result);
-        const workbook = XLSX.read(data, { type: 'array' });
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-        const json = XLSX.utils.sheet_to_json(worksheet);
+      reader.onload = async (event) => {
+        const arrayBuffer = event.target.result;
+        const workbook = new ExcelJS.Workbook();
+        await workbook.xlsx.load(arrayBuffer);
+        
+        const worksheet = workbook.worksheets[0];
+        const json = [];
+  
+        worksheet.eachRow({ includeEmpty: true }, (row, rowNumber) => {
+          const rowValues = row.values;
+          json.push(rowValues);
+        });
+  
         console.log("File content:", json);
       };
       reader.readAsArrayBuffer(selectedFile);
