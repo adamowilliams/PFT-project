@@ -165,20 +165,22 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     }, [hoveredSubCategoryData]);
 
     const Legend = ({ data }) => {
-
-        const total = data.reduce((acc, entry) => acc + entry.value, 0);
-
         return (
             <div className="legend">
+                <div className="legend-header">
+                    <span className="legend-title">Category</span>
+                    <span className="legend-title">Spent</span>
+                </div>
                 {data.map((entry, index) => {
-                    const percentage = ((entry.value / total) * 100).toFixed(2);
-                    return(
-                    <div key={index} className="legend-item">
-                        <i className={entry.icon} style={{ color: entry.color, marginRight: '8px' }}></i>
-                        <span className="legend-text">{`${Math.round(entry.value)}:- (${percentage}%)`}</span>
-                    </div>
-                );
-    })}
+                    return (
+                        <div key={index} className="legend-item">
+                            <span className={"legend-name"} style={{ color: entry.color }}>
+                                {entry.name}
+                            </span>
+                            <span className="legend-text">{`${Math.round(entry.value)}:-`}</span>
+                        </div>
+                    );
+                })}
             </div>
         );
     };

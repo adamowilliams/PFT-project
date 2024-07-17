@@ -16,9 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.views import CreateUserView, CurrentUserView
-from notes import views as notes_views
-from finance_tracker import views as finance_views
+from user_management.views import CreateUserView, CurrentUserView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
