@@ -76,7 +76,5 @@ def import_transactions(file_path):
 
 # Example usage
 if __name__ == "__main__":
-    file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\HandelsbankenRAWSMALL (1).xlsx'
+    file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\Handelsbanken_Account_Transactions_2024-06-16.xlsx'
     transactions = import_transactions(file_path)
-
-    #print(transactions)

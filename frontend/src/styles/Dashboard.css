@@ -165,8 +165,6 @@
   left: 0;
 }
 
-
-
 #recent_transactions {
   width: 35%;
   display: flex;
@@ -311,6 +309,7 @@
   margin-right: 162px;
   align-self: flex-end;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .legend-item i {

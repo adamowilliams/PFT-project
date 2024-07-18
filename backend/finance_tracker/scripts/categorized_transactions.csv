@@ -1,5 +1,131 @@
 transaction_type,created_at,description,amount,category,subCategory
+Expense,2024-06-16,Josefin Larsso,-100.0,,
+Expense,2024-06-16,Prel SAMNIK A,-159.0,,
 Expense,2024-06-15,Prel ICA Nara,-103.7,Food & Drink,Groceries
 Expense,2024-06-10,Wh G¦teborg Bj,-432.3,Food & Drink,Groceries
+Expense,2024-06-10,SAMNIK AB,-43.0,Food & Drink,Groceries
+Expense,2024-06-11,OPENAI *CHATGP,-269.33,,
+Expense,2024-06-09,SAMNIK AB,-99.0,Food & Drink,Groceries
 Expense,2024-06-04,COOP MUNKEB#CK,-79.4,Food & Drink,Groceries
 Expense,2024-06-04,APOTEKSGRUPPEN,-152.24,Household,Healthcare & Wellness
+Expense,2024-06-04,GOOGLE *Google,-44.99,Household,"Media, Mobile, and IT"
+Expense,2024-06-05,K*liseberg.s,-1785.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-06-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
+Income,2024-06-03,"WILLIAMS, HARR",1000.0,,
+Expense,2024-06-02,SAMNIK AB,-30.0,Food & Drink,Groceries
+Expense,2024-06-02,SAMNIK AB,-38.0,Food & Drink,Groceries
+Expense,2024-06-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2024-06-01,MONUMENT 031,-118.0,,
+Expense,2024-06-01,Vega Mat & Dry,-84.0,Food & Drink,Restaurant & Bar
+Expense,2024-06-01,Vega Mat & Dry,-195.0,Food & Drink,Restaurant & Bar
+Expense,2024-06-01,ROLLIN BISTROS,-457.8,,
+Expense,2024-06-03,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-06-01,Västtrafik To,-43.0,Transport,Bus & Train
+Expense,2024-05-31,"HED, CORNELIA",-888.0,,
+Expense,2024-05-31,AVANZA BANK,-1000.0,Miscellaneous,Savings
+Expense,2024-05-31,AVANZA BANK,-500.0,Miscellaneous,Savings
+Expense,2024-05-29,SAMNIK AB,-60.0,Food & Drink,Groceries
+Expense,2024-05-28,Mouris gatukok,-162.0,,
+Expense,2024-05-28,HORNBACH GOTEB,-2403.0,Housing,Building & Garden
+Income,2024-05-28,AVANZA,15000.0,Miscellaneous,Savings
+Expense,2024-05-29,Brf Kålltorps,-3655.0,Housing,Rent & Fee
+Expense,2024-05-29,Telia Sverige,-608.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-27,JINX DYNASTY,-420.0,,
+Expense,2024-05-26,Disney Plus,-89.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-25,SAMNIK AB,-84.0,Food & Drink,Groceries
+Expense,2024-05-25,SAMNIK AB,-32.0,Food & Drink,Groceries
+Expense,2024-05-25,CAFE OIZO,-218.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-24,MAXI ICA STORM,-1435.48,Food & Drink,Groceries
+Expense,2024-05-24,The Bivac Spir,-131.25,,
+Expense,2024-05-24,Ako & Siver HB,-60.0,,
+Expense,2024-05-24,JOHN SCOTTS AV,-49.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,JOHN SCOTTS PU,-51.45,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,WARDSHUSET TUL,-54.6,,
+Expense,2024-05-24,OOTO,-125.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-24,SAMNIK AB,-131.0,Food & Drink,Groceries
+Income,2024-05-28,"HED, CORNELIA",1000.0,,
+Income,2024-05-28,AVANZA,10000.0,Miscellaneous,Savings
+Expense,2024-05-28,"HED, CORNELIA",-288.5,,
+Income,2024-05-28,"HED, CORNELIA",1828.0,,
+Income,2024-05-28,"HED, CORNELIA",304.0,,
+Expense,2024-05-28,"HED, CORNELIA",-656.0,,
+Expense,2024-05-28,"HED, CORNELIA",-1400.0,,
+Expense,2024-05-27,Västtrafik To,-36.0,Transport,Bus & Train
+Income,2024-05-26,AVANZA,2000.0,Miscellaneous,Savings
+Income,2024-05-26,"ODQVIST, CARL",45.0,,
+Expense,2024-05-24,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-23,CAFE LINSEN,-18.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-23,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-24,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-24,Västtrafik To,-7.0,Transport,Bus & Train
+Income,2024-05-22,STUDSTÖD,1644.0,Miscellaneous,Support & Subsidies
+Expense,2024-05-23,Västtrafik To,-36.0,Transport,Bus & Train
+Income,2024-05-22,AVANZA,2500.0,Miscellaneous,Savings
+Expense,2024-05-21,DJINAN LIVS,-25.0,Food & Drink,Groceries
+Expense,2024-05-21,MONALIVS,-23.0,Food & Drink,Groceries
+Expense,2024-05-21,AMIRS AFF#R,-20.0,Food & Drink,Groceries
+Income,2024-05-22,"HED, CORNELIA",1400.0,,
+Expense,2024-05-20,MONALIVS,-33.0,Food & Drink,Groceries
+Expense,2024-05-21,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-21,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-20,Gpasta Group A,-99.0,Food & Drink,Restaurant & Bar
+Expense,2024-05-19,Wh G¦teborg Bj,-159.7,Food & Drink,Groceries
+Expense,2024-05-18,NMB*Godhemsbut,-20.0,,
+Expense,2024-05-18,Maria Livs / A,-58.0,Food & Drink,Groceries
+Expense,2024-05-18,GOOGLE *Google,-40.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-17,N-M Frukt & Gr,-212.45,Food & Drink,Groceries
+Expense,2024-05-17,COOP MUNKEB#CK,-256.65,Food & Drink,Groceries
+Expense,2024-05-17,APOTEKSGRUPPEN,-152.24,Household,Healthcare & Wellness
+Expense,2024-05-20,"HED, CORNELIA",-1312.0,,
+Expense,2024-05-20,Västtrafik To,-7.0,Transport,Bus & Train
+Expense,2024-05-20,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-19,SJ AB,-1636.0,Transport,Bus & Train
+Expense,2024-05-16,AMIRS AFF#R,-42.0,Food & Drink,Groceries
+Expense,2024-05-16,G2A.COM,-38.99,Entertainment & Shopping,Toys & Games
+Expense,2024-05-14,DJINAN LIVS,-25.0,Food & Drink,Groceries
+Expense,2024-05-14,CAFE LINSEN,-115.0,Food & Drink,Cafe & Snacks
+Expense,2024-05-14,SAMNIK AB,-132.0,Food & Drink,Groceries
+Expense,2024-05-15,Willys G¦tebor,-162.37,Food & Drink,Groceries
+Expense,2024-05-16,"HED, CORNELIA",-4500.0,,
+Expense,2024-05-16,Psykiatripartn,-250.0,Household,Healthcare & Wellness
+Expense,2024-05-15,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-14,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-14,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-11,ICA FOCUS,-74.85,Food & Drink,Groceries
+Expense,2024-05-11,LISEBERG LH SP,-30.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG LH SP,-20.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG AB,-79.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG AB,-25.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG LH SP,-30.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG LH SP,-30.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG RR,-726.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG OV SP,-20.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-11,LISEBERG PF,-237.0,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-10,AROJJ DII,-115.0,,
+Expense,2024-05-12,"HED, CORNELIA",-3312.0,,
+Expense,2024-05-11,"HED, CORNELIA",-100.0,,
+Income,2024-05-11,Åsa Williams,500.0,,
+Expense,2024-05-09,G2ABVSHOP,-176.06,Entertainment & Shopping,Toys & Games
+Expense,2024-05-09,COOP MUNKEB#CK,-91.8,Food & Drink,Groceries
+Expense,2024-05-09,N-M Frukt & Gr,-138.98,Food & Drink,Groceries
+Expense,2024-05-09,PAY*unkebacksg,-130.0,Miscellaneous,Miscellaneous
+Expense,2024-05-09,GOOGLE *Google,-399.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-10,"RICHTER, GUSTA",-14.0,,
+Expense,2024-05-10,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-09,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-09,Skattekonto,-485.0,Miscellaneous,Miscellaneous
+Expense,2024-05-07,SAMNIK AB,-92.0,Food & Drink,Groceries
+Expense,2024-05-07,AMIRS AFF#R,-56.0,Food & Drink,Groceries
+Expense,2024-05-08,K*adlibris.s,-510.6,Entertainment & Shopping,Culture & Entertainment
+Expense,2024-05-04,Zettle_*Cafeba,-32.0,,
+Expense,2024-05-04,TEMPO GOTEBORG,-98.85,Food & Drink,Groceries
+Expense,2024-05-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
+Income,2024-05-06,Andre Williams,595.0,,
+Expense,2024-05-04,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-02,SAMNIK AB,-40.0,Food & Drink,Groceries
+Expense,2024-05-03,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-05-02,hallon,-109.0,Household,"Media, Mobile, and IT"
+Expense,2024-05-01,SAMNIK AB,-42.0,Food & Drink,Groceries
+Expense,2024-04-30,Systembolaget,-125.6,Food & Drink,Alcohol & Tobacco
+Expense,2024-04-29,SL,-84.0,Transport,Bus & Train
+Expense,2024-05-01,Västtrafik To,-72.0,Transport,Bus & Train

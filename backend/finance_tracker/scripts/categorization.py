@@ -66,11 +66,11 @@ def ml_categorization(description):
         chosen_category, chosen_subCategory = "", ""
     else:
         chosen_category, chosen_subCategory = predicted_category, predicted_subCategory
-        return chosen_category, chosen_subCategory
+    return chosen_category, chosen_subCategory
 
 
 def categorize_transaction(description):
-
+    print(description)
     # Check if the transaction is in the lookup table
     if description in lookup_dict:
         return lookup_dict[description]
@@ -82,6 +82,7 @@ def categorize_transaction(description):
         return category, subCategory
 
     # Fallback to ML categorization
+
     category, subCategory = ml_categorization(description)
     update_lookup_table(description, category, subCategory)
     return category, subCategory

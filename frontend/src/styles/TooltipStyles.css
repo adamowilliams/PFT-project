@@ -1,0 +1,21 @@
+.tooltip-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.tooltip-item i {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.description {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.amount {
+    text-align: right;
+    flex-shrink: 0;
+}

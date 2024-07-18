@@ -10,8 +10,8 @@ class Transaction(models.Model):
         ]
 
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    category = models.CharField(max_length=50, default="")
-    subCategory = models.CharField(max_length=50, default="")
+    category = models.CharField(max_length=50, default="", blank=True, null=True)
+    subCategory = models.CharField(max_length=50, default="", blank=True, null=True)
     description = models.TextField(blank=True, default="")
     created_at = models.DateField(blank=True, null=True)
     transaction_type = models.CharField(max_length=7, choices=TRANSACTION_TYPES , default='')
