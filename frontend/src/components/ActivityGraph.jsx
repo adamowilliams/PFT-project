@@ -193,11 +193,11 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
                         <Legend
                           layout="horizontal"
                           verticalAlign="top"
-                          align="center"
+                          align="right"
                           onClick={(e) => handleLegendClick(e.dataKey)}
                           formatter={(value) => {
                             const color = value === 'expense' ? '#FF0000' : '#0000FF';
-                            return <span style={{ color }}>{value.charAt(0).toUpperCase() + value.slice(1)}</span>;
+                            return <span style={{ color, fontSize: "10px" }}>{value.charAt(0).toUpperCase() + value.slice(1)}</span>;
                           }}
                         />
                         {visibleLines.expense && <Area type="monotone" dataKey="expense" stroke="#FF0000" fillOpacity={0.4} fill="#FF0000" />}

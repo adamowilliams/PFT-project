@@ -168,8 +168,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         return (
             <div className="legend">
                 <div className="legend-header">
-                    <span className="legend-title">Category</span>
-                    <span className="legend-title">Spent</span>
+                    <span className="legend-title">Categories</span>
                 </div>
                 {data.map((entry, index) => {
                     return (
