@@ -177,7 +177,7 @@
 }
 
 .recent-transactions-container {
-  margin-right: 15px;
+  margin-right: 19px;
   border: 1px solid #ddd; /* Light border */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
@@ -227,15 +227,15 @@
 
 .transaction p {
   font-size: 12px;
-  width: 68px;
+  width: 113px;
   margin: 0;
   padding: 0;
-  margin-right: 20px;
+  margin-right: -34px;
 }
 
 #transactionDescription {
   font-size: 12px;
-  width: 100px;
+  width: 103px;
   margin: 0;
   padding: 0;
   margin-right: 20px;
@@ -243,7 +243,7 @@
 
 #transactionDate {
   font-size: 12px;
-  width: 61px;
+  width: 50px;
   margin: 0;
   padding: 0;
   margin-right: 20px;
@@ -342,14 +342,16 @@
 }
 
 .legend-text {
+  display: flex;
   width: 66px;
+  margin-right: 11px;
   align-self: center;
   font-size: 12px;
+  justify-content: flex-end;
 }
 
 .pie-chart {
   margin-right: 15px;
-  border: 3px solid #ddd;
   box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.1);
   padding: 0px;
   margin-top: 15px;

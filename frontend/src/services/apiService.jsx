@@ -4,6 +4,16 @@ import dayjs from 'dayjs'; // Adjust the import path for dayjs
 
 const apiService = {
 
+    getCurrentUser: async () => {
+        try {
+            const response = await api.get('/api/current-user/');
+            return response;
+        } catch (error) {
+            alert(error);
+            throw error;
+        }
+    },
+
     getNotes: async () => {
         try {
             const response = await api.get('/api/notes/');

@@ -1,8 +1,10 @@
 #navbar-wrapper {
-  background-image: linear-gradient(357deg, #0f3964 10%, #020e2f 70%); 
-    height: 50px; 
-    width: 100%;
-    overflow-y: visible;
+  display: flex;
+  background-image: linear-gradient(357deg, #0f3964 10%, #020e2f 70%);
+  height: 50px;
+  width: 100%;
+  overflow-y: visible;
+  justify-content: space-between;
   }
 
   #button-head {
@@ -19,4 +21,16 @@
 
   #button-head:hover {
     cursor: pointer;
+  }
+
+  .username-navbar {
+    color: #fffeec;
+    font-size: 18px;
+  }
+
+  .profile-pic  {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
   }

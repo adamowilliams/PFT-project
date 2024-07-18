@@ -6,6 +6,18 @@ const useTransactions = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    const handleGetCurrentUser = async () => {
+        try {
+            const response = await apiService.getCurrentUser();
+            if (response.status === 200) {
+                return response.data.username;
+            } else {
+                alert("Failed to fetch current user");
+            }
+        } catch (error) {
+            setError(error);
+        }
+    };
 
     const handleGetTransactions = async () => {
         setLoading(true);
@@ -126,7 +138,8 @@ const useTransactions = () => {
             handleGetImportedTransactions,
             handleCreateTransaction,
             handleImportTransactions,
-            handleUpdateTransaction
+            handleUpdateTransaction,
+            handleGetCurrentUser
         };
 };
 

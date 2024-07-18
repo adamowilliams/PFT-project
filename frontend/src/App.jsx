@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import useTransactions from './hooks/useTransactions.jsx';
 // Pages
 import { Login, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage } from "./pages/Index";
 // Components
@@ -22,13 +23,23 @@ function RegisterAndLogout() {
 }
 
 function App() {
-  const username = localStorage.getItem("username");
-
+  const [currentUser, setCurrentUser] = useState(null);
+  const { handleGetCurrentUser } = useTransactions();
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+  
+  useEffect(() => {
+    const getCurrentUser = async () => {
+      const username = await handleGetCurrentUser();
+      setCurrentUser(username);
+    };
+  
+    getCurrentUser();
+  }, []);
+
 
   return (
     <BrowserRouter>
@@ -39,7 +50,10 @@ function App() {
             <button onClick={toggleSidebar} id="button-head">
               <i className={`fas ${isSidebarVisible ? 'fa-angle-left' : 'fa-angle-right'}`}></i>
             </button>
-            {/* Navbar content */}
+            <div className="username-navbar" style={{ display: 'flex', alignItems: 'center' }}>
+              <span>{currentUser}</span>
+              <i className="fas fa-smile" style={{ margin: '10px' }}></i> {/* Replace 'fa-custom-icon' with your actual icon class */}
+            </div>
           </div>
           <div className="container-fluid">
             <Routes>
@@ -47,7 +61,7 @@ function App() {
                 path="/"
                 element={
                   <ProtectedRoute>
-                    <Home username={username} />
+                    <Home username={currentUser} />
                   </ProtectedRoute>
                 }
               />

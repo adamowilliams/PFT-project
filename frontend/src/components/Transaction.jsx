@@ -43,17 +43,29 @@ function Transaction({ transaction, children }) {
   const categoryData = getCategoryData(transaction.category);
   const subCategoryIcon = getSubcategoryIcon(transaction.subCategory);
 
+  const date = new Date(transaction.created_at);
+  const day = date.getDate();
+  const monthIndex = date.getMonth();
+
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+  const monthName = monthNames[monthIndex];
+
+  const formattedDate = `${day} ${monthName}`;
+
   return (
     <div className="transaction">
-      <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
-        {categoryData && <i className={categoryData.icon}></i>}
-      </h3>
-      <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
-        {subCategoryIcon && <i className={subCategoryIcon}></i>}
-      </h3>
-      <p id="transactionDescription"> {transaction.description}</p>
+    <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
+      {subCategoryIcon && <i className={subCategoryIcon}></i>}
+    </h3>
+    <div id="transactionDescription" style={{ marginBottom: '8px' }}>
+  <p>{transaction.description}</p>
+  <p id="transactionDate" style={{ color: 'grey', fontSize: '0.8em', marginTop: '4px' }}>
+    {formattedDate}
+  </p>
+</div>
+      
       <p>{transaction.amount}:-</p>
-      <p id="transactionDate"> {transaction.created_at}</p>
       {children}
     </div>
   );

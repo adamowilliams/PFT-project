@@ -6,7 +6,7 @@ import Transaction from "./Transaction";
 const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
 
 
-    const recentTransactions = transactions.slice(0, 8);
+    const recentTransactions = transactions.slice(0, 7);
     const navigate = useNavigate();
 
     const handleViewAllTransactionsClick = () => {

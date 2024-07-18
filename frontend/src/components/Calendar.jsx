@@ -21,6 +21,16 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
         return acc;
     }, {});
 
+    const customLocale = {
+        // Other localization options can be added here if needed
+        localize: {
+            day: (n) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][n],
+        },
+        formatLong: {
+            date: () => 'yyyy-MM-dd',
+        },
+    };
+
     const renderTileContent = ({ date, view }) => {
         if (view === 'month') {
             const adjustedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
@@ -39,7 +49,7 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
 
     return (
         <div id="calendar-container">
-            <Calendar width={280} height={250} locale='en-GB'
+            <Calendar width={280} height={250} locale={'en-GB'} 
                 tileContent={renderTileContent}
             />
         </div>
