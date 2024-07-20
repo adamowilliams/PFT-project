@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, Label } from 'recharts';
 import dayjs from 'dayjs';
+import isBetween from 'dayjs/plugin/isBetween'; // Import the plugin
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import '../styles/Dashboard.css';
+
+dayjs.extend(isBetween); // Use the plugin
 
 const categoryColors = [
     { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
@@ -59,9 +64,25 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
     const [chartData, setChartData] = useState([]);
     const [timePeriod, setTimePeriod] = useState('all');
     const [visibleLines, setVisibleLines] = useState({ expense: true, balance: true });
+    const [customStartDate, setCustomStartDate] = useState(null);
+    const [customEndDate, setCustomEndDate] = useState(null);
 
     const fetchData = () => {
-        const groupedData = transactions.reduce((acc, transaction) => {
+        const today = dayjs();
+        let filteredTransactions = transactions.filter(transaction => {
+            if (timePeriod === 'weekly') {
+                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'week'));
+            } else if (timePeriod === 'monthly') {
+                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'month'));
+            } else if (timePeriod === 'yearly') {
+                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'year'));
+            } else if (timePeriod === 'custom' && customStartDate && customEndDate) {
+                return dayjs(transaction.created_at).isBetween(customStartDate, customEndDate, null, '[]');
+            }
+            return true; // all
+        });
+
+        const groupedData = filteredTransactions.reduce((acc, transaction) => {
             const date = dayjs(transaction.created_at).format('YYYY-MM-DD');
             if (!acc[date]) {
                 acc[date] = { expense: 0, balance: 0, expenseDetails: [] };
@@ -95,18 +116,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
             expenseDetails: groupedData[date].expenseDetails,
         }));
 
-        // Filter data based on time period
-        let filteredData = formattedData;
-        const today = dayjs();
-        if (timePeriod === 'weekly') {
-            filteredData = formattedData.filter(data => dayjs(data.date, 'YYYY-MM-DD').isAfter(today.subtract(1, 'week')));
-        } else if (timePeriod === 'monthly') {
-            filteredData = formattedData.filter(data => dayjs(data.date, 'YYYY-MM-DD').isAfter(today.subtract(1, 'month')));
-        } else if (timePeriod === 'yearly') {
-            filteredData = formattedData.filter(data => dayjs(data.date, 'YYYY-MM-DD').isAfter(today.subtract(1, 'year')));
-        }
-
-        setChartData(filteredData);
+        setChartData(formattedData);
     };
 
     useImperativeHandle(ref, () => ({
@@ -115,7 +125,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
 
     useEffect(() => {
         fetchData();
-    }, [transactions, timePeriod]);
+    }, [transactions, timePeriod, customStartDate, customEndDate]);
 
     const handleLegendClick = (value) => {
         setVisibleLines(prevState => ({
@@ -131,12 +141,12 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
     const getXAxisTickFormatter = () => {
         let lastMonth = null;
         if (timePeriod === 'weekly') {
-            return (tick) => dayjs(tick, 'YY/MM/DD').format('DD MMM');
+            return (tick) => dayjs(tick, 'YYYY-MM-DD').format('D MMM');
         } else if (timePeriod === 'monthly') {
-            return (tick) => dayjs(tick, 'YY/MM/DD').format('WW');
+            return (tick) => dayjs(tick, 'YYYY-MM-DD').format('D MMM');
         } else if (timePeriod === 'all') {
             return (tick) => {
-                const currentTickDate = dayjs(tick, 'YY/MM/DD');
+                const currentTickDate = dayjs(tick, 'YYYY-MM-DD');
                 const currentMonth = currentTickDate.month();
                 if (currentMonth !== lastMonth) {
                     lastMonth = currentMonth;
@@ -144,9 +154,8 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
                 }
                 return '';
             }
-        }
-        else {
-            return (tick) => dayjs(tick, 'YY/MM/DD').format('YY/MM/DD');
+        } else {
+            return (tick) => dayjs(tick, 'YYYY-MM-DD').format('D MMM');
         }
     };
 
@@ -184,11 +193,40 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
                     >
                         All
                     </button>
+                    <button
+                        className={timePeriod === 'custom' ? 'active' : ''}
+                        onClick={() => handleTimePeriodChange('custom')}
+                    >
+                        Custom
+                    </button>
                 </div>
-                <ResponsiveContainer width="100%" height={265}>
+                {timePeriod === 'custom' && (
+                    <div className="custom-date-range">
+                        <DatePicker
+                            selected={customStartDate}
+                            onChange={(date) => setCustomStartDate(date)}
+                            selectsStart
+                            startDate={customStartDate}
+                            endDate={customEndDate}
+                            placeholderText="Start Date"
+                        />
+                        <DatePicker
+                            selected={customEndDate}
+                            onChange={(date) => setCustomEndDate(date)}
+                            selectsEnd
+                            startDate={customStartDate}
+                            endDate={customEndDate}
+                            placeholderText="End Date"
+                        />
+                    </div>
+                )}
+                <ResponsiveContainer width="100%" height={230}>
                     <AreaChart data={chartData}>
-                        <XAxis dataKey="date" tickFormatter={getXAxisTickFormatter()} />
-                        <YAxis />
+                        <XAxis dataKey="date" tickFormatter={getXAxisTickFormatter()} tick={{ fontSize: 13 }}>
+                        </XAxis>
+                        <YAxis tick={{ fontSize: 13 }}>
+                            <Label value="SEK" angle={-90} position="insideLeft" style={{ textAnchor: 'middle', fontSize: 10 }} />
+                        </YAxis>
                         <Tooltip content={<CustomTooltip />} />
                         <Legend
                           layout="horizontal"

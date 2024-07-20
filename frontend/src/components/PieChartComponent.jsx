@@ -1,7 +1,12 @@
-import React, { useState, useEffect, useImperativeHandle, forwardRef, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef, useCallback } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import dayjs from 'dayjs';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import isBetween from 'dayjs/plugin/isBetween';
 import '../styles/Dashboard.css';
+
+dayjs.extend(isBetween);
 
 const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [categoryData, setCategoryData] = useState([]);
@@ -9,6 +14,8 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [hoveredCategory, setHoveredCategory] = useState(null);
     const [hoveredSubCategoryData, setHoveredSubCategoryData] = useState([]);
     const [timePeriod, setTimePeriod] = useState('all');
+    const [customStartDate, setCustomStartDate] = useState(null);
+    const [customEndDate, setCustomEndDate] = useState(null);
 
     const categoryColors = [
         { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
@@ -59,11 +66,13 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                 return dayjs(transaction.created_at).isAfter(today.subtract(1, 'month'));
             } else if (timePeriod === 'yearly') {
                 return dayjs(transaction.created_at).isAfter(today.subtract(1, 'year'));
+            } else if (timePeriod === 'custom' && customStartDate && customEndDate) {
+                return dayjs(transaction.created_at).isBetween(customStartDate, customEndDate, null, '[]');
             }
             return true; // all
         });
 
-        const categoryData= {};
+        const categoryData = {};
         const subCategoryData = {};
 
         filteredTransactions.forEach(transaction => {
@@ -97,7 +106,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
         setCategoryData(formattedCategoryData);
         setSubCategoryData(subCategoryData);
-    }, [transactions, timePeriod]);
+    }, [transactions, timePeriod, customStartDate, customEndDate]);
 
     const handleMouseEnter = (category) => {
         setHoveredCategory(category);
@@ -212,7 +221,33 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
                     >
                         All
                     </button>
+                    <button
+                        className={timePeriod === 'custom' ? 'active' : ''}
+                        onClick={() => handleTimePeriodChange('custom')}
+                    >
+                        Custom
+                    </button>
                 </div>
+                {timePeriod === 'custom' && (
+                    <div className="custom-date-range">
+                        <DatePicker
+                            selected={customStartDate}
+                            onChange={(date) => setCustomStartDate(date)}
+                            selectsStart
+                            startDate={customStartDate}
+                            endDate={customEndDate}
+                            placeholderText="Start Date"
+                        />
+                        <DatePicker
+                            selected={customEndDate}
+                            onChange={(date) => setCustomEndDate(date)}
+                            selectsEnd
+                            startDate={customStartDate}
+                            endDate={customEndDate}
+                            placeholderText="End Date"
+                        />
+                    </div>
+                )}
                 <div className="pie-chart">
                     <ResponsiveContainer>
                         <PieChart>

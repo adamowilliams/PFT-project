@@ -2,9 +2,10 @@ import axios from "axios"
 import { ACCESS_TOKEN } from "./constants"
 
 const apiUrl = "/choreo-apis/pftsummerproject/backend/v1.0";
+// ? import.meta.env.VITE_API_URL : apiUrl,
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
+    baseURL: import.meta.env.VITE_API_URL
 });
 
 api.interceptors.request.use(
