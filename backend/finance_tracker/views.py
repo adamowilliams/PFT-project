@@ -6,8 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError  # Add this line
 from .serializers import TransactionSerializer
 from .models import Transaction
-from .scripts.import_transactions import import_transactions
-from .scripts.categorization import update_lookup_table
+from .ML_model_categorization.import_transactions import import_transactions
+from .ML_model_categorization.categorization import update_lookup_table
 
 logger = logging.getLogger(__name__)
 

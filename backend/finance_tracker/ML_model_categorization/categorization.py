@@ -3,9 +3,10 @@ import pandas as pd
 import joblib
 from .rule_based import rule_based_categorization
 
-    # Function to create a lookup table or load it if it already exists
+lookup_table_path = './lookup_table.csv'
+
+# Function to create a lookup table or load it if it already exists
 def initialize_lookup_table():
-    lookup_table_path = './lookup_table.csv'
     if not os.path.exists(lookup_table_path):
         os.makedirs(os.path.dirname(lookup_table_path), exist_ok=True)
         # Create an empty lookup table or load from a default source if needed
@@ -23,12 +24,7 @@ lookup_dict = {row['description']: (row['category'], row['subCategory']) for _, 
 
 # Function to update the lookup table
 def update_lookup_table(description, category, subCategory):
-    # Read the existing lookup table
-    lookup_table_path = './lookup_table.csv'
-    if os.path.exists(lookup_table_path):
-        lookup_table = pd.read_csv(lookup_table_path)
-    else:
-        lookup_table = pd.DataFrame(columns=['description', 'category', 'subCategory'])
+    global lookup_table, lookup_dict
 
     # Remove entries with the same description
     lookup_table = lookup_table[lookup_table['description'] != description]
