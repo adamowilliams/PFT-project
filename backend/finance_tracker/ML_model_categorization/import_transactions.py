@@ -68,7 +68,8 @@ def import_transactions(file_path):
 
     # Process the transactions
     transactions_list = process_transactions(transactions_data)
-    transactions_list.to_csv('categorized_transactions.csv', index=False)
+    output_csv_path = './finance_tracker/ML_model_categorization/data/categorized_transactions.csv'
+    transactions_list.to_csv(output_csv_path, index=False)
 
     transactions_list = transactions_list.to_dict(orient='records')
     return transactions_list

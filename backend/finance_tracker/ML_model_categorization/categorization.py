@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 from .rule_based import rule_based_categorization
 
-lookup_table_path = './lookup_table.csv'
+lookup_table_path = './finance_tracker/ML_model_categorization/data/lookup_table.csv'
 
 # Function to create a lookup table or load it if it already exists
 def initialize_lookup_table():
@@ -41,7 +41,7 @@ def update_lookup_table(description, category, subCategory):
 
 def ml_categorization(description):
     
-    model_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\transaction_categorizer.joblib'  # Update this path if needed
+    model_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\ML_model_categorization\\transaction_categorizer.joblib'  # Update this path if needed
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"ML model not found at path: {model_path}")
     # Load the model
