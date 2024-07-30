@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "notes",
     "finance_tracker",
-    "ml_app",
 ]
 
 MIDDLEWARE = [

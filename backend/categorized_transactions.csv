@@ -1,28 +1,5 @@
 transaction_type,created_at,description,amount,category,subCategory
-Expense,2024-07-16,G2A.COM,-38.14,Entertainment & Shopping,Toys & Games
-Expense,2024-07-17,HUNDAKADEMIN A,-2000.0,Household,Pets
-Expense,2024-07-17,K*lenson.com,-1276.0,Household,Healthcare & Wellness
-Expense,2024-07-16,1092126926,-1510.0,Transport,Bus & Train
-Income,2024-07-16,"HED, CORNELIA",1000.0,Miscellaneous,Swish
-Expense,2024-07-14,ICA SUPERMARKE,-213.55,Food & Drink,Groceries
-Expense,2024-07-14,CIRCLE K UMEA,-1209.49,Transport,Vehicles & Fuel
-Expense,2024-07-13,CIRCLE K UMEA,-94.0,Transport,Vehicles & Fuel
-Expense,2024-07-13,ICA SUPERMARKE,-76.0,Food & Drink,Groceries
-Expense,2024-07-13,ICA SUPERMARKE,-221.2,Food & Drink,Groceries
-Expense,2024-07-13,APOTEK HJARTAT,-142.07,Household,Healthcare & Wellness
-Expense,2024-07-13,Systembolaget,-553.2,Food & Drink,Alcohol & Tobacco
-Expense,2024-07-12,COOP GUNNARN,-148.6,Food & Drink,Groceries
-Expense,2024-07-11,OPENAI *CHATGP,-268.83,Entertainment & Shopping,Toys & Games
-Expense,2024-07-06,CIRCLE K VENNE,-55.0,Transport,Vehicles & Fuel
-Expense,2024-07-04,WEST SIDE REST,-422.0,Food & Drink,Restaurant & Bar
-Expense,2024-07-04,Bygdens restau,-70.0,Food & Drink,Restaurant & Bar
-Expense,2024-07-04,Netflix.com,-129.0,Household,"Media, Mobile, and IT"
-Expense,2024-07-03,ICA KVANTUM KR,-90.0,Food & Drink,Groceries
-Expense,2024-07-03,ICA KVANTUM KR,-272.54,Food & Drink,Groceries
-Expense,2024-07-03,APOTEK HJARTAT,-1526.22,Household,Healthcare & Wellness
-Income,2024-07-04,Benny Olsson,145.0,Swish,Other
-Expense,2024-07-04,K*ikea.com/s,-478.0,Housing,Building & Garden
-Expense,2024-07-02,SJ AB OMBORD,-52.0,Transport,Bus & Train
-Expense,2024-07-01,ARKEN ZOO 2042,-589.9,Household,Pets
-Expense,2024-07-02,hallon,-109.0,Household,"Media, Mobile, and IT"
-Expense,2024-07-02,Västtrafik To,-36.0,Transport,Bus & Train
+Expense,2024-06-15,Prel ICA Nara,-103.7,Food & Drink,Groceries
+Expense,2024-06-10,Wh G¦teborg Bj,-432.3,Food & Drink,Groceries
+Expense,2024-06-04,COOP MUNKEB#CK,-79.4,Food & Drink,Groceries
+Expense,2024-06-04,APOTEKSGRUPPEN,-152.24,Household,Healthcare & Wellness
