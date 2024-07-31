@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import useTransactions from './hooks/useTransactions.jsx';
 // Pages
-import { Login, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage } from "./pages/Index";
+import { Login, Logout, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage } from "./pages/Index";
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
 import Sidebar from "./components/Sidebar";
@@ -11,11 +11,6 @@ import "./styles/PageContent.css";
 import "./styles/NavBar.css";
 import "./styles/Sidebar.css";
 
-
-function Logout() {
-  localStorage.clear();
-  return <Navigate to="/login" />;
-}
 
 function RegisterAndLogout() {
   localStorage.clear();
@@ -26,20 +21,39 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const { handleGetCurrentUser } = useTransactions();
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('access'));
+  
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
-  
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+  };
+
   useEffect(() => {
-    const getCurrentUser = async () => {
-      const username = await handleGetCurrentUser();
+    console.log("useEffect triggered");
+  
+    if (!isLoggedIn) {
+      console.log("No user logged in");
+      return;
+    }
+  
+    const fetchCurrentUser = async () => {
+      console.log("Fetching current user");
+      const username = await handleGetCurrentUser(); //I can't get this to not be called twice on login/logout
       setCurrentUser(username);
+      console.log("Current User:", username);
     };
   
-    getCurrentUser();
-  }, []);
-
+    fetchCurrentUser();
+  }, [isLoggedIn, handleGetCurrentUser]);
+  
 
   return (
     <BrowserRouter>
@@ -51,7 +65,7 @@ function App() {
               <i className={`fas ${isSidebarVisible ? 'fa-angle-left' : 'fa-angle-right'}`}></i>
             </button>
             <div className="username-navbar" style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{currentUser}</span>
+              <span>{currentUser} </span>
               <i className="fas fa-smile" style={{ margin: '10px' }}></i> {/* Replace 'fa-custom-icon' with your actual icon class */}
             </div>
           </div>
@@ -89,8 +103,8 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/login" element={<Login />} />
-              <Route path="/logout" element={<Logout />} />
+              <Route path="/login" element={<Login onLogin={handleLogin} />} />
+              <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
               <Route path="/register" element={<RegisterAndLogout />} />
               <Route path="*" element={<NotFound />}></Route>
             </Routes>

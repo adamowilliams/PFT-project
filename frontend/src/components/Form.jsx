@@ -6,7 +6,7 @@ import api from "../api"
 import "../styles/Form.css"
 
 
-function Form ({route, method}) {
+function Form ({route, method, onLogin}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
@@ -23,6 +23,11 @@ function Form ({route, method}) {
             if (method === "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+
+                if (onLogin) {
+                    onLogin();
+                }
+
                 navigate("/dashboard")
             } else {
                 navigate("/login")

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import apiService from '../services/apiService';
 
 const useTransactions = () => {
@@ -124,10 +124,6 @@ const useTransactions = () => {
           throw error;
         }
       };
-
-      useEffect(() => {
-        handleGetTransactions();
-      }, []);
 
         return { 
             transactions, 

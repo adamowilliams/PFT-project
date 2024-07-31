@@ -1,5 +1,4 @@
 import api from '../api'; // Adjust the import path based on your project structure
-import dayjs from 'dayjs'; // Adjust the import path for dayjs
 
 
 const apiService = {
