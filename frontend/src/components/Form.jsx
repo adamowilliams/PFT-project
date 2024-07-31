@@ -28,7 +28,7 @@ function Form ({route, method, onLogin}) {
                     onLogin();
                 }
 
-                navigate("/dashboard")
+                navigate("/")
             } else {
                 navigate("/login")
             }

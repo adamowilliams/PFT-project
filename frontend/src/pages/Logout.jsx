@@ -4,11 +4,10 @@ import { Navigate } from "react-router-dom";
 function Logout({ onLogout }) {
     
   useEffect(() => {
-    // Perform logout actions after the component is rendered
-    localStorage.clear();
     onLogout();
   }, [onLogout]);
 
+  console.log("Logging out");
   // Redirect to login after clearing the state
   return <Navigate to="/login" />;
 }
