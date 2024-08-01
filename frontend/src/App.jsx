@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import useTransactions from './hooks/useTransactions.jsx';
 // Pages
 import { Login, Logout, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage } from "./pages/Index";
