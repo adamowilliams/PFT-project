@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 8px; /* Adjust as needed */
+    bottom: 8px;
     left: 0;
     right: 0;
     background-color: rgb(255, 0, 0);
@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 13px; /* Adjust as needed */
+    bottom: 13px;
     left: 0;
     right: 0;
     background-color: rgb(21, 0, 255);
@@ -64,6 +64,7 @@
     box-sizing: border-box;
     transform: scale(0.8);
 }
+
 .react-calendar__tile--now {
     color: white !important;
     background: #de3f3f !important;
@@ -73,10 +74,10 @@
 
 .react-calendar__tile:active,
 .react-calendar__tile--active {
-    color: white !important; /* Change text color on active */
-    background-color: #007bff; /* Change the background color on active */
-    border-radius: 10px; /* Adjust border radius for rounded corners */
-    transform: scale(0.8); /* Slightly enlarge the tile */
+    color: white !important;
+    background-color: #007bff;
+    border-radius: 10px;
+    transform: scale(0.8);
 }
 
 
@@ -85,14 +86,12 @@
     border-radius: 10%;
 }
 
-/* Hover state */
 .react-calendar__tile:hover,
 .react-calendar__tile--hover {
-    background-color: #e6e6e6; /* Change the background color on hover */
-    border-radius: 10px; /* Adjust border radius for rounded corners */
-    transform: scale(0.8); /* Slightly enlarge the tile */
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    transform: scale(0.8);
 }
-
 
 .react-calendar button {
     margin-bottom: -7px;

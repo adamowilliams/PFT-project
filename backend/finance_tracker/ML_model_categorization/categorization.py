@@ -17,12 +17,10 @@ def initialize_lookup_table():
 
     return lookup_table
 
-# Call the function for the lookup table
 lookup_table = initialize_lookup_table()
 # Make lookup table a dictionary for faster lookup
 lookup_dict = {row['description']: (row['category'], row['subCategory']) for _, row in lookup_table.iterrows()}
 
-# Function to update the lookup table
 def update_lookup_table(description, category, subCategory):
     global lookup_table, lookup_dict
 
@@ -44,7 +42,7 @@ def ml_categorization(description):
     model_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\ML_model_categorization\\transaction_categorizer.joblib'  # Update this path if needed
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"ML model not found at path: {model_path}")
-    # Load the model
+
     model = joblib.load(model_path)
     # Use ML model for prediction with confidence check
     probas = model.predict_proba(pd.DataFrame([description], columns=['description']))
@@ -67,7 +65,7 @@ def ml_categorization(description):
 
 def categorize_transaction(description):
     print(description)
-    # Check if the transaction is in the lookup table
+    # Check if the transaction is in lookup table
     if description in lookup_dict:
         return lookup_dict[description]
     
@@ -78,31 +76,6 @@ def categorize_transaction(description):
         return category, subCategory
 
     # Fallback to ML categorization
-
     category, subCategory = ml_categorization(description)
     update_lookup_table(description, category, subCategory)
     return category, subCategory
-
-def get_user_input(description):
-    print(f"Transaction: {description}")
-    available_categories = {
-        "Housing": ['Building & Garden', 'Rent & Fee'],
-        "Food & Drink": ['Groceries', 'Cafe & Snacks', 'Restaurant & Bar', 'Alcohol & Tobacco'],
-        "Household": ['Pets', 'Media, Mobile, and IT', 'Healthcare & Wellness'],
-        'Transport': ['Vehicles & Fuel', 'Bus & Train'],
-        "Entertainment & Shopping": ['Toys & Games', 'Culture & Entertainment', 'Beauty & Personal Care', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
-        "Miscellaneous": ['Support & Subsidies', 'Savings', 'Swish']
-    }
-    print("Please select a category for this transaction:")
-    for i, category in enumerate(available_categories, 1):
-        print(f"{i}. {category}")
-    category_choice = int(input("Enter the number corresponding to the category: "))
-    chosen_category = list(available_categories.keys())[category_choice - 1]
-    
-    print(f"Please select a subCategory for {chosen_category}:")
-    for i, subCategory in enumerate(available_categories[chosen_category], 1):
-        print(f"{i}. {subCategory}")
-    subCategory_choice = int(input("Enter the number corresponding to the subCategory: "))
-    chosen_subCategory = available_categories[chosen_category][subCategory_choice - 1]
-    
-    return chosen_category, chosen_subCategory

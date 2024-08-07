@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 
-const NavBar = ({ currentUser, toggleSidebar, isSidebarVisible}) => {
+const NavBar = ({ currentUser, toggleSidebar, isSidebarVisible }) => {
   const [showLogout, setShowLogout] = useState(false);
   const navigate = useNavigate();
 
@@ -23,9 +23,9 @@ const NavBar = ({ currentUser, toggleSidebar, isSidebarVisible}) => {
       </button>
       <div className="username-navbar" style={{ display: 'flex', alignItems: 'center' }}>
         <span>{currentUser ? currentUser : 'Guest'}</span>
-        <i 
+        <i
           className={`fas ${showLogout ? 'fa-frown' : 'fa-smile'}`}  // Toggle between smiley and sad face
-          style={{ margin: '10px', cursor: 'pointer' }} 
+          style={{ margin: '10px', cursor: 'pointer' }}
           onClick={toggleLogoutVisibility}
         ></i>
         {showLogout && currentUser && (

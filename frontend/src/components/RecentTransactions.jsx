@@ -10,7 +10,7 @@ const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
     const navigate = useNavigate();
 
     const handleViewAllTransactionsClick = () => {
-      navigate('/transactions');
+        navigate('/transactions');
     };
 
 

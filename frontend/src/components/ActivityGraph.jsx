@@ -159,6 +159,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
         }
     };
 
+
     return (
         <div id="activity-graph">
             <div style={{
@@ -222,21 +223,26 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
                 )}
                 <ResponsiveContainer width="100%" height={230}>
                     <AreaChart data={chartData}>
-                        <XAxis dataKey="date" tickFormatter={getXAxisTickFormatter()} tick={{ fontSize: 13 }}>
-                        </XAxis>
+                        <XAxis
+                            dataKey="date"
+                            tickFormatter={getXAxisTickFormatter()}
+                            tick={{
+                                fontSize: 13
+                            }}
+                        />
                         <YAxis tick={{ fontSize: 13 }}>
                             <Label value="SEK" angle={-90} position="insideLeft" style={{ textAnchor: 'middle', fontSize: 10 }} />
                         </YAxis>
                         <Tooltip content={<CustomTooltip />} />
                         <Legend
-                          layout="horizontal"
-                          verticalAlign="top"
-                          align="right"
-                          onClick={(e) => handleLegendClick(e.dataKey)}
-                          formatter={(value) => {
-                            const color = value === 'expense' ? '#FF0000' : '#0000FF';
-                            return <span style={{ color, fontSize: "10px" }}>{value.charAt(0).toUpperCase() + value.slice(1)}</span>;
-                          }}
+                            layout="horizontal"
+                            verticalAlign="top"
+                            align="right"
+                            onClick={(e) => handleLegendClick(e.dataKey)}
+                            formatter={(value) => {
+                                const color = value === 'expense' ? '#FF0000' : '#0000FF';
+                                return <span style={{ color, fontSize: "10px" }}>{value.charAt(0).toUpperCase() + value.slice(1)}</span>;
+                            }}
                         />
                         {visibleLines.expense && <Area type="monotone" dataKey="expense" stroke="#FF0000" fillOpacity={0.4} fill="#FF0000" />}
                         {visibleLines.balance && <Area type="monotone" dataKey="balance" stroke="#0000FF" fillOpacity={0.1} fill="#0000FF" />}

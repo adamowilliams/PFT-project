@@ -2,8 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 }
 
 .delete-btn {
@@ -11,35 +10,24 @@
     border: 0;
     cursor: pointer;
     background-color: #ff4d4d;
-    /* A nice shade of red */
     color: white;
-    /* White text color for better readability */
     padding: 0px 1px;
-    /* Add some padding for a better appearance */
     border-radius: 20%;
-    /* Rounded corners */
     transition: background-color 0.3s;
-    /* Smooth transition for hover effect */
 }
 
 .edit-btn {
     border: 0;
     cursor: pointer;
     background-color: #4d4dff;
-    /* A nice shade of red */
     color: white;
-    /* White text color for better readability */
     padding: 0px 1px;
-    /* Add some padding for a better appearance */
     border-radius: 20%;
-    /* Rounded corners */
     transition: background-color 0.3s;
-    /* Smooth transition for hover effect */
 }
 
 #all-transactions button:hover {
     background-color: #252222;
-    /* A darker shade of red on hover */
 }
 
 .all-transactions-container {
@@ -54,7 +42,6 @@
 
 .all-transactions-container> :nth-child(2n+3) {
     background-color: #f2f2f2;
-    /* Light grey background */
 }
 
 .edit-transaction-form {

@@ -4,7 +4,7 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer): #serializes the user model
     class Meta:
         model = User 
-        fields = ['id', 'username', 'password'] #everything that we want to serialize
+        fields = ['id', 'username', 'password'] #everything to serialize
         extra_kwargs = {'password': {'write_only': True}} #password will not be shown in the response
 
     def create(self, validated_data): #method to create a user 

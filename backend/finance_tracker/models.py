@@ -19,7 +19,7 @@ class Transaction(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.created_at:
-            self.created_at = timezone.now().date()  # Set to current date if not provided
+            self.created_at = timezone.now().date()  # Sets to current date if not provided
         super(Transaction, self).save(*args, **kwargs)
 
     def __str__(self):

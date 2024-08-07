@@ -55,16 +55,16 @@ function Transaction({ transaction, children }) {
 
   return (
     <div className="transaction">
-    <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
-      {subCategoryIcon && <i className={subCategoryIcon}></i>}
-    </h3>
-    <div id="transactionDescription" style={{ marginBottom: '8px' }}>
-  <p>{transaction.description}</p>
-  <p id="transactionDate" style={{ color: 'grey', fontSize: '0.8em', marginTop: '4px' }}>
-    {formattedDate}
-  </p>
-</div>
-      
+      <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
+        {subCategoryIcon && <i className={subCategoryIcon}></i>}
+      </h3>
+      <div id="transactionDescription" style={{ marginBottom: '8px' }}>
+        <p>{transaction.description}</p>
+        <p id="transactionDate" style={{ color: 'grey', fontSize: '0.8em', marginTop: '4px' }}>
+          {formattedDate}
+        </p>
+      </div>
+
       <p>{transaction.amount}:-</p>
       {children}
     </div>

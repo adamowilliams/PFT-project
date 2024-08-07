@@ -110,7 +110,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
     const handleMouseEnter = (category) => {
         setHoveredCategory(category);
-    
+
         const formattedSubcategoryData = Object.keys(subCategoryData[category] || {}).map((subCategory) => {
             return {
                 name: subCategory,
@@ -121,7 +121,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         });
         setHoveredSubCategoryData(formattedSubcategoryData);
     };
-    
+
     const handleMouseLeave = () => {
         setHoveredCategory(null);
         setHoveredSubCategoryData([]);

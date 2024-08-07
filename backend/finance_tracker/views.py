@@ -3,7 +3,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.exceptions import ValidationError  # Add this line
+from rest_framework.exceptions import ValidationError
 from .serializers import TransactionSerializer
 from .models import Transaction
 from .ML_model_categorization.import_transactions import import_transactions

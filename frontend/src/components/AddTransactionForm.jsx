@@ -9,7 +9,7 @@ const incomeCategories = [
   { value: 'Salary', label: 'Salary' },
   { value: 'Savings', label: 'Savings' },
   { value: 'Support & Subsidies', label: 'Support & Subsidies' },
-  { value: 'Swish', label: 'Swish'},
+  { value: 'Swish', label: 'Swish' },
   { value: 'Gift', label: 'Gift' },
   { value: 'Other', label: 'Other' }
 ];
@@ -78,7 +78,7 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
       const selectElement = document.getElementById('subCategory');
       if (selectElement) {
         selectElement.innerHTML = ''; // Clear existing options
-  
+
         if (subcategories[formData.category]) {
           subcategories[formData.category].forEach(subcategory => {
             const option = document.createElement('option');
@@ -140,22 +140,22 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
-  
+
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = async (event) => {
         const arrayBuffer = event.target.result;
         const workbook = new ExcelJS.Workbook();
         await workbook.xlsx.load(arrayBuffer);
-        
+
         const worksheet = workbook.worksheets[0];
         const json = [];
-  
+
         worksheet.eachRow({ includeEmpty: true }, (row, rowNumber) => {
           const rowValues = row.values;
           json.push(rowValues);
         });
-  
+
         console.log("File content:", json);
       };
       reader.readAsArrayBuffer(selectedFile);
@@ -233,17 +233,17 @@ const AddTransactionForm = ({ handleTransactionAdded }) => {
                 ))}
               </select>
               {parseFloat(formData.amount) < 0 && (
-              <select
-                name="subCategory"
-                value={formData.subCategory}
-                onChange={handleChange}
-                id="subCategory"
-              >
-                <option value="" disabled>
-                  Subcategory
-                </option>
+                <select
+                  name="subCategory"
+                  value={formData.subCategory}
+                  onChange={handleChange}
+                  id="subCategory"
+                >
+                  <option value="" disabled>
+                    Subcategory
+                  </option>
 
-              </select>
+                </select>
               )}
               <input
                 type="text"

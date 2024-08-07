@@ -3,7 +3,7 @@ import React, { useEffect, useState, useImperativeHandle, forwardRef } from 'rea
 const BalanceDisplay = forwardRef(({ children, transactions = [] }, ref) => {
     const [balance, setBalance] = useState(0);
 
-    
+
     const fetchData = () => {
         const income = transactions.filter(t => t.transaction_type === 'Income').reduce((sum, t) => sum + parseFloat(t.amount), 0);
         const expense = transactions.filter(t => t.transaction_type === 'Expense').reduce((sum, t) => sum - parseFloat(t.amount), 0);

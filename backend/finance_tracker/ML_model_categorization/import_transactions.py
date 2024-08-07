@@ -10,7 +10,6 @@ def import_transactions(file_path):
         raise ValueError('Unsupported file type')
     
 
-    # If the DataFrame is empty, raise an error
     if transactions_data.empty:
         raise ValueError('The provided file is empty or has an unsupported format.')
 
@@ -24,13 +23,10 @@ def import_transactions(file_path):
         if pd.notna(saldo_row_index):
             transactions_data = transactions_data.iloc[saldo_row_index + 1:]
 
-        # Rename the columns
         transactions_data.columns = ['created_at_dup', 'created_at', 'description', 'amount', 'saldo']
-  
-        # Drop the duplicate 'created_at' column and 'saldo' column
         transactions_data = transactions_data.drop(['created_at_dup', 'saldo'], axis=1)
 
-        # Add missing columns 'category' and 'subCategory'
+        # Add columns 'category' and 'subCategory'
         transactions_data['category'] = 'Other'
         transactions_data['subCategory'] = 'Other'
     
@@ -53,20 +49,15 @@ def import_transactions(file_path):
     if 'transaction_type' not in transactions_data.columns:
         transactions_data.insert(0, 'transaction_type', transactions_data['amount'].apply(lambda x: 'Expense' if x < 0 else 'Income'))
     
-    # Add a default date for the rows that don't have a date
+    # default date for the rows that don't have a date
     transactions_data['created_at'] = transactions_data['created_at'].fillna('1337-01-01')
 
     # Convert 'created_at' to date format
     transactions_data['created_at'] = pd.to_datetime(transactions_data['created_at']).dt.date
 
-    # Convert the dataframe to a list of dictionaries
     transactions_list = transactions_data.to_dict(orient='records')
 
-    #transactions_df = pd.DataFrame(transactions_list)
-    #csv_file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\transactions.csv'
-    #transactions_df.to_csv(csv_file_path, index=False)
-
-    # Process the transactions
+    # Process and save the transactions
     transactions_list = process_transactions(transactions_data)
     output_csv_path = './finance_tracker/ML_model_categorization/data/categorized_transactions.csv'
     transactions_list.to_csv(output_csv_path, index=False)
@@ -75,7 +66,9 @@ def import_transactions(file_path):
     return transactions_list
 
 
-# Example usage
+
+
+# Example usage for testing
 if __name__ == "__main__":
     file_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\scripts\\Handelsbanken_Account_Transactions_2024-06-16.xlsx'
     transactions = import_transactions(file_path)

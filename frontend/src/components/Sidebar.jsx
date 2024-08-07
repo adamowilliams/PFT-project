@@ -29,9 +29,8 @@ const Sidebar = () => {
     return (
       <>
         <div
-          className={`dropdown-toggle-container ${
-            isActive(mainPath) ? "active" : ""
-          }`}
+          className={`dropdown-toggle-container ${isActive(mainPath) ? "active" : ""
+            }`}
         >
           <Link
             to={mainPath}
@@ -46,9 +45,8 @@ const Sidebar = () => {
             {links.map((link) => (
               <div
                 key={link.subLabel}
-                className={`dropdown-item-container ${
-                  isActive(link.path) ? "active" : ""
-                }`}
+                className={`dropdown-item-container ${isActive(link.path) ? "active" : ""
+                  }`}
               >
                 <Link className="dropdown-item" to={link.path}>
                   {link.subLabel}

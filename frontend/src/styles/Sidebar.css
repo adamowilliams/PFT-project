@@ -1,4 +1,3 @@
-/* Container for the whole page */
 div {
   font-family: 'Roboto', sans-serif;
 }
@@ -12,13 +11,12 @@ div {
   transition: width 0.5s ease;
   height: 100vh;
   background-color: #4e73df;
-  background-image: linear-gradient(357deg, #0f3964 10%, #020e2f 70%); 
+  background-image: linear-gradient(357deg, #0f3964 10%, #020e2f 70%);
   flex-shrink: 0;
   overflow: visible;
   box-shadow: 3px -1px 17px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Sidebar Header */
 .sidebar-heading {
   position: relative;
   height: 100px;
@@ -31,7 +29,7 @@ div {
 .sidebar-heading-text {
   margin: 0;
   color: white;
-  font-size: 16px; /* Adjust as needed */
+  font-size: 16px;
   padding: 1.5rem;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.7);
 }
@@ -43,12 +41,10 @@ div {
   margin-top: 0px;
 }
 
-/* Sidebar Menu */
 .sidebar-menu {
   padding-top: 1rem;
 }
 
-/* Dropdown Button */
 .dropdown-toggle {
   font-family: inherit;
   font-size: 16px;
@@ -57,7 +53,7 @@ div {
   padding: 0.75rem 1.25rem;
   background-color: transparent;
   border: none;
-  color: #ffffff; /* Dropdown button text color */
+  color: #ffffff;
   text-align: left;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -66,18 +62,16 @@ div {
 }
 
 .dropdown-toggle-container.active {
-  background-color: rgba(255, 255, 255, 0.05); 
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .dropdown-toggle-container:hover {
-  background-color: rgba(255, 255, 255, 0.05); 
+  background-color: rgba(255, 255, 255, 0.05);
 }
-
-/* Dropdown Content */
 
 .dropdown-item {
   font-size: 14px;
-  color: #ffffff; /* Dropdown item text color */
+  color: #ffffff;
   display: block;
   width: 100%;
   padding: 0.5rem 1.25rem;
@@ -87,18 +81,17 @@ div {
 }
 
 .dropdown-item-container:hover {
-  background-color: rgba(255, 255, 255, 0.05); 
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .dropdown-item-container.active {
-  background-color: rgba(255, 255, 255, 0.05); 
-}
-/* Spacing Element */
-.spacing-element {
-  height: 0.5rem; /* Adjust as needed */
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Expanded State */
+.spacing-element {
+  height: 0.5rem;
+}
+
 .spacing-element.expanded {
-  background-color: rgba(255, 255, 255, 0.1); /* Background color when dropdown is expanded */
+  background-color: rgba(255, 255, 255, 0.1);
 }
