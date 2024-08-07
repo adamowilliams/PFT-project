@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import useTransactions from './hooks/useTransactions.jsx';
 // Pages
 import { Login, Logout, Register, NoteApp, NotFound, Home, Dashboard, TransactionsPage } from "./pages/Index";
@@ -24,7 +24,7 @@ function App() {
   const { handleGetCurrentUser } = useTransactions();
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('access'));
-  
+
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
@@ -34,14 +34,13 @@ function App() {
   };
 
   const handleLogout = () => {
-    // Perform any logout actions here, such as clearing local storage or calling an API
     localStorage.clear();
     setIsLoggedIn(false);
     setCurrentUser(null);
   };
 
   useEffect(() => {
-
+    // Get current user when login status changes
     if (!isLoggedIn) {
       console.log("No user logged in");
       return;
@@ -57,16 +56,16 @@ function App() {
       fetchCurrentUser();
     }
   }, [isLoggedIn, handleGetCurrentUser]);
-  
+
 
   return (
     <BrowserRouter>
       <div className="d-flex" id="wrapper">
         {isSidebarVisible && <Sidebar />}
         <div className="main-content">
-          <NavBar 
+          <NavBar
             currentUser={currentUser}
-            toggleSidebar={toggleSidebar} 
+            toggleSidebar={toggleSidebar}
             isSidebarVisible={isSidebarVisible}
           />
           <div className="container-fluid">

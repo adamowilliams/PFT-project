@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import isBetween from 'dayjs/plugin/isBetween';
 import '../styles/Dashboard.css';
+import { filterTransactions } from '../hooks/filterTransactions';
 
 dayjs.extend(isBetween);
 
@@ -58,19 +59,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     };
 
     const fetchData = useCallback(() => {
-        const today = dayjs();
-        let filteredTransactions = transactions.filter(transaction => {
-            if (timePeriod === 'weekly') {
-                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'week'));
-            } else if (timePeriod === 'monthly') {
-                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'month'));
-            } else if (timePeriod === 'yearly') {
-                return dayjs(transaction.created_at).isAfter(today.subtract(1, 'year'));
-            } else if (timePeriod === 'custom' && customStartDate && customEndDate) {
-                return dayjs(transaction.created_at).isBetween(customStartDate, customEndDate, null, '[]');
-            }
-            return true; // all
-        });
+        const filteredTransactions = filterTransactions(transactions, timePeriod, customStartDate, customEndDate);
 
         const categoryData = {};
         const subCategoryData = {};
