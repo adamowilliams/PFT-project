@@ -1,3 +1,4 @@
+/* Dashboard Wrapper */
 #dashboard-wrapper {
   position: relative;
   display: flex;
@@ -11,6 +12,7 @@
   padding: 0;
 }
 
+/* Activity Graph */
 #activity-graph {
   width: 65%;
   height: 353px;
@@ -25,20 +27,7 @@
   padding: 0;
 }
 
-.custom-date-range {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  align-items: center;
-}
-
-.custom-date-range input {
-  padding: 5px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
+/* Balance Display */
 #balance-display {
   width: 43%;
   display: flex;
@@ -55,6 +44,7 @@
   padding: 0;
 }
 
+/* Transaction Form Container */
 .transaction-form-container {
   display: flex;
   width: 34%;
@@ -71,17 +61,22 @@
   width: auto;
 }
 
-#import_transaction {
+/* Import Transaction */
+#import_transaction, #add_transaction {
   z-index: 1;
   margin-top: -5px;
-  margin-left: 47px;
-  display: flex;
   width: 280px;
+  display: flex;
   align-items: center;
   justify-content: start;
   gap: 10px;
 }
 
+#import_transaction {
+  margin-left: 47px;
+}
+
+/* Custom Tooltip */
 .custom-tooltip {
   background: transparent;
   border-radius: 2px;
@@ -103,14 +98,18 @@
   padding: 0;
 }
 
-#add_transaction {
-  z-index: 1;
-  margin-top: -5px;
-  width: 280px;
+/* Form Dropdown Container */
+.form-dropdown-container {
   display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
+  flex-direction: column;
+  width: 338px;
+  height: 25px;
+}
+
+.form-dropdown-container h2 {
+  width: 338px;
+  height: 37px;
+  margin-top: 16px;
 }
 
 .form-dropdown-container button {
@@ -132,30 +131,20 @@
   background-color: #0c2c4c;
 }
 
-.form-dropdown-container {
-  display: flex;
-  flex-direction: column;
-  width: 338px;
-  height: 25px;
-}
-
-.form-dropdown-container h2 {
-  width: 338px;
-  height: 37px;
-  margin-top: 16px;
-}
-
-.icon-space {
-  margin-right: 3px;
-}
-
+/* Time Period Buttons */
 .time-period-buttons {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 16px;
 }
 
-.time-period-buttons button {
+.time-period-buttons-pie {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.time-period-buttons button, .time-period-buttons-pie button {
   background: none;
   border: none;
   color: #000;
@@ -167,11 +156,11 @@
   outline: none;
 }
 
-.time-period-buttons button.active {
+.time-period-buttons button.active, .time-period-buttons-pie button.active {
   color: #1e90ff;
 }
 
-.time-period-buttons button.active::after {
+.time-period-buttons button.active::after, .time-period-buttons-pie button.active::after {
   content: '';
   display: block;
   width: 100%;
@@ -182,20 +171,7 @@
   left: 0;
 }
 
-.custom-date-range {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  align-items: center;
-}
-
-.custom-date-range input {
-  padding: 5px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
+/* Recent Transactions */
 #recent_transactions {
   width: 35%;
   display: flex;
@@ -203,25 +179,6 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-}
-
-.recent-transactions-container {
-  margin-right: 19px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-
-.recent-transactions-container> :nth-child(2n+3) {
-  background-color: #f2f2f2;
-}
-
-.shadow-border {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 16px;
 }
 
 #recent_transactions button {
@@ -246,6 +203,19 @@
   padding: 0;
 }
 
+.recent-transactions-container {
+  margin-right: 19px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.recent-transactions-container> :nth-child(2n+3) {
+  background-color: #f2f2f2;
+}
+
+/* Transaction */
 .transaction {
   display: flex;
   flex-direction: row;
@@ -291,12 +261,12 @@
   padding: 0;
 }
 
+/* Legend */
 .legend-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .legend {
@@ -379,6 +349,7 @@
   justify-content: flex-end;
 }
 
+/* Pie Chart */
 .pie-chart {
   margin-right: 15px;
   box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.1);
@@ -409,39 +380,20 @@
   align-content: center;
 }
 
-.time-period-buttons-pie {
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
+/* Icon Spacing */
+.icon-space {
+  margin-right: 3px;
 }
 
-.time-period-buttons-pie button {
-  background: none;
-  border: none;
-  color: #000;
-  font-size: 14px;
-  margin: 0 5px;
-  cursor: pointer;
-  padding: 5px 10px;
-  position: relative;
-  outline: none;
+/* Shadow Border */
+.shadow-border {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
 }
 
-.time-period-buttons-pie button.active {
-  color: #1e90ff;
-}
-
-.time-period-buttons-pie button.active::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #1e90ff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
+/* Custom Date Range */
 .custom-date-range {
   display: flex;
   gap: 10px;

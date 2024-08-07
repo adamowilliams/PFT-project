@@ -64,7 +64,7 @@ def ml_categorization(description):
 
 
 def categorize_transaction(description):
-    print(description)
+
     # Check if the transaction is in lookup table
     if description in lookup_dict:
         return lookup_dict[description]
