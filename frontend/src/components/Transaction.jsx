@@ -58,7 +58,7 @@ function Transaction({ transaction, children }) {
       <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
         {subCategoryIcon && <i className={subCategoryIcon}></i>}
       </h3>
-      <div id="transactionDescription" style={{ marginBottom: '8px' }}>
+      <div id="transactionDescription">
         <p>{transaction.description}</p>
         <p id="transactionDate" style={{ color: 'grey', fontSize: '0.8em', marginTop: '4px' }}>
           {formattedDate}

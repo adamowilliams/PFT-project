@@ -51,7 +51,6 @@ function EditTransactionForm({ transaction, onSave, onCancel }) {
 
   return (
     <div className="edit-transaction-form">
-      <h3>Edit Transaction</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label>

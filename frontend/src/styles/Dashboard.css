@@ -207,13 +207,10 @@
   margin-right: 19px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0px 5px 20px 2px rgb(6 4 41 / 29%);
+  box-shadow: 0px 6px 15px 7px rgb(6 4 41 / 29%);
   padding: 10px;
 }
 
-.recent-transactions-container> :nth-child(2n+3) {
-  background-color: #f2f2f2;
-}
 
 /* Transaction */
 .transaction {
@@ -221,7 +218,11 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 0;
+  padding: 3px;
+}
+
+.transaction:nth-child(even) {
+  background-color: #dddddd; /* Light grey background for even rows */
 }
 
 .transaction p {
@@ -235,7 +236,6 @@
 #transactionDescription {
   font-size: 12px;
   width: 103px;
-  margin: 0;
   padding: 0;
   margin-right: 20px;
 }
@@ -291,7 +291,7 @@
 }
 
 .legend-item:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #dddddd;
 }
 
 .legend-header {
@@ -352,7 +352,6 @@
 /* Pie Chart */
 .pie-chart {
   margin-right: 15px;
-  box-shadow: 0px 0px 20px 2px rgb(6 4 41 / 29%);
   padding: 0px;
   margin-top: 15px;
   width: 180px;
@@ -364,9 +363,8 @@
 
 #pie-chart-with-legend {
   margin-left: 23px;
-  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0px 5px 20px 2px rgb(6 4 41 / 29%);
+  box-shadow: 0px 6px 15px 7px rgb(6 4 41 / 29%);
   padding: 16px;
   display: flex;
   width: 485px;
@@ -390,7 +388,7 @@
   margin-left: 25px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0px 5px 20px 2px rgb(6 4 41 / 29%);
+  box-shadow: 0px 6px 15px 7px rgb(6 4 41 / 29%);
   padding: 16px;
 }
 
