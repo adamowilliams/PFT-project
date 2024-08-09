@@ -100,13 +100,7 @@ const ActivityGraph = forwardRef(({ transactions = [] }, ref) => {
 
     return (
         <div id="activity-graph">
-            <div style={{
-                marginLeft: '25px',
-                border: '1px solid #ddd', // Light border
-                borderRadius: '8px', // Rounded corners
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Shadow effect
-                padding: '16px', // Space inside the border
-            }}>
+            <div className="shadow-border">
                 <div className="time-period-buttons">
                     <button
                         className={timePeriod === 'weekly' ? 'active' : ''}
