@@ -39,7 +39,7 @@ def update_lookup_table(description, category, subCategory):
 
 def ml_categorization(description):
     
-    model_path = 'C:\\DATAVETENSKAP\\PFT-summer-project\\backend\\finance_tracker\\ML_model_categorization\\transaction_categorizer.joblib'  # Update this path if needed
+    model_path = './finance_tracker/ML_model_categorization/transaction_categorizer.joblib'
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"ML model not found at path: {model_path}")
 

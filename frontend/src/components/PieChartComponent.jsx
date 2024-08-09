@@ -101,10 +101,11 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         setHoveredCategory(category);
 
         const formattedSubcategoryData = Object.keys(subCategoryData[category] || {}).map((subCategory) => {
+            const colorInfo = categoryColors.find(c => c.label === category) || { color: '#999', icon: 'fa-solid fa-question' };
             return {
                 name: subCategory,
                 value: subCategoryData[category][subCategory],
-                color: categoryColors.find(c => c.label === category).color,
+                color: colorInfo.color,
                 icon: subCategoriesIcons[subCategory] || 'fa-solid fa-question'
             };
         });

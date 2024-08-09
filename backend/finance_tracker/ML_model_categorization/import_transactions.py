@@ -8,49 +8,47 @@ def import_transactions(file_path):
         transactions_data = pd.read_csv(file_path)
     else:
         raise ValueError('Unsupported file type')
-    
 
     if transactions_data.empty:
         raise ValueError('The provided file is empty or has an unsupported format.')
 
-
+    # Check for 'Saldo' or handle the new format without 'Saldo'
     if 'Saldo' in transactions_data.values:
-    
-        # Find the row index where "saldo" is located
+        # Find the row index where "Saldo" is located
         saldo_row_index = transactions_data[transactions_data.eq('Saldo').any(axis=1)].index.min()
     
-        # Skip all rows above and including the "saldo" row
+        # Skip all rows above and including the "Saldo" row
         if pd.notna(saldo_row_index):
             transactions_data = transactions_data.iloc[saldo_row_index + 1:]
 
         transactions_data.columns = ['created_at_dup', 'created_at', 'description', 'amount', 'saldo']
         transactions_data = transactions_data.drop(['created_at_dup', 'saldo'], axis=1)
 
-        # Add columns 'category' and 'subCategory'
-        transactions_data['category'] = 'Other'
-        transactions_data['subCategory'] = 'Other'
-    
-
     else:
-        
-        transactions_data.columns = ["transaction_type", "created_at","description","amount","category","subCategory"]
-        
-        # Check if 'category' column exists, if not, create and fill it with 'Other'
-        if 'category' not in transactions_data.columns:
-            transactions_data['category'] = 'Other'
-        else:
-            transactions_data['category'] = transactions_data['category'].fillna('Other')
 
-        if 'subCategory' not in transactions_data.columns:
-            transactions_data['subCategory'] = 'Other'
-        else:
-            transactions_data['subCategory'] = transactions_data['subCategory'].fillna('Other')
+        # Find the row index where "Saldo" is located
+        belopp_row_index = transactions_data[transactions_data.eq('Belopp').any(axis=1)].index.min()
+    
+        # Skip all rows above and including the "Saldo" row
+        if pd.notna(belopp_row_index):
+            transactions_data = transactions_data.iloc[belopp_row_index + 1:]
+
+        # Adjust to handle the new file format without 'Saldo'
+        transactions_data.columns = ["created_at_dup", "created_at", "description", "amount"]
+        transactions_data = transactions_data.drop(['created_at_dup'], axis=1)
+
+     # Convert the 'amount' column to numeric, coercing errors to NaN
+    transactions_data['amount'] = pd.to_numeric(transactions_data['amount'], errors='coerce')
+
+    # Add columns 'category' and 'subCategory'
+    transactions_data['category'] = 'Other'
+    transactions_data['subCategory'] = 'Other'
 
     if 'transaction_type' not in transactions_data.columns:
         transactions_data.insert(0, 'transaction_type', transactions_data['amount'].apply(lambda x: 'Expense' if x < 0 else 'Income'))
-    
-    # default date for the rows that don't have a date
-    transactions_data['created_at'] = transactions_data['created_at'].fillna('1337-01-01')
+
+    # Default date for the rows that don't have a date
+    transactions_data['created_at'] = transactions_data['created_at'].fillna('1970-01-01')
 
     # Convert 'created_at' to date format
     transactions_data['created_at'] = pd.to_datetime(transactions_data['created_at']).dt.date
@@ -64,8 +62,6 @@ def import_transactions(file_path):
 
     transactions_list = transactions_list.to_dict(orient='records')
     return transactions_list
-
-
 
 
 # Example usage for testing
