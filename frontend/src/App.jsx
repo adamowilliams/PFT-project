@@ -39,6 +39,7 @@ function App() {
     setCurrentUser(null);
   };
 
+  //This effect might be behaving odd when there is no refresh or access tokens available.
   useEffect(() => {
     // Get current user when login status changes
     if (!isLoggedIn) {
@@ -48,7 +49,7 @@ function App() {
     else {
       const fetchCurrentUser = async () => {
         console.log("Fetching current user");
-        const username = await handleGetCurrentUser(); //I can't get this to not be called twice on login/logout
+        const username = await handleGetCurrentUser();
         setCurrentUser(username);
         console.log("Current User:", username);
       };
