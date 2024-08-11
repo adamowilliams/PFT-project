@@ -40,6 +40,7 @@ function App() {
   };
 
   //This effect might be behaving odd when there is no refresh or access tokens available.
+  /*
   useEffect(() => {
     // Get current user when login status changes
     if (!isLoggedIn) {
@@ -57,6 +58,7 @@ function App() {
       fetchCurrentUser();
     }
   }, [isLoggedIn, handleGetCurrentUser]);
+  */
 
 
   return (
