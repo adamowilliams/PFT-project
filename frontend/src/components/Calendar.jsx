@@ -12,12 +12,12 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
     const [tooltipKey, setTooltipKey] = useState(0);
 
     const categoryColors = [
-        { label: 'Housing', color: '#FFC107'},
-        { label: 'Food & Drink', color: '#FF7043'},
-        { label: 'Household', color: '#673AB7'},
-        { label: 'Transport', color: '#03A9F4' },
-        { label: 'Entertainment & Shopping', color: '#E91E63' },
-        { label: 'Miscellaneous', color: '#9E9E9E'}
+        { label: 'Housing', color: '#FFA000', icon: 'fa-solid fa-home' },
+        { label: 'Food & Drink', color: '#D84315', icon: 'fa-solid fa-utensils' },
+        { label: 'Household', color: '#512DA8', icon: 'fa-solid fa-couch' },
+        { label: 'Transport', color: '#0288D1', icon: 'fa-solid fa-road' },
+        { label: 'Entertainment & Shopping', color: '#C2185B', icon: 'fa-solid fa-shopping-bag' }, 
+        { label: 'Miscellaneous', color: '#455A64', icon: 'fa-solid fa-box-open' }
       ];
 
     const subCategories = {
@@ -101,8 +101,18 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
         const dateStr = adjustedDate.toISOString().split('T')[0];
         const dayTransactions = markedDates[dateStr]?.transactions || [];
         const content = dayTransactions.map(transaction => {
-            const color = getCategoryColor(transaction.subCategory);
-            const iconClass = subCategoriesIcons[transaction.subCategory] || 'fa-solid fa-question';
+            let color;
+            let iconClass;
+            
+            if (transaction.amount > 0) {
+                // Assign green color and dollar icon for positive amounts
+                color = '#4CAF50';
+                iconClass = 'fa-solid fa-dollar-sign';
+            } else {
+                // Use existing logic for expenses
+                color = getCategoryColor(transaction.subCategory);
+                iconClass = subCategoriesIcons[transaction.subCategory] || 'fa-solid fa-question';
+            }
             return `
                 <div class="tooltip-item" >
                     <i class="${iconClass}"style="color: ${color}"></i>

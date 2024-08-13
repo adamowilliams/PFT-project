@@ -20,12 +20,12 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [totalExpenses, setTotalExpenses] = useState(0);
 
     const categoryColors = [
-        { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-        { label: 'Food & Drink', color: '#FF7043', icon: 'fa-solid fa-utensils' },
-        { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-        { label: 'Transport', color: '#03A9F4', icon: 'fa-solid fa-road' },
-        { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
-        { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
+        { label: 'Housing', color: '#FFA000', icon: 'fa-solid fa-home' },
+        { label: 'Food & Drink', color: '#D84315', icon: 'fa-solid fa-utensils' },
+        { label: 'Household', color: '#512DA8', icon: 'fa-solid fa-couch' },
+        { label: 'Transport', color: '#0288D1', icon: 'fa-solid fa-road' },
+        { label: 'Entertainment & Shopping', color: '#C2185B', icon: 'fa-solid fa-shopping-bag' }, 
+        { label: 'Miscellaneous', color: '#455A64', icon: 'fa-solid fa-box-open' }
       ];
 
     const subCategories = {
@@ -70,6 +70,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
         filteredTransactions.forEach(transaction => {
             if (transaction.transaction_type === 'Expense') {
+                console.log('Transaction:', transaction);
                 const category = transaction.category;
                 const amount = parseFloat(transaction.amount);
                 total += amount;
@@ -95,7 +96,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
             return {
                 name: category,
                 value: categoryData[category],
-                color: colorInfo ? colorInfo.color : '#999',
+                color: colorInfo ? colorInfo.color : '#000',
                 icon: colorInfo ? colorInfo.icon : 'fa-solid fa-question',
             };
         });
@@ -109,7 +110,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
         setHoveredCategory(category);
 
         const formattedSubcategoryData = Object.keys(subCategoryData[category] || {}).map((subCategory) => {
-            const colorInfo = categoryColors.find(c => c.label === category) || { color: '#999', icon: 'fa-solid fa-question' };
+            const colorInfo = categoryColors.find(c => c.label === category) || { color: '#000', icon: 'fa-solid fa-question' };
             return {
                 name: subCategory,
                 value: subCategoryData[category][subCategory],
