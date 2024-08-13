@@ -40,7 +40,7 @@ function App() {
   };
 
   //This effect might be behaving odd when there is no refresh or access tokens available.
-  
+  //ODD BEHAVIOR: Can't logout when there is no refresh token available.
   useEffect(() => {
     // Get current user when login status changes
     if (!isLoggedIn) {
