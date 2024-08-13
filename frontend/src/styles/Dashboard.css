@@ -14,7 +14,7 @@
 
 /* Activity Graph */
 #activity-graph {
-  width: 65%;
+  width: 850px;
   height: 353px;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,6 @@
 
 /* Balance Display */
 #balance-display {
-  width: 43%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -47,7 +46,7 @@
 /* Transaction Form Container */
 .transaction-form-container {
   display: flex;
-  width: 34%;
+  width: 396px;
   align-items: flex-start;
   flex-direction: row;
   margin-bottom: 35px;
@@ -173,7 +172,8 @@
 
 /* Recent Transactions */
 #recent_transactions {
-  width: 30%;
+  width: 333px;
+  margin-top: -47px;
   display: flex;
   min-height: 20px;
   flex-direction: column;
@@ -204,6 +204,7 @@
 }
 
 .recent-transactions-container {
+  width: 252px;
   margin-right: 19px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -225,32 +226,30 @@
   background-color: #dddddda6; /* Light grey background for even rows */
 }
 
-.transaction p {
-  font-size: 12px;
-  width: 113px;
-  margin: 0;
-  padding: 0;
-  margin-right: -34px;
-}
 
-#transactionDescription {
+.transaction-description {
   font-size: 12px;
   width: 103px;
   padding: 0;
   margin-right: 20px;
 }
 
-#transactionDate {
-  font-size: 12px;
-  width: 50px;
-  margin: 0;
-  padding: 0;
-  margin-right: 20px;
+.transaction-date {
+  color: grey;
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+
+.transaction-amount {
+  text-align: end;
+  width: 70px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .transaction h3 {
   width: 32px;
-  font-size: 14px;
+  font-size: 23px;
   margin: 8px;
   padding: 0;
   overflow: hidden;

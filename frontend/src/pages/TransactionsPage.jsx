@@ -57,8 +57,8 @@ function TransactionsPage() {
 
   return (
     <div id="all-transactions">
+      <h2>All Transactions</h2>
       <div className="all-transactions-container">
-        <h2>All Transactions</h2>
         {transactions.map((transaction) => (
           <Transaction key={transaction.id} transaction={transaction}>
             <div className="button-container">

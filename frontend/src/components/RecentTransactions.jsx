@@ -6,7 +6,7 @@ import Transaction from "./Transaction";
 const RecentTransactions = forwardRef(({ transactions = [] }, ref) => {
     const sortedTransactions = transactions.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-    const recentTransactions = sortedTransactions.slice(0, 7);
+    const recentTransactions = sortedTransactions.slice(0, 5);
     const navigate = useNavigate();
 
     const handleViewAllTransactionsClick = () => {
