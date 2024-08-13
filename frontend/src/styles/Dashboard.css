@@ -302,11 +302,21 @@
   justify-content: flex-start;
 }
 
+.total-expenses {
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  width: 91%;
+  margin-top: 1px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .legend-title {
   width: 37px;
   margin-bottom: 6px;
   margin-left: 5px;
-  margin-right: 162px;
+  margin-right: 157px;
   align-self: flex-end;
   font-size: 14px;
   font-weight: bold;

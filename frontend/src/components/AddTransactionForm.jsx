@@ -32,15 +32,6 @@ const subcategories = {
   'Miscellaneous': ['Swish']
 };
 
-const repetitionIntervals = [
-  { value: 'Daily', label: 'Daily' },
-  { value: 'Weekly', label: 'Weekly' },
-  { value: 'Monthly', label: 'Monthly' },
-  { value: 'Yearly', label: 'Yearly' },
-  { value: 'None', label: 'None' }
-];
-
-
 
 const AddTransactionForm = ({ handleTransactionAdded }) => {
   const [formData, setFormData] = useState({

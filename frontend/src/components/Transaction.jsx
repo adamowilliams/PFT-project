@@ -1,10 +1,13 @@
 import React from 'react';
 
+const incomeIcon = 'fa-solid fa-dollar-sign'; // Green dollar sign icon for income
+const incomeColor = '#4CAF50'; // Green color for income
+
 const categoryColors = [
   { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-  { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
+  { label: 'Food & Drink', color: '#FF7043', icon: 'fa-solid fa-utensils' },
   { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-  { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-solid fa-road' },
+  { label: 'Transport', color: '#03A9F4', icon: 'fa-solid fa-road' },
   { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
   { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
 ];
@@ -40,23 +43,21 @@ function getSubcategoryIcon(subCategory) {
 }
 
 function Transaction({ transaction, children }) {
-  const categoryData = getCategoryData(transaction.category);
+  const isIncome = transaction.amount > 0; // Check if transaction is income
+  const categoryData = isIncome ? { color: incomeColor, icon: incomeIcon } : getCategoryData(transaction.category);
   const subCategoryIcon = getSubcategoryIcon(transaction.subCategory);
 
   const date = new Date(transaction.created_at);
   const day = date.getDate();
   const monthIndex = date.getMonth();
-
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const monthName = monthNames[monthIndex];
-
   const formattedDate = `${day} ${monthName}`;
 
   return (
     <div className="transaction">
-      <h3 style={{ color: categoryData ? categoryData.color : 'black' }}>
-        {subCategoryIcon && <i className={subCategoryIcon}></i>}
+      <h3 style={{ color: categoryData ? categoryData.color : '#4CAF50' }}>
+        {isIncome ? <i className={categoryData.icon}></i> : subCategoryIcon && <i className={subCategoryIcon}></i>}
       </h3>
       <div id="transactionDescription">
         <p>{transaction.description}</p>

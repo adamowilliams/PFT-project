@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Transactions.css';
 
-const categoryColors = [
-  { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-  { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
-  { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-  { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
-  { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
-  { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
+const incomeCategories = [
+  { label: 'Salary', value: 'Salary' },
+  { label: 'Savings', value: 'Savings' },
+  { label: 'Support & Subsidies', value: 'Support & Subsidies' },
+  { label: 'Swish', value: 'Swish' },
+  { label: 'Gift', value: 'Gift' },
+  { label: 'Other', value: 'Other' }
+];
+
+const outcomeCategories = [
+  { label: 'Housing', value: 'Housing' },
+  { label: 'Food & Drink', value: 'Food & Drink' },
+  { label: 'Household', value: 'Household' },
+  { label: 'Transport', value: 'Transport' },
+  { label: 'Entertainment & Shopping', value: 'Entertainment & Shopping' },
+  { label: 'Miscellaneous', value: 'Miscellaneous' }
 ];
 
 const subCategories = {
@@ -22,6 +31,9 @@ const subCategories = {
 function EditTransactionForm({ transaction, onSave, onCancel }) {
   const [updatedTransaction, setUpdatedTransaction] = useState({ ...transaction });
   const [availableSubcategories, setAvailableSubcategories] = useState(subCategories[transaction.category] || []);
+  const [applyToAll, setApplyToAll] = useState(false);
+
+  const categoryOptions = parseFloat(updatedTransaction.amount) < 0 ? outcomeCategories : incomeCategories;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,20 +51,28 @@ function EditTransactionForm({ transaction, onSave, onCancel }) {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Updated transaction data:", updatedTransaction);
-    onSave(updatedTransaction);
-  };
-
   useEffect(() => {
     setAvailableSubcategories(subCategories[updatedTransaction.category] || []);
   }, [updatedTransaction.category]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const transactionType = parseFloat(updatedTransaction.amount) < 0 ? "Expense" : "Income";
+    const dataToSave = {
+      ...updatedTransaction,
+      transaction_type: transactionType
+    };
+    onSave(dataToSave, applyToAll); // Pass the applyToAll state back to the parent
+  };
+
+  const handleCheckboxChange = (e) => {
+    setApplyToAll(e.target.checked);
+  };
+
   return (
     <div className="edit-transaction-form">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="category-div-edit-form">
           <label>
             Category:
             <select
@@ -61,32 +81,34 @@ function EditTransactionForm({ transaction, onSave, onCancel }) {
               onChange={handleChange}
             >
               <option value="">Select Category</option>
-              {categoryColors.map((category) => (
-                <option key={category.label} value={category.label}>
+              {categoryOptions.map((category) => (
+                <option key={category.value} value={category.value}>
                   {category.label}
                 </option>
               ))}
             </select>
           </label>
         </div>
-        <div>
-          <label>
-            Subcategory:
-            <select
-              name="subCategory"
-              value={updatedTransaction.subcategory}
-              onChange={handleChange}
-            >
-              <option value="">Select Subcategory</option>
-              {availableSubcategories.map((subcategory) => (
-                <option key={subcategory} value={subcategory}>
-                  {subcategory}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div>
+        {parseFloat(updatedTransaction.amount) < 0 && (
+          <div className="subCategory-div-edit-form">
+            <label>
+              Subcategory:
+              <select
+                name="subCategory"
+                value={updatedTransaction.subcategory}
+                onChange={handleChange}
+              >
+                <option value="">Select Subcategory</option>
+                {availableSubcategories.map((subcategory) => (
+                  <option key={subcategory} value={subcategory}>
+                    {subcategory}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+        <div className="editDesc-container">
           <label>
             Description:
             <input
@@ -97,7 +119,7 @@ function EditTransactionForm({ transaction, onSave, onCancel }) {
             />
           </label>
         </div>
-        <div>
+        <div className="editAmount-container">
           <label>
             Amount:
             <input
@@ -108,7 +130,7 @@ function EditTransactionForm({ transaction, onSave, onCancel }) {
             />
           </label>
         </div>
-        <div>
+        <div className="editDate-container">
           <label>
             Date:
             <input
@@ -118,6 +140,15 @@ function EditTransactionForm({ transaction, onSave, onCancel }) {
               onChange={handleChange}
             />
           </label>
+        </div>
+        <div className="apply-all-container">
+          <label htmlFor="apply-all-checkbox">Apply to all</label>
+            <input 
+            type="checkbox" 
+            checked={applyToAll} 
+            onChange={handleCheckboxChange} 
+            id="apply-all-checkbox" 
+          />
         </div>
         <button type="submit">Save</button>
         <button type="button" onClick={onCancel}>Cancel</button>

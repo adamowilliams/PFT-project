@@ -17,15 +17,16 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
     const [timePeriod, setTimePeriod] = useState('all');
     const [customStartDate, setCustomStartDate] = useState(null);
     const [customEndDate, setCustomEndDate] = useState(null);
+    const [totalExpenses, setTotalExpenses] = useState(0);
 
     const categoryColors = [
         { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-        { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
+        { label: 'Food & Drink', color: '#FF7043', icon: 'fa-solid fa-utensils' },
         { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-        { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
+        { label: 'Transport', color: '#03A9F4', icon: 'fa-solid fa-road' },
         { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
         { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
-    ];
+      ];
 
     const subCategories = {
         'Housing': ['Building & Garden', 'Rent & Fee'],
@@ -63,10 +64,14 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
         const categoryData = {};
         const subCategoryData = {};
+        let total = 0;
 
         filteredTransactions.forEach(transaction => {
             if (transaction.transaction_type === 'Expense') {
                 const category = transaction.category;
+                const amount = parseFloat(transaction.amount);
+                total += amount;
+
                 if (!categoryData[category]) {
                     categoryData[category] = 0;
                 }
@@ -95,6 +100,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
 
         setCategoryData(formattedCategoryData);
         setSubCategoryData(subCategoryData);
+        setTotalExpenses(Math.abs(total));
     }, [transactions, timePeriod, customStartDate, customEndDate]);
 
     const handleMouseEnter = (category) => {
@@ -168,6 +174,7 @@ const PieChartComponent = forwardRef(({ transactions = [] }, ref) => {
             <div className="legend">
                 <div className="legend-header">
                     <span className="legend-title">Categories</span>
+                    <span className="total-expenses">{totalExpenses.toFixed(0)}:-</span>
                 </div>
                 {data.map((entry, index) => {
                     return (

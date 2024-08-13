@@ -12,13 +12,13 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
     const [tooltipKey, setTooltipKey] = useState(0);
 
     const categoryColors = [
-        { label: 'Housing', color: '#FFC107' },
-        { label: 'Food & Drink', color: '#4CAF50' },
-        { label: 'Household', color: '#673AB7' },
-        { label: 'Transport', color: '#FF9800' },
+        { label: 'Housing', color: '#FFC107'},
+        { label: 'Food & Drink', color: '#FF7043'},
+        { label: 'Household', color: '#673AB7'},
+        { label: 'Transport', color: '#03A9F4' },
         { label: 'Entertainment & Shopping', color: '#E91E63' },
-        { label: 'Miscellaneous', color: '#9E9E9E' }
-    ];
+        { label: 'Miscellaneous', color: '#9E9E9E'}
+      ];
 
     const subCategories = {
         'Housing': ['Building & Garden', 'Rent & Fee'],

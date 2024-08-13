@@ -5,12 +5,12 @@ import "../styles/Dashboard.css";
 
 const categoryColors = [
     { label: 'Housing', color: '#FFC107', icon: 'fa-solid fa-home' },
-    { label: 'Food & Drink', color: '#4CAF50', icon: 'fa-solid fa-utensils' },
+    { label: 'Food & Drink', color: '#FF7043', icon: 'fa-solid fa-utensils' },
     { label: 'Household', color: '#673AB7', icon: 'fa-solid fa-couch' },
-    { label: 'Transport', color: '#FF9800', icon: 'fa-solid fa-car' },
+    { label: 'Transport', color: '#03A9F4', icon: 'fa-solid fa-road' },
     { label: 'Entertainment & Shopping', color: '#E91E63', icon: 'fa-solid fa-shopping-bag' },
     { label: 'Miscellaneous', color: '#9E9E9E', icon: 'fa-solid fa-box-open' }
-];
+  ];
 
 const categoryInfo = categoryColors.reduce((acc, { label, color, icon }) => {
     acc[label] = { color, icon };

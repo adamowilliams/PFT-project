@@ -22,22 +22,35 @@ function TransactionsPage() {
     setEditingTransaction(transaction);
   };
 
-  const handleSaveClick = async (updatedTransaction) => {
+  const handleSaveClick = async (updatedTransaction, applyToAll) => {
+    if (applyToAll) {
+      const isPositiveAmount = editingTransaction.amount > 0;
 
-    const matchingTransactions = transactions.filter(t => t.description === editingTransaction.description);
+      const matchingTransactions = transactions.filter(t => 
+        t.description === editingTransaction.description && 
+        (isPositiveAmount ? t.amount > 0 : t.amount < 0)
+      );
 
-    console.log('Matching Transactions:', matchingTransactions);
-  
-    const updatePromises = matchingTransactions.map(t => 
-      handleUpdateTransaction(t.id, {
-        ...t,
+      console.log('Matching Transactions:', matchingTransactions);
+
+      const updatePromises = matchingTransactions.map(t => 
+        handleUpdateTransaction(t.id, {
+          ...t,
+          description: updatedTransaction.description,
+          category: updatedTransaction.category,
+          subCategory: updatedTransaction.subCategory,
+        })
+      );
+
+      await Promise.all(updatePromises);
+    } else {
+      await handleUpdateTransaction(editingTransaction.id, {
+        ...editingTransaction,
         description: updatedTransaction.description,
         category: updatedTransaction.category,
         subCategory: updatedTransaction.subCategory,
-      })
-    );
-
-    await Promise.all(updatePromises);
+      });
+    }
 
     setEditingTransaction(null);
   };
