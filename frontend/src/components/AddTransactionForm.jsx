@@ -29,7 +29,7 @@ const subcategories = {
   'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Health'],
   'Transport': ['Vehicles & Fuel', 'Bus & Train'],
   'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Health', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
-  'Miscellaneous': ['Swish']
+  'Miscellaneous': ['Swish', 'Savings', 'Investment']
 };
 
 

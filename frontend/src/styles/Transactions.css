@@ -5,6 +5,16 @@
     margin-bottom: 20px;
 }
 
+.button-container {
+    margin-left: 479px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 .delete-btn {
     margin-right: 3px;
     border: 0;
@@ -31,10 +41,10 @@
 }
 
 .all-transactions-container {
-    margin-left: 10px;
+    width: 771px;
+    margin-left: 313px;
     display: flex;
     flex-direction: column;
-    width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -51,7 +61,7 @@
     position: fixed;
     z-index: 1000;
     top: 39%;
-    left: 60%;
+    left: 73%;
     transform: translate(-50%, -50%);
 }
 

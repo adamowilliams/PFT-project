@@ -26,7 +26,7 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
         'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Wellness'],
         'Transport': ['Vehicles & Fuel', 'Bus & Train'],
         'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Personal Care', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
-        'Miscellaneous': ['Swish']
+        'Miscellaneous': ['Swish', 'Savings', 'Investment']
     };
 
     const subCategoriesIcons = {
@@ -48,7 +48,9 @@ const CalendarComponent = forwardRef(({ transactions = [] }, ref) => {
         'Clothes & Fashion': 'fa-solid fa-tshirt',
         'Vacation': 'fa-solid fa-plane',
         'Sports & Leisure': 'fa-solid fa-futbol',
-        'Swish': 'fa-solid fa-mobile-alt'
+        'Swish': 'fa-solid fa-mobile-alt',
+        'Savings': 'fa-solid fa-piggy-bank',
+        'Investment': 'fa-solid fa-chart-line'
     };
 
     const getCategoryColor = (subcategory) => {

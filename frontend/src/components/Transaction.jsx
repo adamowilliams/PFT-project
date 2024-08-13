@@ -31,7 +31,9 @@ const subcategoriesIcons = {
   'Clothes & Fashion': 'fa-solid fa-tshirt',
   'Vacation': 'fa-solid fa-plane',
   'Sports & Leisure': 'fa-solid fa-futbol',
-  'Swish': 'fa-solid fa-mobile-alt'
+  'Swish': 'fa-solid fa-mobile-alt',
+  'Savings': 'fa-solid fa-piggy-bank',
+  'Investment': 'fa-solid fa-chart-line'
 };
 
 function getCategoryData(category) {

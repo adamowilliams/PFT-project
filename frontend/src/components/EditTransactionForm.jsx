@@ -25,7 +25,7 @@ const subCategories = {
   'Household': ['Pets', 'Media, Mobile, and IT', 'Healthcare & Wellness'],
   'Transport': ['Vehicles & Fuel', 'Bus & Train'],
   'Entertainment & Shopping': ['Toys & Games', 'Culture & Entertainment', 'Beauty & Personal Care', 'Home Electronics', 'Clothes & Fashion', 'Vacation', 'Sports & Leisure'],
-  'Miscellaneous': ['Swish']
+  'Miscellaneous': ['Swish', 'Savings', 'Investment']
 };
 
 function EditTransactionForm({ transaction, onSave, onCancel }) {

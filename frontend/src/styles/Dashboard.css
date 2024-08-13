@@ -173,7 +173,7 @@
 
 /* Recent Transactions */
 #recent_transactions {
-  width: 35%;
+  width: 30%;
   display: flex;
   min-height: 20px;
   flex-direction: column;
@@ -222,7 +222,7 @@
 }
 
 .transaction:nth-child(even) {
-  background-color: #dddddd; /* Light grey background for even rows */
+  background-color: #dddddda6; /* Light grey background for even rows */
 }
 
 .transaction p {
@@ -291,7 +291,7 @@
 }
 
 .legend-item:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #dddddd59;
 }
 
 .legend-header {

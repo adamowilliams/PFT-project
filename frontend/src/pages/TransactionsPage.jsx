@@ -62,8 +62,12 @@ function TransactionsPage() {
         {transactions.map((transaction) => (
           <Transaction key={transaction.id} transaction={transaction}>
             <div className="button-container">
-              <button className="delete-btn" onClick={() => handleDeleteTransaction(transaction.id)}>Del</button>
-              <button className="edit-btn" onClick={() => handleEditClick(transaction)}>Edit</button>
+              <button className="delete-btn" onClick={() => handleDeleteTransaction(transaction.id)}>
+                <i className="fa-solid fa-minus"></i>
+              </button>
+              <button className="edit-btn" onClick={() => handleEditClick(transaction)}>
+                <i className="fa-solid fa-pencil"></i>
+              </button>
             </div>
           </Transaction>
         ))}
