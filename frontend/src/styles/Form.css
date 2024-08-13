@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -34,4 +33,35 @@
 
 .form-button:hover {
   background-color: #0056b3;
+}
+
+.login-form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.register-form {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 400px;
+}
+
+.button-register-account {
+  background-color: transparent;
+  border: none;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-register-account:hover {
+  text-decoration: underline;
 }
