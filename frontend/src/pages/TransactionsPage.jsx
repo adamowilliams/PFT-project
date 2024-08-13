@@ -23,7 +23,22 @@ function TransactionsPage() {
   };
 
   const handleSaveClick = async (updatedTransaction) => {
-    await handleUpdateTransaction(updatedTransaction.id, updatedTransaction);
+
+    const matchingTransactions = transactions.filter(t => t.description === editingTransaction.description);
+
+    console.log('Matching Transactions:', matchingTransactions);
+  
+    const updatePromises = matchingTransactions.map(t => 
+      handleUpdateTransaction(t.id, {
+        ...t,
+        description: updatedTransaction.description,
+        category: updatedTransaction.category,
+        subCategory: updatedTransaction.subCategory,
+      })
+    );
+
+    await Promise.all(updatePromises);
+
     setEditingTransaction(null);
   };
 
