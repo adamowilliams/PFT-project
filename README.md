@@ -4,9 +4,9 @@
 Note app
 Personal Finance Tracker combined with a ML-model
 
-![App Screenshot](frontend/public/finance-demo.png)
+![App Screenshot](frontend/public/bild1.png)
 
-![App Screenshot](frontend/public/finance-demo2.png)
+![App Screenshot](frontend/public/bild2.png)
 
 ### How to Start the Servers
 1. python -m venv env
